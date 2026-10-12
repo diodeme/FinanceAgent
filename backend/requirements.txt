@@ -1,0 +1,5 @@
+# Locked per docs/数据结构.md decision: pin exact version, 2.0 moves fast.
+agentscope[service,storage-sql,storage-redis]==2.0.10
+# asyncpg: postgres driver for AsyncSQLAlchemyStorage (agent extras ship no driver)
+asyncpg
+uvicorn[standard]

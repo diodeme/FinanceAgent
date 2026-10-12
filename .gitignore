@@ -1,0 +1,22 @@
+# secrets
+.env
+
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# node
+node_modules/
+dist/
+
+# local data
+*.db
+*.sqlite
+data/
+
+# editors / os
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
