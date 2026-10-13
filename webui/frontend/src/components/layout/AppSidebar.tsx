@@ -6,7 +6,6 @@ import {
 	Compass,
 	KeyRound,
 	Languages,
-	LibraryBig,
 	UserRound,
 } from 'lucide-react';
 import { useOnborda } from 'onborda';
@@ -135,16 +134,9 @@ export function AppSidebar() {
 									<BookText />
 								</SidebarMenuButton>
 							</SidebarMenuItem>
-							<SidebarMenuItem>
-								<SidebarMenuButton
-									tooltip={{ children: t('common.knowledge'), hidden: false }}
-									isActive={location.pathname === '/knowledge'}
-									onClick={() => navigate('/knowledge')}
-									className="justify-center"
-								>
-									<LibraryBig />
-								</SidebarMenuButton>
-							</SidebarMenuItem>
+							{/* Knowledge base disabled: backend runs without knowledge_base_manager
+							    (embedding provider pending — see docs/数据结构.md §8). Re-enable
+							    this item together with the PgVectorStore wiring. */}
 						</SidebarMenu>
 					</SidebarGroupContent>
 				</SidebarGroup>

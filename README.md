@@ -39,6 +39,12 @@ Seed a ready-to-use agent + session (needs `jq`):
 | postgres | 127.0.0.1:5432           |
 | redis    | 127.0.0.1:6379           |
 
+## Known limitations (by design, for now)
+
+- **Knowledge base disabled**: no embedding provider yet (DeepSeek has no
+  embedding endpoint). The web UI's Knowledge tab is hidden; enable steps
+  are documented in `backend/finagent/app.py` and `docs/数据结构.md` §8.
+
 ## Layout
 
 ```

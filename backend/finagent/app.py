@@ -46,6 +46,25 @@ app = create_app(
         password=REDIS_PASSWORD,
     ),
     workspace_manager=LocalWorkspaceManager(basedir=WORKSPACE_DIR),
+    # ── Knowledge base: DISABLED by decision (2026-10-13) ──────────────
+    # No embedding provider yet (DeepSeek has no embedding endpoint).
+    # To enable later:
+    #   1. pick an embedding provider (DashScope text-embedding-v4 is
+    #      first-class in AgentScope; SiliconFlow bge-m3 via
+    #      OpenAICredential+base_url also works), store the key as a
+    #      credential via POST /credential/
+    #   2. implement finagent.pgvector_store.PgVectorStore
+    #      (VectorStoreBase → fin schema tables)
+    #   3. pass here:
+    #        knowledge_base_manager=CollectionPerKbManager(
+    #            storage=<AsyncSQLAlchemyStorage>,
+    #            vector_store=PgVectorStore(...),
+    #        ),
+    #        blob_store=LocalFilesystemBlobStore(...),   # doc uploads
+    #   4. re-enable the /knowledge nav item in
+    #      webui/frontend/src/components/layout/AppSidebar.tsx
+    # KB embedding models are resolved per-KB from stored credentials
+    # (EmbeddingModelConfig: type + credential_id + model + dimensions).
     # fin.run_steps logging on every LLM/tool call (framework plumbing;
     # run_id stays NULL until the orchestrator business logic sets it)
     extra_agent_middlewares=runsteps_factory,
