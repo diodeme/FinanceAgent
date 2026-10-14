@@ -9,6 +9,8 @@ import {
 	financeToolStatus,
 	formatFinanceValue,
 	isFinanceArtifact,
+	isResultSummary,
+	mergeFinanceArtifacts,
 	parseArtifactCitation,
 	parseDocumentCitation,
 	parseFinanceCitation,
@@ -79,6 +81,36 @@ test('reads the versioned terminal envelope, not accumulated tool text', () => {
 	assert.equal(readFinanceEnvelope({ finance: { ...envelope, warnings: [null] } }), null);
 });
 
+test('catalog guards keep summaries distinct from full artifacts and accept old envelopes', () => {
+	const summary = { artifact_id: 'old-report', kind: 'narrative', title: 'Old report', created_at: artifact.created_at,
+		companies: ['AAPL'], periods: [{ company: 'AAPL', period_start: null, period_end: '2025-12-27' }],
+		source_session_id: 'old-session', is_current_session: false, run_status: 'partial', scope_complete: false };
+	assert.equal(isResultSummary(summary), true);
+	assert.equal(isFinanceArtifact(summary), false);
+	const catalog = { ...envelope, artifacts: [], results: [summary] };
+	assert.equal(readFinanceEnvelope({ finance: catalog }), catalog);
+	assert.deepEqual(readFinanceEnvelope({ finance: envelope }).results ?? [], []);
+	assert.equal(readFinanceEnvelope({ finance: { ...catalog, artifacts: [summary] } }), null);
+	for (const invalid of [{ ...summary, scope_complete: 'false' }, { ...summary, run_status: 'running' },
+		{ ...summary, periods: [{ company: 'AAPL', period_end: null }] }, { ...summary, companies: [1] }, { ...summary, source_session_id: '' }]) {
+		assert.equal(isResultSummary(invalid), false);
+		assert.equal(readFinanceEnvelope({ finance: { ...catalog, results: [invalid] } }), null);
+	}
+});
+
+test('lazy old reports are accessible without being recovered into an empty current session', () => {
+	const old = { ...artifact, artifact_id: 'old-report', kind: 'narrative', text: 'Old body', data: null };
+	const loaded = new Map([[old.artifact_id, old]]);
+	const emptySession = mergeFinanceArtifacts([], [], loaded);
+	assert.equal(emptySession.artifacts.get(old.artifact_id), old);
+	assert.deepEqual(emptySession.recoveredArtifacts, []);
+	const session = mergeFinanceArtifacts([artifact], [artifact], loaded);
+	assert.equal(session.artifacts.size, 2);
+	assert.deepEqual(session.recoveredArtifacts, []);
+	assert.deepEqual(mergeFinanceArtifacts([artifact], [], loaded).recoveredArtifacts, [artifact]);
+	assert.equal(mergeFinanceArtifacts([], [], new Map()).artifacts.size, 0);
+});
+
 test('citation components round-trip individually, including encoded separators', () => {
 	const citation = { artifact_id: 'result/a b', cell_id: 'AAPL:收入/2025' };
 	assert.deepEqual(parseFinanceCitation(financeCitationHref(citation)), citation);
@@ -135,8 +167,9 @@ test('citation plugin preserves normal anchors and transforms only validated fin
 	assert.equal(malformed.tagName, 'a');
 });
 
-test('only seven finance tools use the specialized rendering path', () => {
-	assert.equal(FINANCE_TOOLS.size, 7);
+test('all eight finance tools use the specialized rendering path', () => {
+	assert.equal(FINANCE_TOOLS.size, 8);
+	assert.equal(FINANCE_TOOLS.has('get_result'), true);
 	assert.equal(FINANCE_TOOLS.has('fetch_filings'), true);
 	assert.equal(FINANCE_TOOLS.has('data_analyze'), true);
 	assert.equal(FINANCE_TOOLS.has('UnknownTool'), false);

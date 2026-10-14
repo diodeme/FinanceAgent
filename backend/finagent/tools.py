@@ -1,4 +1,4 @@
-"""Seven state-injected finance tools and an owned, bounded streaming bridge."""
+"""State-injected finance tools and an owned, bounded streaming bridge."""
 
 import asyncio
 import contextvars
@@ -16,7 +16,7 @@ from .analysis_workspace import WORKSPACE_SETUP_SECONDS
 from .warnings import artifact_companies, normalize_warnings
 from .contracts import (
     AnalyzeRequest, CalculateRequest, ExportRequest, FetchRequest, FinanceEnvelope,
-    FinanceError, FilingRequest, FindRequest, LookupRequest,
+    FinanceError, FilingRequest, FindRequest, GetResultRequest, LookupRequest,
 )
 
 logger = logging.getLogger(__name__)
@@ -24,7 +24,7 @@ TOOL_TIMEOUT_SECONDS = 120
 REQUESTS = {
     "lookup_company": LookupRequest, "data_fetch": FetchRequest, "fetch_filings": FilingRequest,
     "calculate_metrics": CalculateRequest, "data_analyze": AnalyzeRequest,
-    "find_results": FindRequest, "export_report": ExportRequest,
+    "find_results": FindRequest, "get_result": GetResultRequest, "export_report": ExportRequest,
 }
 DESCRIPTIONS = {
     "lookup_company": "Validate a company name/ticker and discover supported coverage; never invent an identity.",
@@ -32,7 +32,8 @@ DESCRIPTIONS = {
     "calculate_metrics": "Compute registered or restricted arithmetic metrics and growth from owned saved data_ids.",
     "fetch_filings": "Download original SEC 10-K/10-Q HTML documents as owned immutable artifacts; dates select report periods. Count is per company, at most eight total.",
     "data_analyze": "Research owned numeric data_ids and/or original filing document_ids with native Docker file tools, then save a cited report. Numeric coverage must be complete; document-only is allowed.",
-    "find_results": "Find or read your saved immutable results, normally in this session, for reuse across turns.",
+    "find_results": "List lightweight saved-result summaries. Defaults to your latest five analysis reports across all your sessions. Omit query for recent/previous reports; literal keywords are not semantic search. Select another kind for datasets, tables, filings or Excel. Read a selected ID with get_result.",
+    "get_result": "Read one owned saved artifact by ID, including the original report text. Displays the existing result card without generating a new report; accepts IDs from earlier turns or the result catalog.",
     "export_report": "Export explicitly selected saved data and optional narrative IDs to an Excel artifact; no new analysis needed.",
 }
 
@@ -90,14 +91,20 @@ def compact_summary(envelope: FinanceEnvelope, *, include_text: bool = False) ->
             item["evidence_state"] = "downloaded; not necessarily read or cited"
         if include_text and artifact.text:
             item["text"] = artifact.text
+            item["citations"] = [citation.model_dump(mode="json") for citation in artifact.citations]
         summaries.append(item)
     return {"message": envelope.message, "artifacts": summaries,
+            "results": [result.model_dump(mode="json") for result in envelope.results],
             "companies": [c.model_dump(mode="json", exclude={"warning"} if c.warning and not normalize_warnings([c.warning], include_diagnostics=False) else set())
                           for c in envelope.companies],
             "warnings": normalize_warnings(envelope.warnings,
                                            companies=artifact_companies(envelope.artifacts) if any(a.data for a in envelope.artifacts) else None,
                                            include_diagnostics=False),
             "error_code": envelope.error_code, "partial": envelope.partial}
+
+
+def includes_result_text(name: str, request) -> bool:
+    return name == "get_result" or (name == "find_results" and bool(request.artifact_id))
 
 
 def final_chunk(envelope: FinanceEnvelope, *, failed: bool = False, include_text: bool = False,
@@ -160,9 +167,13 @@ class FinanceTools:
         if name == "lookup_company":
             companies = await self.financials.lookup_company(request.query)
             return FinanceEnvelope(message="Company identity and coverage checked.", companies=companies)
+        if name == "get_result" or (name == "find_results" and request.artifact_id):
+            artifact = await self.repo.get_artifact(self.user_id, request.artifact_id)
+            return FinanceEnvelope(message="Opened the saved result without regenerating it.", artifacts=[artifact])
         if name == "find_results":
-            artifacts = await self.repo.find_artifacts(self.user_id, self.session_id, request)
-            return FinanceEnvelope(message=f"Found {len(artifacts)} saved result(s).", artifacts=artifacts)
+            results = await self.repo.find_result_summaries(self.user_id, self.session_id, request)
+            scope = "this session" if request.current_session_only else "your sessions"
+            return FinanceEnvelope(message=f"Found {len(results)} saved result(s) in {scope}, newest first. Use get_result to read a selected ID.", results=results)
         if name == "fetch_filings":
             if self.filings is None:
                 raise FinanceError("operation_failed", "The filing service is not available.")
@@ -277,7 +288,7 @@ class FinanceTools:
                     await self.repo.touch_operation(context.run_id)
             envelope = await task
             yield final_chunk(envelope, failed=bool(envelope.error_code),
-                              include_text=name == "find_results", framed=analysis_started)
+                              include_text=includes_result_text(name, request), framed=analysis_started)
         except FinanceError as exc:
             yield final_chunk(FinanceEnvelope(message=str(exc), error_code=exc.code), failed=True, framed=analysis_started)
         except asyncio.CancelledError:

@@ -111,11 +111,26 @@ export interface FinanceArtifact {
 	mime_type: string | null;
 }
 
+export interface ResultSummary {
+	artifact_id: string;
+	kind: FinanceArtifact['kind'];
+	title: string;
+	created_at: string;
+	companies: string[];
+	periods: { company: string; period_start: string | null; period_end: string }[];
+	source_session_id: string;
+	is_current_session: boolean;
+	run_status: 'succeeded' | 'partial';
+	scope_complete: boolean;
+}
+
 export interface FinanceEnvelope {
 	schema_version: 1;
 	partial?: boolean;
 	message: string;
 	artifacts: FinanceArtifact[];
+	/** Absent in historical envelopes. Catalog summaries are never artifacts. */
+	results?: ResultSummary[];
 	companies: CompanyInfo[];
 	warnings: string[];
 	error_code: string | null;

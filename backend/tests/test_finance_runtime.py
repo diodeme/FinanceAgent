@@ -25,7 +25,7 @@ from finagent.analysis import render_report, citation_url, narrative_title, prep
 from finagent.sec_client import CONTACT_WARNING
 from finagent.warnings import CROSS_COMPANY_WARNING, CROSS_COMPANY_QUARTERS_ALIAS, ORIGINAL_DOCUMENT_WARNING
 from finagent.contracts import (
-    AnalyzeRequest, Artifact, Cell, Evidence, FinanceError, FinancialRow, TableData,
+    AnalyzeRequest, Artifact, Cell, Citation, Evidence, FinanceError, FinancialRow, ResultSummary, TableData,
 )
 from finagent.finance_middleware import FinanceMiddleware, finance_factory
 from finagent.runsteps import RunStepsMiddleware, run_id_var
@@ -60,9 +60,13 @@ class FakeRepo:
         self.starts = []
         self.items = {"input": artifact()}
         self.replay = None
+        self.legacy_requests = []
+        self.catalog_requests = []
+        self.legacy_find_requests = []
 
-    async def start_operation(self, *args):
+    async def start_operation(self, *args, legacy_request=None):
         self.starts.append(args)
+        self.legacy_requests.append(legacy_request)
         return self.replay or {"run_id": "run", "status": "running", "artifact_ids": [], "created": True}
 
     async def finish_operation(self, run_id, status, error=None):
@@ -77,7 +81,15 @@ class FakeRepo:
         return self.items[artifact_id]
 
     async def find_artifacts(self, user_id, session_id, request):
+        self.legacy_find_requests.append(request)
         return list(self.items.values())
+
+    async def find_result_summaries(self, user_id, session_id, request):
+        self.catalog_requests.append(request)
+        return [ResultSummary(artifact_id=a.artifact_id, kind=a.kind, title=a.title,
+                              created_at=a.created_at, companies=["AAPL"], source_session_id="prior-session",
+                              is_current_session=False, run_status="succeeded")
+                for a in self.items.values() if request.kind is None or request.kind == a.kind]
 
     async def save_artifact(self, user_id, run_id, kind, title, **kwargs):
         result = Artifact(artifact_id=f"saved-{len(self.saved)}", run_id=run_id, kind=kind, title=title,
@@ -149,7 +161,7 @@ class RuntimeTests(unittest.IsolatedAsyncioTestCase):
         return ToolCallBlock(id=call_id, name=name, input=json.dumps(inputs))
 
     def operation_stream(self, name="data_fetch", inputs=None, offload=None, call_id="call"):
-        call = self.call(name, inputs or {"companies": ["AAPL"], "metrics": ["revenue"]}, call_id)
+        call = self.call(name, inputs if inputs is not None else {"companies": ["AAPL"], "metrics": ["revenue"]}, call_id)
 
         def native(**kwargs):
             return self.agent.toolkit.call_tool(kwargs["tool_call"], self.state)
@@ -311,6 +323,79 @@ class RuntimeTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(saved.model_dump(mode="json"), before)
         self.assertFalse(self.repo.finished)
         self.assertEqual(len(self.repo.saved), 1)
+
+    async def test_catalog_and_detail_are_separate_without_generation(self):
+        report = Artifact(artifact_id="old-report", run_id="prior", kind="narrative", title="AAPL 财务分析",
+                          created_at=datetime.now(timezone.utc), text="Saved report body, not regenerated.",
+                          input_ids=["input"], citations=[Citation(artifact_id="input", cell_id="AAPL/revenue/2024-03-31")])
+        self.repo.items[report.artifact_id] = report
+        for replay in (False, True):
+            with self.subTest(replay=replay):
+                self.repo.replay = ({"run_id": "run", "status": "succeeded", "artifact_ids": [], "created": False}
+                                    if replay else None)
+                events = await self.collect(name="find_results", inputs={})
+                response = events[-1]
+                content = json.loads("".join(b.text for b in response.content).strip().splitlines()[-1])
+                self.assertEqual(response.state, ToolResultState.SUCCESS)
+                self.assertEqual(content["artifacts"], [])
+                self.assertEqual(len(content["results"]), 1)
+                self.assertEqual(content["results"][0]["artifact_id"], report.artifact_id)
+                self.assertFalse(content["results"][0]["is_current_session"])
+                self.assertNotIn(report.text, json.dumps(response.metadata))
+                self.assertNotIn("text", content["results"][0])
+                self.assertFalse(self.repo.catalog_requests[-1].current_session_only)
+                self.assertEqual(self.repo.catalog_requests[-1].kind, "narrative")
+                self.assertEqual(self.repo.starts[-1][-1]["_retrieval_version"], 2)
+                self.assertIsNone(self.repo.legacy_requests[-1]["kind"])
+                self.assertTrue(self.repo.legacy_requests[-1]["current_session_only"])
+
+                events = await self.collect(name="get_result", inputs={"artifact_id": report.artifact_id})
+                content = json.loads("".join(b.text for b in events[-1].content).strip().splitlines()[-1])
+                self.assertEqual(content["results"], [])
+                self.assertEqual(content["artifacts"][0]["text"], report.text)
+                self.assertEqual(content["artifacts"][0]["citations"], [c.model_dump(mode="json") for c in report.citations])
+                self.assertEqual(events[-1].metadata["finance"]["artifacts"][0], report.model_dump(mode="json"))
+        self.assertFalse(self.repo.saved)
+        self.assertFalse(self.model.calls)
+        self.reports.generate_report.assert_not_awaited()
+        self.assertFalse(self.repo.legacy_find_requests)
+
+    async def test_legacy_find_id_and_default_replay_remain_readable(self):
+        report = Artifact(artifact_id="old-report", run_id="prior", kind="narrative", title="Old",
+                          created_at=datetime.now(timezone.utc), text="Original report")
+        self.repo.items[report.artifact_id] = report
+        events = await self.collect(name="find_results", inputs={"artifact_id": report.artifact_id})
+        content = json.loads("".join(b.text for b in events[-1].content).strip().splitlines()[-1])
+        self.assertEqual(content["artifacts"][0]["text"], report.text)
+        self.repo.replay = {"run_id": "run", "status": "succeeded", "artifact_ids": [], "created": False, "legacy_find": True}
+        events = await self.collect(name="find_results", inputs={})
+        content = json.loads("".join(b.text for b in events[-1].content).strip().splitlines()[-1])
+        self.assertEqual(len(content["artifacts"]), 2)
+        self.assertIsNone(self.repo.legacy_find_requests[-1].kind)
+        self.assertTrue(self.repo.legacy_find_requests[-1].current_session_only)
+        self.assertFalse(self.repo.catalog_requests)
+        self.assertFalse(self.model.calls)
+        self.assertFalse(self.repo.saved)
+
+    async def test_session_hydration_explicitly_keeps_local_all_kind_scope(self):
+        from finagent.routes import results
+        with patch("finagent.routes.find_artifacts", AsyncMock(return_value=[artifact()])) as find:
+            response = await results(session_id="s", limit=10, user_id="u")
+        self.assertEqual(response["artifacts"][0]["kind"], "dataset")
+        user_id, session_id, request = find.await_args.args
+        self.assertEqual((user_id, session_id), ("u", "s"))
+        self.assertTrue(request.current_session_only)
+        self.assertIsNone(request.kind)
+
+    async def test_catalog_explicit_filters_and_detail_not_found(self):
+        await self.collect(name="find_results", inputs={"kind": "table", "current_session_only": True})
+        self.assertEqual(self.repo.catalog_requests[-1].kind, "table")
+        self.assertTrue(self.repo.catalog_requests[-1].current_session_only)
+        self.assertEqual(self.repo.legacy_requests[-1]["kind"], "table")
+        events = await self.collect(name="get_result", inputs={"artifact_id": "not-owned"})
+        self.assertEqual(events[-1].metadata["finance"]["error_code"], "not_found")
+        self.assertFalse(self.repo.saved)
+        self.assertFalse(self.model.calls)
 
     async def test_running_replay_is_busy_without_work(self):
         self.repo.replay = {"run_id": "run", "status": "running", "artifact_ids": [], "created": False}

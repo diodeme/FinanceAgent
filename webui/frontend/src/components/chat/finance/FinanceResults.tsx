@@ -1,18 +1,20 @@
 import { Download, Loader2, TriangleAlert } from 'lucide-react';
 import { useState } from 'react';
+import type { ReactNode } from 'react';
 
+import { FilingDocumentDetails } from './FilingDocumentDetails';
+import { FinanceNotices } from './FinanceNotices';
+import { FinanceReportCard } from './FinanceReport';
 import { getResultText } from '../tool-renderers/_shared';
 import type { ToolCallWithResult } from '../tool-renderers/types';
-import type { FinanceArtifact } from '@/api/finance';
-import { FinanceNotices } from './FinanceNotices';
-import { FilingDocumentDetails } from './FilingDocumentDetails';
-import { FinanceReportCard } from './FinanceReport';
-import { artifactNotices, envelopeNotices } from '@/lib/finance-notices';
-import { deriveFinanceReport, findFinanceReportCall, reportKey, reportResultText, validNarrative } from '@/lib/finance-report';
+import type { FinanceArtifact, ResultSummary } from '@/api/finance';
 import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import { useFinancialResults } from '@/context/FinancialResultsContext';
 import { useTranslation } from '@/i18n/useI18n';
 import { financeCitationHref, financeToolStatus, formatFinanceValue, readFinanceEnvelope, requestedFinanceColumns } from '@/lib/finance';
+import { artifactNotices, envelopeNotices } from '@/lib/finance-notices';
+import { deriveFinanceReport, findFinanceReportCall, reportKey, reportResultText, validNarrative } from '@/lib/finance-report';
 
 export function FinanceArtifactCard({ artifact }: { artifact: FinanceArtifact }) {
 	const finance = useFinancialResults();
@@ -87,6 +89,48 @@ export function FinanceArtifactCard({ artifact }: { artifact: FinanceArtifact })
 	);
 }
 
+/** Lightweight directory rows never enter the complete artifact map. */
+export function FinanceResultCatalog({ results }: { results: ResultSummary[] }) {
+	const finance = useFinancialResults();
+	const { t } = useTranslation();
+	return <section aria-label={t('finance.catalog.title')} data-finance-catalog className="space-y-2">
+		{results.length === 0 && <p className="text-xs text-muted-foreground">{t('finance.catalog.empty')}</p>}
+		{results.map((result) => <section key={result.artifact_id} data-finance-result-summary={result.artifact_id} className="flex min-w-0 items-center gap-3 rounded-lg border bg-background p-3 text-sm">
+			<div className="min-w-0 flex-1 space-y-1">
+				<h3 className="font-medium break-words">{result.title}</h3>
+				<p className="text-xs text-muted-foreground">{t(`finance.kind.${result.kind}`)} · {result.created_at.replace('T', ' ').slice(0, 19)} · {t(result.is_current_session ? 'finance.catalog.currentSession' : 'finance.catalog.otherSession')}</p>
+				{result.companies.length > 0 && <p className="text-xs">{t('finance.company')}: {result.companies.join(' / ')}</p>}
+				{result.periods.length > 0 && <ul className="text-xs text-muted-foreground">{result.periods.map((period, index) => <li key={index}>{period.company} · {period.period_start ? `${period.period_start} → ` : ''}{period.period_end}</li>)}</ul>}
+				{!result.scope_complete && <p className="text-xs text-muted-foreground">{t('finance.catalog.unknownScope')}</p>}
+				{result.run_status === 'partial' && <p className="text-xs text-muted-foreground">{t('finance.catalog.partial')}</p>}
+			</div>
+			<Button variant="outline" size="sm" data-finance-result-open disabled={!finance} onClick={() => finance?.openResult(result)}>{t('finance.catalog.open')}</Button>
+		</section>)}
+	</section>;
+}
+
+/** Non-narrative catalog details reuse the normal artifact and download UI. */
+export function FinanceResultPanel({ summary, artifact, loading, error, onRetry, onClose, sourceOpen, restoreFocus, children }: {
+	summary: ResultSummary; artifact?: FinanceArtifact; loading: boolean; error: string | null;
+	onRetry: () => void; onClose: () => void; sourceOpen: boolean; restoreFocus: () => void; children: ReactNode;
+}) {
+	const { t } = useTranslation();
+	return <Sheet open onOpenChange={(next) => { if (!next && !sourceOpen) onClose(); }}>
+		<SheetContent className="w-full sm:max-w-3xl overflow-y-auto" data-testid="finance-result-detail"
+			onEscapeKeyDown={(event) => { if (sourceOpen) event.preventDefault(); }}
+			onInteractOutside={(event) => { if (sourceOpen) event.preventDefault(); }}
+			onCloseAutoFocus={(event) => { event.preventDefault(); restoreFocus(); }}>
+			<SheetHeader className="pr-12"><SheetTitle>{summary.title}</SheetTitle><SheetDescription>{t(`finance.kind.${summary.kind}`)}</SheetDescription></SheetHeader>
+			<div className="min-w-0 space-y-3 px-4 pb-8">
+				{loading && <p role="status" className="flex items-center gap-2 text-sm"><Loader2 className="size-4 animate-spin" />{t('finance.catalog.loading')}</p>}
+				{error && <div role="alert" className="space-y-2 text-sm"><p className="text-destructive">{t('finance.catalog.failed')} {error}</p><Button variant="outline" size="sm" onClick={onRetry}>{t('finance.retry')}</Button></div>}
+				{artifact && <FinanceArtifactCard artifact={artifact} />}
+			</div>
+			{children}
+		</SheetContent>
+	</Sheet>;
+}
+
 export function FinanceToolResult({ pair, replyFinished = false, replyId, artifacts }: {
 	pair: ToolCallWithResult;
 	replyFinished?: boolean;
@@ -131,6 +175,7 @@ export function FinanceToolResult({ pair, replyFinished = false, replyId, artifa
 				<span className="ml-2 text-muted-foreground">{t(company.supported && company.verified ? 'finance.verified' : 'finance.notVerified')}</span>
 				{company.warning && <p className="mt-1 text-muted-foreground">{company.warning}</p>}
 			</div>)}
+			{pair.call.name === 'find_results' && envelope?.results && <FinanceResultCatalog results={envelope.results} />}
 			{results.map((artifact) => <FinanceArtifactCard key={artifact.artifact_id} artifact={artifact} />)}
 			<FinanceNotices notices={notices} />
 		</div>

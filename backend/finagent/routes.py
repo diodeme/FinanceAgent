@@ -54,7 +54,7 @@ async def results(
     session_id: str, limit: int = Query(default=10, ge=1, le=30),
     user_id: str = Depends(get_current_user_id),
 ) -> dict:
-    artifacts = await find_artifacts(user_id, session_id, FindRequest(limit=min(limit, 10)))
+    artifacts = await find_artifacts(user_id, session_id, FindRequest(limit=min(limit, 10), kind=None, current_session_only=True))
     return {"artifacts": [a.model_dump(mode="json") for a in artifacts]}
 
 

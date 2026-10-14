@@ -1,7 +1,7 @@
-import type { ArtifactCitation, DocumentCitation, FilingDocument, FinanceArtifact, FinanceCitation, FinanceEnvelope, TableData } from '../api/finance';
+import type { ArtifactCitation, DocumentCitation, FilingDocument, FinanceArtifact, FinanceCitation, FinanceEnvelope, ResultSummary, TableData } from '../api/finance';
 
 export const FINANCE_TOOLS = new Set([
-	'lookup_company', 'data_fetch', 'fetch_filings', 'calculate_metrics', 'data_analyze', 'find_results', 'export_report',
+	'lookup_company', 'data_fetch', 'fetch_filings', 'calculate_metrics', 'data_analyze', 'find_results', 'get_result', 'export_report',
 ]);
 
 function record(value: unknown): value is Record<string, unknown> {
@@ -27,8 +27,19 @@ export function isArtifactCitation(value: unknown): value is ArtifactCitation {
 		: validId(value.artifact_id) && validId(value.cell_id);
 }
 
+export function isResultSummary(value: unknown): value is ResultSummary {
+	return record(value) && validId(value.artifact_id) &&
+		['dataset', 'table', 'narrative', 'export', 'document'].includes(String(value.kind)) &&
+		typeof value.title === 'string' && typeof value.created_at === 'string' &&
+		Array.isArray(value.companies) && value.companies.every((company) => typeof company === 'string') &&
+		Array.isArray(value.periods) && value.periods.every((period) => record(period) &&
+			typeof period.company === 'string' && (period.period_start === null || typeof period.period_start === 'string') && typeof period.period_end === 'string') &&
+		validId(value.source_session_id) && typeof value.is_current_session === 'boolean' &&
+		(value.run_status === 'succeeded' || value.run_status === 'partial') && typeof value.scope_complete === 'boolean';
+}
+
 export function isFinanceArtifact(value: unknown): value is FinanceArtifact {
-	if (!record(value) || !validId(value.artifact_id) ||
+	if (!record(value) || !validId(value.artifact_id) || !validId(value.run_id) ||
 		typeof value.title !== 'string' || !['dataset', 'table', 'narrative', 'export', 'document'].includes(String(value.kind))) return false;
 	if (value.kind === 'document' ? !isFilingDocument(value.document) : value.document != null) return false;
 	if (value.citations != null && (!Array.isArray(value.citations) || !value.citations.every(isArtifactCitation))) return false;
@@ -47,11 +58,22 @@ export function readFinanceEnvelope(metadata: unknown): FinanceEnvelope | null {
 	if (!record(metadata) || !record(metadata.finance)) return null;
 	const value = metadata.finance;
 	if (value.schema_version !== 1 || (value.partial !== undefined && typeof value.partial !== 'boolean') || !Array.isArray(value.artifacts) ||
-		!value.artifacts.every(isFinanceArtifact) || !Array.isArray(value.companies) ||
+		!value.artifacts.every(isFinanceArtifact) ||
+		(value.results !== undefined && (!Array.isArray(value.results) || !value.results.every(isResultSummary))) || !Array.isArray(value.companies) ||
 		!value.companies.every((company: unknown) => record(company) && typeof company.company === 'string' && typeof company.name === 'string') ||
 		!Array.isArray(value.warnings) || !value.warnings.every((warning) => typeof warning === 'string') ||
 		typeof value.message !== 'string') return null;
 	return value as unknown as FinanceEnvelope;
+}
+
+/** Only full artifacts participate in citations/notices. Lazy detail loads must
+ * not turn another session's report into a recovered current-session result. */
+export function mergeFinanceArtifacts(saved: FinanceArtifact[], fromMessages: FinanceArtifact[], loaded: ReadonlyMap<string, FinanceArtifact>) {
+	const messageMap = new Map(fromMessages.map((artifact) => [artifact.artifact_id, artifact]));
+	return {
+		artifacts: new Map([...loaded, ...saved.map((artifact) => [artifact.artifact_id, artifact] as const), ...messageMap]),
+		recoveredArtifacts: saved.filter((artifact) => !messageMap.has(artifact.artifact_id)),
+	};
 }
 
 export function parseFinanceCitation(href: string | undefined): FinanceCitation | null {

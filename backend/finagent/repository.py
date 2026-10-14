@@ -1,7 +1,7 @@
 """Owned operations/results; only public SEC facts are shared between users."""
 
 import asyncio
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from decimal import Decimal
 import hashlib
 import json
@@ -9,7 +9,10 @@ from pathlib import Path
 import os
 from uuid import uuid4
 
-from .contracts import Artifact, DocumentInfo, Evidence, FinanceError, FindRequest, TableData
+from .contracts import (
+    Artifact, DocumentInfo, Evidence, FinanceError, FindRequest, ResultPeriod,
+    ResultSummary, TableData,
+)
 from .sec_client import MAX_RESPONSE_BYTES, filing_url
 from .db import get_pool
 
@@ -69,7 +72,7 @@ async def is_finance_agent(user_id: str, agent_id: str) -> bool:
 
 async def start_operation(
     user_id: str, agent_id: str, session_id: str, reply_id: str,
-    tool_call_id: str, operation: str, request: dict,
+    tool_call_id: str, operation: str, request: dict, *, legacy_request: dict | None = None,
 ) -> dict:
     pool = await get_pool()
     key = hashlib.sha256(f"{reply_id}:{tool_call_id or uuid4().hex}:{operation}".encode()).hexdigest()
@@ -89,16 +92,23 @@ async def start_operation(
         """, "run_" + uuid4().hex, session_id, user_id, _dump(request)[:2000],
             phase, _dump(request), agent_id, reply_id, tool_call_id, operation, key)
         created = row is not None
+        legacy_find = False
         if row is None:
             row = await conn.fetchrow("""
                 SELECT run_id,status,data_request FROM fin.task_runs
                 WHERE user_id=$1 AND session_id=$2 AND idempotency_key=$3 FOR UPDATE
             """, user_id, session_id, key)
-            if _json(row["data_request"]) != _json(_dump(request)):
-                raise FinanceError("idempotency_conflict", "同一工具调用标识对应不同参数，不能重放。")
+            stored = _json(row["data_request"])
+            if stored != _json(_dump(request)):
+                legacy_find = (
+                    operation == "find_results" and "_retrieval_version" not in stored
+                    and legacy_request is not None and stored == _json(_dump(legacy_request))
+                )
+                if not legacy_find:
+                    raise FinanceError("idempotency_conflict", "同一工具调用标识对应不同参数，不能重放。")
         ids = await conn.fetch("SELECT artifact_id FROM fin.task_artifacts WHERE run_id=$1 ORDER BY created_at", row["run_id"])
         return {"run_id": row["run_id"], "status": row["status"], "created": created,
-                "artifact_ids": [r["artifact_id"] for r in ids]}
+                "artifact_ids": [r["artifact_id"] for r in ids], "legacy_find": legacy_find}
 
 
 async def touch_operation(run_id: str) -> None:
@@ -270,6 +280,130 @@ async def find_artifacts(user_id: str, session_id: str, request: FindRequest) ->
         ORDER BY a.created_at DESC, a.artifact_id DESC LIMIT $5
     """, user_id, session_id if request.current_session_only else None, request.kind, pattern, request.limit)
     return [_artifact(row) for row in rows]
+
+
+# Catalog reads never deserialize Artifact, table cells/sources, or report bodies.
+# The same narrow projection is used for candidates and each dependency batch.
+_CATALOG_MAX_DEPTH = 8
+_CATALOG_MAX_DEPENDENCIES = 128
+_CATALOG_PROJECTION = f"""
+    a.artifact_id,a.kind,a.title,a.created_at,r.session_id,r.status,
+    CASE
+      WHEN a.kind IN ('dataset','table') THEN (
+        SELECT coalesce(jsonb_agg(DISTINCT jsonb_build_object(
+          'company', item->>'company', 'period_start', item->>'period_start',
+          'period_end', item->>'period_end')), '[]'::jsonb)
+        FROM jsonb_array_elements(CASE
+          WHEN jsonb_typeof(a.meta->'data'->'rows')='array'
+          THEN a.meta->'data'->'rows' ELSE '[]'::jsonb END) AS item
+      )
+      WHEN a.kind='document' THEN jsonb_build_array(jsonb_build_object(
+        'company', a.meta->'document'->>'company',
+        'period_end', a.meta->'document'->>'period_end'))
+      ELSE '[]'::jsonb
+    END AS scope,
+    ARRAY(
+      SELECT DISTINCT ref FROM (
+        SELECT unnest(a.input_ids) AS ref
+        UNION ALL
+        SELECT coalesce(item->>'artifact_id', item->>'document_id') AS ref
+        FROM jsonb_array_elements(CASE
+          WHEN jsonb_typeof(a.meta->'citations')='array'
+          THEN a.meta->'citations' ELSE '[]'::jsonb END) AS item
+      ) AS refs WHERE ref IS NOT NULL
+      ORDER BY ref LIMIT {_CATALOG_MAX_DEPENDENCIES + 1}
+    ) AS refs
+"""
+
+
+async def find_result_summaries(
+    user_id: str, session_id: str, request: FindRequest,
+) -> list[ResultSummary]:
+    """List owned, published metadata; resolve scope through authorized inputs only."""
+    pool = await get_pool()
+    query = request.query or ""
+    pattern = "%" + query.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_") + "%"
+    rows = await pool.fetch(f"""
+        SELECT {_CATALOG_PROJECTION}
+        FROM fin.task_artifacts a JOIN fin.task_runs r USING(run_id)
+        WHERE r.user_id=$1 AND r.status IN ('succeeded','partial')
+          AND ($2::text IS NULL OR r.session_id=$2)
+          AND ($3::text IS NULL OR a.kind=$3)
+          AND (a.title ILIKE $4 OR a.meta::text ILIKE $4)
+        ORDER BY a.created_at DESC, a.artifact_id DESC LIMIT $5
+    """, user_id, session_id if request.current_session_only else None,
+        request.kind, pattern, request.limit)
+    nodes = {row["artifact_id"]: row for row in rows}
+    attempted = set(nodes)
+    frontier = rows
+    remaining = _CATALOG_MAX_DEPENDENCIES
+    # One query per level, not one per result/input. Even missing/foreign IDs
+    # consume the budget and are never retried or exposed in the response.
+    for _ in range(_CATALOG_MAX_DEPTH):
+        pending = sorted({ref for row in frontier for ref in row["refs"]} - attempted)
+        batch = pending[:remaining]
+        if not batch:
+            break
+        attempted.update(batch)
+        remaining -= len(batch)
+        frontier = await pool.fetch(f"""
+            SELECT {_CATALOG_PROJECTION}
+            FROM fin.task_artifacts a JOIN fin.task_runs r USING(run_id)
+            WHERE a.artifact_id=ANY($1::text[]) AND r.user_id=$2
+              AND r.status IN ('succeeded','partial')
+        """, batch, user_id)
+        nodes.update((row["artifact_id"], row) for row in frontier)
+
+    def resolve(artifact_id, depth, visiting, memo):
+        if artifact_id in visiting or depth > _CATALOG_MAX_DEPTH or artifact_id not in nodes:
+            return set(), set(), False
+        key = artifact_id, depth
+        if key in memo:
+            return memo[key]
+        row = nodes[artifact_id]
+        companies, periods = set(), set()
+        scope = _json(row["scope"]) or []
+        derived = row["kind"] in {"narrative", "export"}
+        complete = bool(row["refs"]) if derived else bool(scope)
+        complete = complete and len(row["refs"]) <= _CATALOG_MAX_DEPENDENCIES
+        for item in scope:
+            company = item.get("company")
+            if not company:
+                complete = False
+                continue
+            companies.add(company)
+            try:
+                end = date.fromisoformat(item["period_end"])
+                start = date.fromisoformat(item["period_start"]) if item.get("period_start") else None
+            except (KeyError, TypeError, ValueError):
+                complete = False
+                continue
+            periods.add((company, start, end))
+        for ref in row["refs"]:
+            child_companies, child_periods, child_complete = resolve(
+                ref, depth + 1, visiting | {artifact_id}, memo,
+            )
+            complete = complete and child_complete
+            # A calculated table's visible rows define its scope, not the
+            # broader dataset/history used to calculate it.
+            if derived:
+                companies.update(child_companies)
+                periods.update(child_periods)
+        memo[key] = companies, periods, complete
+        return memo[key]
+
+    results = []
+    for row in rows:
+        companies, periods, complete = resolve(row["artifact_id"], 0, set(), {})
+        results.append(ResultSummary(
+            artifact_id=row["artifact_id"], kind=row["kind"], title=row["title"],
+            created_at=row["created_at"], companies=sorted(companies),
+            periods=[ResultPeriod(company=company, period_start=start, period_end=end)
+                     for company, start, end in sorted(periods, key=lambda p: (p[0], p[2], p[1] or date.min))],
+            source_session_id=row["session_id"], is_current_session=row["session_id"] == session_id,
+            run_status=row["status"], scope_complete=complete,
+        ))
+    return results
 
 
 async def artifact_file(user_id: str, artifact_id: str) -> tuple[Path, str, str]:

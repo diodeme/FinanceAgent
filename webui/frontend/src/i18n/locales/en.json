@@ -1,6 +1,6 @@
 {
 	"finance": {
-		"tool": { "lookup_company": "Company lookup", "data_fetch": "Financial data", "fetch_filings": "Filing documents", "calculate_metrics": "Calculations", "data_analyze": "Analysis", "find_results": "Saved results", "export_report": "Excel report" },
+		"tool": { "lookup_company": "Company lookup", "data_fetch": "Financial data", "fetch_filings": "Filing documents", "calculate_metrics": "Calculations", "data_analyze": "Analysis", "find_results": "Saved results", "get_result": "Open saved result", "export_report": "Excel report" },
 		"kind": { "document": "Original filing document", "dataset": "Financial data", "table": "Calculated results", "narrative": "Analysis", "export": "Excel report" },
 		"status": { "partial": "Partially completed — available documents can be opened", "running": "In progress", "saving": "Validating and saving", "complete": "Completed", "failed": "Failed", "interrupted": "Stopped — not completed", "incomplete": "No final result — not completed" },
 		"filingDocument": { "unknownPeriod": "Period not specified", "primary": "Primary document", "size": "Bytes / media type", "download": "Download filing", "viewSource": "View document provenance", "downloaded": "Downloaded original, fixed to the version identified by this hash. Downloading or citing a document does not mean it has been read in full." },
@@ -30,6 +30,7 @@
 		"sources": "Sources",
 		"noSources": "No raw source facts are available for this cell.",
 		"retry": "Retry",
+		"catalog": { "title": "Saved result directory", "open": "Open result", "currentSession": "Current session", "otherSession": "Other session", "unknownScope": "Company / period scope unknown or incomplete", "partial": "Partial result", "loading": "Loading saved result…", "failed": "Saved result could not be loaded.", "invalid": "The saved result response is invalid.", "empty": "No saved results match this search." },
 		"savedResults": "Recovered saved results",
 		"hydrationFailed": "Saved results could not be loaded. Existing message results remain available."
 	},

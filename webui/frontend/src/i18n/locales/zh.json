@@ -1,6 +1,6 @@
 {
 	"finance": {
-		"tool": { "lookup_company": "公司查询", "data_fetch": "财务数据", "fetch_filings": "申报原文", "calculate_metrics": "指标计算", "data_analyze": "财务分析", "find_results": "历史结果", "export_report": "Excel 报告" },
+		"tool": { "lookup_company": "公司查询", "data_fetch": "财务数据", "fetch_filings": "申报原文", "calculate_metrics": "指标计算", "data_analyze": "财务分析", "find_results": "历史结果", "get_result": "打开历史结果", "export_report": "Excel 报告" },
 		"kind": { "document": "申报原文", "dataset": "财务数据", "table": "计算结果", "narrative": "分析", "export": "Excel 报告" },
 		"status": { "partial": "部分完成，可查看已获取的原文", "running": "进行中", "saving": "校验并保存中", "complete": "已完成", "failed": "失败", "interrupted": "已停止，未完成", "incomplete": "无最终结果，未完成" },
 		"filingDocument": { "unknownPeriod": "未注明期间", "primary": "申报主文档", "size": "字节数 / 媒体类型", "download": "下载原文", "viewSource": "查看文档来源", "downloaded": "原文已下载，版本由此哈希固定。已下载或被引用不代表已通读全文。" },
@@ -30,6 +30,7 @@
 		"sources": "来源",
 		"noSources": "此单元格没有可用的原始事实证据。",
 		"retry": "重试",
+		"catalog": { "title": "历史结果目录", "open": "查看结果", "currentSession": "当前会话", "otherSession": "其他会话", "unknownScope": "公司或期间范围未知或不完整", "partial": "部分完成的结果", "loading": "正在加载历史结果…", "failed": "未能加载历史结果。", "invalid": "历史结果响应格式无效。", "empty": "没有符合此次查询的历史结果。" },
 		"savedResults": "已恢复的历史结果",
 		"hydrationFailed": "未能加载历史结果，消息中已有的结果仍可查看。"
 	},

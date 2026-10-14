@@ -7,6 +7,7 @@ from test_migrations. No HTTP, model, provider, real user, or app startup calls.
 import asyncio
 from datetime import date, datetime, timezone
 from decimal import Decimal
+import json
 import os
 import tempfile
 from types import SimpleNamespace
@@ -253,7 +254,7 @@ class FinanceRepositoryTests(FinanceDatabaseCase):
                 await self.assert_finance_error("not_found", repository.find_artifacts(
                     OWNER, SESSION, FindRequest(artifact_id=draft.artifact_id),
                 ))
-                self.assertEqual(await repository.find_artifacts(OWNER, SESSION, FindRequest(current_session_only=False)), [])
+                self.assertEqual(await repository.find_artifacts(OWNER, SESSION, FindRequest(current_session_only=False, kind=None)), [])
                 await self.assert_finance_error("not_found", repository.save_artifact(
                     OWNER, consumer["run_id"], "narrative", "Cannot consume draft", input_ids=[draft.artifact_id],
                 ))
@@ -265,7 +266,7 @@ class FinanceRepositoryTests(FinanceDatabaseCase):
         await repository.finish_operation(partial_run["run_id"], "partial")
         self.assertEqual((await repository.get_artifact(OWNER, partial.artifact_id)).artifact_id, partial.artifact_id)
         self.assertEqual((await repository.artifact_file(OWNER, partial.artifact_id))[0], path.resolve())
-        self.assertEqual([a.artifact_id for a in await repository.find_artifacts(OWNER, SESSION, FindRequest())], [partial.artifact_id])
+        self.assertEqual([a.artifact_id for a in await repository.find_artifacts(OWNER, SESSION, FindRequest(kind=None, current_session_only=True))], [partial.artifact_id])
 
     async def test_same_source_conflicts_never_overwrite_raw_fact_or_saved_result(self):
         # Includes NULL period_start, exercising UNIQUE NULLS NOT DISTINCT.
@@ -313,8 +314,8 @@ class FinanceRepositoryTests(FinanceDatabaseCase):
             repository.artifact_file(OTHER, export.artifact_id),
         ):
             await self.assert_finance_error("not_found", request)
-        self.assertEqual(await repository.find_artifacts(OTHER, SESSION, FindRequest(current_session_only=False)), [])
-        self.assertEqual(await repository.find_artifacts(OWNER, "test-other-session", FindRequest()), [])
+        self.assertEqual(await repository.find_artifacts(OTHER, SESSION, FindRequest(current_session_only=False, kind=None)), [])
+        self.assertEqual(await repository.find_artifacts(OWNER, "test-other-session", FindRequest(kind=None, current_session_only=True)), [])
         found = await repository.find_artifacts(OWNER, "test-other-session", FindRequest(current_session_only=False, kind="dataset"))
         self.assertEqual([item.artifact_id for item in found], [dataset.artifact_id])
         await self.assert_finance_error("not_found", repository.cell_provenance(OWNER, dataset.artifact_id, "unknown-cell"))
@@ -323,6 +324,223 @@ class FinanceRepositoryTests(FinanceDatabaseCase):
         ))
         path.unlink()
         await self.assert_finance_error("file_unavailable", repository.artifact_file(OWNER, export.artifact_id))
+
+
+class FinanceCatalogTests(FinanceDatabaseCase):
+    async def catalog_artifact(
+        self, artifact_id, *, kind="narrative", title=None, owner=OWNER,
+        session=SESSION, status="succeeded", meta=None, inputs=None,
+    ):
+        # Insert synthetic snapshots directly so legacy/corrupt dependency graphs
+        # can be tested without relaxing the production writer's authorization.
+        operation = await self.start(owner=owner, session=session)
+        async with self._connection() as conn:
+            await conn.execute("""
+                INSERT INTO fin.task_artifacts
+                  (artifact_id,run_id,kind,format,content,meta,created_at,title,input_ids)
+                VALUES ($1,$2,$3,'json',$4,$5::jsonb,$6,$7,$8)
+            """, artifact_id, operation["run_id"], kind, "body-only-secret",
+                json.dumps(meta or {}), datetime(2025, 6, 1, tzinfo=timezone.utc),
+                title or artifact_id, inputs or [])
+        if status != "running":
+            await repository.finish_operation(operation["run_id"], status)
+        return artifact_id
+
+    @staticmethod
+    def scope_meta(company="AAPL", start="2025-01-01", end="2025-03-31"):
+        return {"data": {"rows": [{"company": company, "period_start": start,
+                                    "period_end": end, "cells": [{"private": "cell-secret"}]}],
+                         "sources": {"private": "source-secret"}}}
+
+    async def test_default_cross_session_explicit_local_kind_owner_and_status_filters(self):
+        await self.catalog_artifact("local-report")
+        await self.catalog_artifact("remote-report", session="older-session", status="partial")
+        await self.catalog_artifact("foreign-report", owner=OTHER)
+        for status in ("running", "failed", "interrupted"):
+            await self.catalog_artifact("draft-" + status, status=status)
+        for kind in ("dataset", "table", "export", "document"):
+            await self.catalog_artifact("kind-" + kind, kind=kind)
+        found = await repository.find_result_summaries(OWNER, SESSION, FindRequest())
+        self.assertEqual([r.artifact_id for r in found], ["remote-report", "local-report"])
+        self.assertEqual([r.run_status for r in found], ["partial", "succeeded"])
+        self.assertEqual([r.source_session_id for r in found], ["older-session", SESSION])
+        self.assertEqual([r.is_current_session for r in found], [False, True])
+        local = await repository.find_result_summaries(OWNER, SESSION, FindRequest(current_session_only=True))
+        self.assertEqual([r.artifact_id for r in local], ["local-report"])
+        for kind in ("dataset", "table", "export", "document"):
+            found = await repository.find_result_summaries(OWNER, SESSION, FindRequest(kind=kind))
+            self.assertEqual([r.artifact_id for r in found], ["kind-" + kind])
+        all_kinds = await repository.find_result_summaries(OWNER, SESSION, FindRequest(kind=None, limit=10))
+        self.assertEqual({r.artifact_id for r in all_kinds}, {
+            "local-report", "remote-report", "kind-dataset", "kind-table", "kind-export", "kind-document",
+        })
+
+    async def test_visible_table_document_and_derived_scopes_keep_dates_per_company(self):
+        await self.catalog_artifact("wide-dataset", kind="dataset", meta=self.scope_meta("NVDA"))
+        table = self.scope_meta()
+        table["data"]["rows"].append({"company": "MSFT", "period_end": "2024-12-31"})
+        table["data"]["history_rows"] = [{"company": "HISTORY", "period_end": "2020-01-01"}]
+        await self.catalog_artifact("visible-table", kind="table", meta=table, inputs=["wide-dataset"])
+        await self.catalog_artifact("source-document", kind="document", meta={
+            "document": {"company": "TSLA", "period_end": "2023-12-31", "source_url": "url-secret"},
+        })
+        await self.catalog_artifact("analysis-report", inputs=["visible-table"], meta={"citations": [
+            {"artifact_id": "visible-table", "cell_id": "cell-secret"},
+            {"document_id": "source-document"},
+        ]})
+        await self.catalog_artifact("export-report", kind="export", inputs=["analysis-report"])
+        rows = {r.artifact_id: r for r in await repository.find_result_summaries(
+            OWNER, SESSION, FindRequest(kind=None, limit=10),
+        )}
+        self.assertEqual(rows["visible-table"].companies, ["AAPL", "MSFT"])
+        self.assertEqual(rows["wide-dataset"].companies, ["NVDA"])
+        self.assertEqual(rows["source-document"].companies, ["TSLA"])
+        expected = [
+            {"company": "AAPL", "period_start": "2025-01-01", "period_end": "2025-03-31"},
+            {"company": "MSFT", "period_start": None, "period_end": "2024-12-31"},
+            {"company": "TSLA", "period_start": None, "period_end": "2023-12-31"},
+        ]
+        for artifact_id in ("analysis-report", "export-report"):
+            self.assertEqual(rows[artifact_id].companies, ["AAPL", "MSFT", "TSLA"])
+            self.assertEqual(rows[artifact_id].model_dump(mode="json")["periods"], expected)
+        self.assertTrue(all(r.scope_complete for r in rows.values()))
+        await self.catalog_artifact("undated-document", kind="document", meta={"document": {"company": "AAPL"}})
+        undated = await repository.find_result_summaries(OWNER, SESSION, FindRequest(kind="document", query="undated"))
+        self.assertEqual(undated[0].companies, ["AAPL"])
+        self.assertEqual(undated[0].periods, [])
+        self.assertFalse(undated[0].scope_complete)
+
+    async def test_missing_foreign_and_unpublished_dependencies_never_leak_scope(self):
+        await self.catalog_artifact("own-input", kind="dataset", meta=self.scope_meta())
+        await self.catalog_artifact("foreign-input", kind="dataset", owner=OTHER, meta=self.scope_meta("PRIVATE"))
+        await self.catalog_artifact("draft-input", kind="dataset", status="failed", meta=self.scope_meta("DRAFT"))
+        await self.catalog_artifact("report", inputs=["own-input", "missing-input", "foreign-input"], meta={
+            "citations": [{"artifact_id": "draft-input", "cell_id": "hidden-cell"}],
+        })
+        result = (await repository.find_result_summaries(OWNER, SESSION, FindRequest()))[0]
+        self.assertEqual(result.companies, ["AAPL"])
+        self.assertEqual(len(result.periods), 1)
+        self.assertFalse(result.scope_complete)
+        payload = result.model_dump_json()
+        for secret in ("PRIVATE", "DRAFT", "foreign-input", "missing-input", "draft-input", "hidden-cell"):
+            self.assertNotIn(secret, payload)
+        self.assertEqual(set(result.model_dump()), {
+            "artifact_id", "kind", "title", "created_at", "companies", "periods",
+            "source_session_id", "is_current_session", "run_status", "scope_complete",
+        })
+
+    async def test_newest_stable_sort_limit_and_literal_title_metadata_search(self):
+        for index in range(12):
+            await self.catalog_artifact(f"sorted-{index:02d}")
+        for limit in (1, 5, 10):
+            result = await repository.find_result_summaries(OWNER, SESSION, FindRequest(limit=limit))
+            self.assertEqual([r.artifact_id for r in result], [f"sorted-{i:02d}" for i in range(11, 11-limit, -1)])
+        default = await repository.find_result_summaries(OWNER, SESSION, FindRequest())
+        self.assertEqual(len(default), 5)
+        # Newer timestamp takes priority over lexicographic artifact IDs.
+        async with self._connection() as conn:
+            await conn.execute("UPDATE fin.task_artifacts SET created_at=created_at+interval '1 day' WHERE artifact_id='sorted-00'")
+        newest = await repository.find_result_summaries(OWNER, SESSION, FindRequest(limit=1))
+        self.assertEqual(newest[0].artifact_id, "sorted-00")
+        await self.catalog_artifact("literal", title="Literal %_\\ marker", meta={"warnings": ["Metadata needle"]})
+        for query in ("%", "_", "\\", "%_\\", "metadata NEEDLE"):
+            result = await repository.find_result_summaries(OWNER, SESSION, FindRequest(query=query))
+            self.assertEqual([r.artifact_id for r in result], ["literal"])
+        self.assertEqual(await repository.find_result_summaries(OWNER, SESSION, FindRequest(query="body-only-secret")), [])
+
+    async def test_projection_excludes_bodies_and_batches_shared_dependencies(self):
+        await self.catalog_artifact("shared-table", kind="table", meta=self.scope_meta())
+        for index in range(5):
+            await self.catalog_artifact(f"report-{index}", inputs=["shared-table"])
+        pool = await db.get_pool()
+        calls, fetched = [], []
+
+        async def fetch(sql, *args):
+            calls.append((sql, args))
+            rows = await pool.fetch(sql, *args)
+            fetched.extend(dict(row) for row in rows)
+            return rows
+
+        with patch.object(repository, "get_pool", return_value=SimpleNamespace(fetch=fetch)), \
+                patch.object(repository, "_artifact", side_effect=AssertionError("Full artifact loaded")):
+            results = await repository.find_result_summaries(OWNER, SESSION, FindRequest())
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(calls[1][1], (["shared-table"], OWNER))
+        self.assertTrue(all(r.scope_complete and r.companies == ["AAPL"] for r in results))
+        allowed = {"artifact_id", "kind", "title", "created_at", "session_id", "status", "scope", "refs"}
+        for row in fetched:
+            self.assertEqual(set(row), allowed)
+        serialized = json.dumps(fetched, default=str)
+        for secret in ("body-only-secret", "cell-secret", "source-secret", "cells", "sources", "history_rows"):
+            self.assertNotIn(secret, serialized)
+
+    async def test_cycles_depth_and_dependency_count_are_bounded_and_incomplete(self):
+        await self.catalog_artifact("cycle-a", inputs=["cycle-b"])
+        await self.catalog_artifact("cycle-b", inputs=["cycle-a"])
+        cycles = await repository.find_result_summaries(OWNER, SESSION, FindRequest(query="cycle"))
+        self.assertEqual(len(cycles), 2)
+        self.assertTrue(all(not r.scope_complete for r in cycles))
+        await self.catalog_artifact("chain-base", kind="table", meta=self.scope_meta())
+        previous = "chain-base"
+        for index in range(repository._CATALOG_MAX_DEPTH + 1):
+            previous = await self.catalog_artifact(f"chain-{index}", inputs=[previous])
+        deep = await repository.find_result_summaries(OWNER, SESSION, FindRequest(query=previous))
+        self.assertFalse(deep[0].scope_complete)
+        self.assertEqual(deep[0].companies, [])
+        # The earliest authorized dependency is retained, but arbitrary fan-out
+        # cannot trigger unbounded queries or hide truncation as complete scope.
+        refs = ["chain-base"] + [f"missing-{i:03d}" for i in range(140)]
+        await self.catalog_artifact("wide-report", inputs=refs)
+        pool = await db.get_pool()
+        calls = []
+
+        async def fetch(sql, *args):
+            calls.append(args)
+            return await pool.fetch(sql, *args)
+
+        with patch.object(repository, "get_pool", return_value=SimpleNamespace(fetch=fetch)):
+            wide = await repository.find_result_summaries(OWNER, SESSION, FindRequest(query="wide-report"))
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(len(calls[1][0]), repository._CATALOG_MAX_DEPENDENCIES)
+        self.assertEqual(wide[0].companies, ["AAPL"])
+        self.assertFalse(wide[0].scope_complete)
+
+    async def test_find_versioned_and_legacy_idempotency_without_rewriting_old_requests(self):
+        legacy = {"artifact_id": None, "query": None, "kind": None, "limit": 5, "current_session_only": True}
+        current = FindRequest().model_dump(mode="json") | {"_retrieval_version": 2}
+
+        async def start(call, request, *, compatibility=None, operation="find_results"):
+            return await repository.start_operation(
+                OWNER, AGENT, SESSION, "test-reply", call, operation, request,
+                legacy_request=compatibility,
+            )
+
+        old = await start("old-find", legacy)
+        await repository.finish_operation(old["run_id"], "succeeded")
+        replay = await start("old-find", current, compatibility=legacy)
+        self.assertFalse(replay["created"])
+        self.assertTrue(replay["legacy_find"])
+        self.assertEqual(replay["run_id"], old["run_id"])
+        async with self._connection() as conn:
+            stored = await conn.fetchval("SELECT data_request FROM fin.task_runs WHERE run_id=$1", old["run_id"])
+        self.assertEqual(json.loads(stored) if isinstance(stored, str) else stored, legacy)
+        fresh = await start("new-find", current, compatibility=legacy)
+        self.assertTrue(fresh["created"])
+        again = await start("new-find", current, compatibility=legacy)
+        self.assertFalse(again["created"])
+        self.assertFalse(again["legacy_find"])
+        self.assertEqual(again["run_id"], fresh["run_id"])
+        await self.assert_finance_error("idempotency_conflict", start("old-find", current))
+        await self.assert_finance_error("idempotency_conflict", start(
+            "old-find", current | {"query": "changed"}, compatibility=legacy | {"query": "changed"},
+        ))
+        await self.assert_finance_error("idempotency_conflict", start(
+            "new-find", current | {"limit": 10}, compatibility=legacy,
+        ))
+        await start("not-find", legacy, operation="data_fetch")
+        await self.assert_finance_error("idempotency_conflict", start(
+            "not-find", current, compatibility=legacy, operation="data_fetch",
+        ))
 
 
 class FakeAgentStorage:

@@ -32,6 +32,7 @@ const renderers: Record<string, ToolRenderer> = {
 	calculate_metrics: FinanceRenderer,
 	data_analyze: FinanceRenderer,
 	find_results: FinanceRenderer,
+	get_result: FinanceRenderer,
 	export_report: FinanceRenderer,
 };
 

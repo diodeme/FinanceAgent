@@ -7,7 +7,7 @@ from pydantic import ValidationError
 
 from finagent.contracts import (
     AnalyzeRequest, Artifact, Citation, DocumentCitation, DocumentInfo,
-    FilingRequest, FinanceEnvelope, FindRequest,
+    FilingRequest, FinanceEnvelope, FindRequest, GetResultRequest,
 )
 
 
@@ -72,8 +72,23 @@ class DocumentContractTests(unittest.TestCase):
     def test_legacy_envelope_and_document_find_are_compatible(self):
         envelope = FinanceEnvelope.model_validate({"schema_version": 1, "message": "Saved", "artifacts": [], "companies": [], "warnings": []})
         self.assertFalse(envelope.partial)
+        self.assertEqual(envelope.results, [])
         self.assertTrue(FinanceEnvelope(partial=True).partial)
         self.assertEqual(FindRequest(kind="document").kind, "document")
+
+    def test_catalog_defaults_and_detail_scope(self):
+        request = FindRequest()
+        self.assertEqual(request.kind, "narrative")
+        self.assertFalse(request.current_session_only)
+        self.assertEqual(request.limit, 5)
+        self.assertIsNone(FindRequest(kind=None).kind)
+        for kwargs in ({"limit": 11}, {"limit": 0}, {"user_id": "someone-else"}):
+            with self.subTest(kwargs=kwargs), self.assertRaises(ValidationError):
+                FindRequest(**kwargs)
+        self.assertEqual(GetResultRequest(artifact_id="report").artifact_id, "report")
+        for kwargs in ({}, {"artifact_id": ""}, {"artifact_id": "report", "user_id": "someone-else"}):
+            with self.subTest(kwargs=kwargs), self.assertRaises(ValidationError):
+                GetResultRequest(**kwargs)
 
 
 if __name__ == "__main__":

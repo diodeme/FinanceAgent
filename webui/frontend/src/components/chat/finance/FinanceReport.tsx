@@ -41,9 +41,10 @@ export function FinanceReportCard({ report, selection }: { report: FinanceReport
 
 /** The provenance dialog is a React descendant of the report dialog, keeping
  * Radix's modal focus/dismiss stack intact even though both use portals. */
-export function FinanceReportPanel({ report, open, onClose, sourceOpen, restoreFocus, children }: {
+export function FinanceReportPanel({ report, open, onClose, sourceOpen, restoreFocus, children, savedResult }: {
 	report: FinanceReport | null; open: boolean; onClose: () => void; sourceOpen: boolean;
 	restoreFocus: () => void; children: ReactNode;
+	savedResult?: { title: string; loading: boolean; error: string | null; onRetry: () => void };
 }) {
 	const finance = useFinancialResults();
 	const { t } = useTranslation();
@@ -56,18 +57,20 @@ export function FinanceReportPanel({ report, open, onClose, sourceOpen, restoreF
 			onInteractOutside={(event) => { if (sourceOpen) event.preventDefault(); }}
 			onCloseAutoFocus={(event) => { event.preventDefault(); restoreFocus(); }}>
 			<SheetHeader className="pr-12">
-				<SheetTitle>{title}</SheetTitle>
-				<SheetDescription>{t(`finance.status.${status}`)} · {t(report?.artifact ? 'finance.report.saved' : 'finance.report.unsaved')}</SheetDescription>
+				<SheetTitle>{savedResult?.title ?? title}</SheetTitle>
+				<SheetDescription>{savedResult && !report ? t(savedResult.loading ? 'finance.catalog.loading' : 'finance.catalog.failed') : <>{t(`finance.status.${status}`)} · {t(report?.artifact ? 'finance.report.saved' : 'finance.report.unsaved')}</>}</SheetDescription>
 			</SheetHeader>
 			<div className="min-w-0 space-y-4 px-4 pb-8" data-finance-report-body>
-				{!report?.artifact && <p className="rounded-md bg-muted p-3 text-xs text-muted-foreground">{t('finance.report.draft')}</p>}
+				{savedResult?.loading && <p role="status" className="flex items-center gap-2 text-sm"><Loader2 className="size-4 animate-spin" />{t('finance.catalog.loading')}</p>}
+				{savedResult?.error && <div role="alert" className="space-y-2 text-sm"><p className="text-destructive">{t('finance.catalog.failed')} {savedResult.error}</p><Button variant="outline" size="sm" onClick={savedResult.onRetry}>{t('finance.retry')}</Button></div>}
+				{!report?.artifact && !savedResult && <p className="rounded-md bg-muted p-3 text-xs text-muted-foreground">{t('finance.report.draft')}</p>}
 				{report?.error && <p role="alert" className="text-destructive break-words">{report.error}</p>}
 				{report?.streamError && <p role="alert" className="text-destructive">{t('finance.report.streamError')}</p>}
 				{!report?.artifact && !!report?.progress?.length && <section aria-label={t('finance.report.activity')} data-finance-report-progress className="rounded-md border p-3 text-xs">
 					<h3 className="mb-2 font-medium">{t('finance.report.activity')}</h3>
 					<ol role="log" aria-live="polite" className="space-y-1 text-muted-foreground">{report.progress.map((text, index) => <li key={index} className="whitespace-pre-wrap break-words">{text}</li>)}</ol>
 				</section>}
-				{report?.text ? <Markdown isAnimating={pending}>{report.text}</Markdown> : <p className="text-sm text-muted-foreground">{t(pending ? 'finance.report.waiting' : 'finance.report.noBody')}</p>}
+				{report?.text ? <Markdown isAnimating={pending}>{report.text}</Markdown> : !savedResult && <p className="text-sm text-muted-foreground">{t(pending ? 'finance.report.waiting' : 'finance.report.noBody')}</p>}
 				{report?.artifact && finance && <FinanceNotices notices={artifactNotices(report.artifact, finance.artifacts)} />}
 			</div>
 			{children}

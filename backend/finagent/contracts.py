@@ -91,11 +91,15 @@ class AnalyzeRequest(Contract):
 
 
 class FindRequest(Contract):
-    artifact_id: str | None = None
-    query: str | None = Field(default=None, max_length=200)
-    kind: Literal["dataset", "table", "narrative", "export", "document"] | None = None
+    artifact_id: str | None = Field(default=None, json_schema_extra={"deprecated": True}, description="Legacy detail lookup. Use get_result for new calls.")
+    query: str | None = Field(default=None, max_length=200, description="Literal title/metadata keyword; omit for recent reports, not a natural-language search.")
+    kind: Literal["dataset", "table", "narrative", "export", "document"] | None = "narrative"
     limit: int = Field(default=5, ge=1, le=10)
-    current_session_only: bool = True
+    current_session_only: bool = Field(default=False, description="False searches your saved results across sessions; true restricts to this session.")
+
+
+class GetResultRequest(Contract):
+    artifact_id: str = Field(min_length=1, description="Exact artifact_id returned by a result catalog or earlier tool response.")
 
 
 class ExportRequest(Contract):
@@ -211,10 +215,30 @@ class Artifact(Contract):
         return self
 
 
+class ResultPeriod(Contract):
+    company: str
+    period_start: date | None = None
+    period_end: date
+
+
+class ResultSummary(Contract):
+    artifact_id: str
+    kind: Literal["dataset", "table", "narrative", "export", "document"]
+    title: str
+    created_at: datetime
+    companies: list[str] = Field(default_factory=list)
+    periods: list[ResultPeriod] = Field(default_factory=list)
+    source_session_id: str
+    is_current_session: bool
+    run_status: Literal["succeeded", "partial"]
+    scope_complete: bool = True
+
+
 class FinanceEnvelope(Contract):
     schema_version: Literal[1] = 1
     message: str = ""
     artifacts: list[Artifact] = Field(default_factory=list)
+    results: list[ResultSummary] = Field(default_factory=list)
     companies: list[CompanyInfo] = Field(default_factory=list)
     warnings: list[str] = Field(default_factory=list)
     error_code: str | None = None

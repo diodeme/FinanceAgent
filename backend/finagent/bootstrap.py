@@ -18,7 +18,7 @@ def capabilities() -> dict:
         "raw_filing_html": True,
         "filing_download_configured": contact_configured(),
         "max_filings": 8,
-        "tools": ["lookup_company", "data_fetch", "fetch_filings", "calculate_metrics", "data_analyze", "find_results", "export_report"],
+        "tools": ["lookup_company", "data_fetch", "fetch_filings", "calculate_metrics", "data_analyze", "find_results", "get_result", "export_report"],
         "warnings": [
             "通用网页搜索暂未接入：未找到当前环境下可靠的免费免授权搜索接口。",
             "支持保存 SEC 申报主文档原始 HTML；下载或引用不代表已通读全文，不预先解析章节。",

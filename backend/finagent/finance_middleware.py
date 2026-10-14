@@ -14,7 +14,7 @@ from agentscope.tool import ToolChunk, Toolkit, ToolResponse
 from .contracts import FinanceEnvelope, FinanceError
 from .prompts import FINANCE_PROMPT
 from .runsteps import RunStepsMiddleware, log_step, run_id_var, state_value
-from .tools import FinanceTools, REQUESTS, ToolContext, analysis_record, final_chunk, has_gaps, reply_id, tool_context_var
+from .tools import FinanceTools, REQUESTS, ToolContext, analysis_record, final_chunk, has_gaps, includes_result_text, reply_id, tool_context_var
 
 logger = logging.getLogger(__name__)
 MAX_TOOL_CALLS = 12
@@ -99,10 +99,21 @@ class FinanceMiddleware(MiddlewareBase):
             current_reply = reply_id(agent.state)
             if not current_reply:
                 raise FinanceError("invalid_scope", "The native reply identifier is missing.")
+            saved_request = request.model_dump(mode="json")
+            compatibility = {}
+            if call.name == "find_results":
+                legacy_request = dict(saved_request)
+                for field, default in (("kind", None), ("current_session_only", True)):
+                    if field not in request.model_fields_set:
+                        legacy_request[field] = default
+                compatibility["legacy_request"] = legacy_request
+                saved_request["_retrieval_version"] = 2
             operation = await self.repo.start_operation(
                 self.user_id, self.agent_id, self.session_id, current_reply, call.id,
-                call.name, request.model_dump(mode="json"),
+                call.name, saved_request, **compatibility,
             )
+            if operation.get("legacy_find"):
+                request = REQUESTS[call.name].model_validate(legacy_request)
         except Exception as exc:
             code = exc.code if isinstance(exc, FinanceError) else "operation_start_failed"
             message = str(exc) if isinstance(exc, FinanceError) else "The finance operation could not be started."
@@ -140,14 +151,17 @@ class FinanceMiddleware(MiddlewareBase):
                 if artifacts:
                     envelope = FinanceEnvelope(message="Reused the saved result of this tool call.", artifacts=artifacts,
                                                partial=old_status == "partial")
-                elif call.name in {"lookup_company", "find_results"}:
+                elif operation.get("legacy_find"):
+                    artifacts = await self.repo.find_artifacts(self.user_id, self.session_id, request)
+                    envelope = FinanceEnvelope(message=f"Found {len(artifacts)} saved result(s).", artifacts=artifacts)
+                elif call.name in {"lookup_company", "find_results", "get_result"}:
                     async def ignore_progress(text):
                         pass
                     envelope = await self.runtime.execute(call.name, request, context, ignore_progress)
                 else:
                     raise FinanceError("result_unavailable", "The earlier call has no saved result; make a new tool call.")
                 is_analysis = call.name == "data_analyze"
-                chunk = final_chunk(envelope, include_text=not is_analysis, framed=is_analysis)
+                chunk = final_chunk(envelope, include_text=bool(operation.get("legacy_find")) or includes_result_text(call.name, request), framed=is_analysis)
                 await log_step(actor=self.agent_id, session_id=self.session_id, step_type="tool", name=call.name,
                                msg_id=call.id, detail={"replayed": True}, run_id=run_id)
                 if is_analysis:

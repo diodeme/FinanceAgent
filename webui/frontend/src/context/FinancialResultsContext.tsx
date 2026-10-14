@@ -3,12 +3,14 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 import type { ReactNode } from 'react';
 
 import { financeApi } from '@/api/finance';
-import type { ArtifactCitation, CellProvenance, DocumentProvenance, FinanceArtifact } from '@/api/finance';
+import type { ArtifactCitation, CellProvenance, DocumentProvenance, FinanceArtifact, ResultSummary } from '@/api/finance';
 import { FactProvenanceDrawer } from '@/components/chat/finance/FactProvenanceDrawer';
 import { FinanceReportPanel } from '@/components/chat/finance/FinanceReport';
-import { deriveFinanceReport, reportKey, reportResultText, resolveFinanceReport } from '@/lib/finance-report';
+import { FinanceResultPanel } from '@/components/chat/finance/FinanceResults';
+import { useTranslation } from '@/i18n/useI18n';
+import { isFinanceArtifact, mergeFinanceArtifacts, readFinanceEnvelope } from '@/lib/finance';
+import { deriveFinanceReport, reportKey, reportResultText, resolveFinanceReport, validNarrative } from '@/lib/finance-report';
 import type { FinanceReport, ReportSelection } from '@/lib/finance-report';
-import { isFinanceArtifact, readFinanceEnvelope } from '@/lib/finance';
 
 interface FinancialResultsContextValue {
 	artifacts: Map<string, FinanceArtifact>;
@@ -16,6 +18,7 @@ interface FinancialResultsContextValue {
 	hydrationError: string | null;
 	openCitation: (citation: ArtifactCitation) => void;
 	openReport: (selection: ReportSelection) => void;
+	openResult: (summary: ResultSummary) => void;
 	reports: Map<string, FinanceReport>;
 	downloadArtifact: (artifact: Pick<FinanceArtifact, 'artifact_id' | 'kind' | 'filename' | 'document'>) => Promise<void>;
 }
@@ -34,7 +37,13 @@ export function FinancialResultsProvider({ sessionId, messages, children }: {
 	messages: Msg[];
 	children: ReactNode;
 }) {
+	const { t } = useTranslation();
 	const [savedArtifacts, setSavedArtifacts] = useState<FinanceArtifact[]>([]);
+	const [loadedArtifacts, setLoadedArtifacts] = useState(new Map<string, FinanceArtifact>());
+	const [resultSelection, setResultSelection] = useState<ResultSummary | null>(null);
+	const [resultLoading, setResultLoading] = useState(false);
+	const [resultError, setResultError] = useState<string | null>(null);
+	const resultRequest = useRef<AbortController | null>(null);
 	const [hydrationError, setHydrationError] = useState<string | null>(null);
 	const [citation, setCitation] = useState<ArtifactCitation | null>(null);
 	const [provenance, setProvenance] = useState<CellProvenance | DocumentProvenance | null>(null);
@@ -71,13 +80,8 @@ export function FinancialResultsProvider({ sessionId, messages, children }: {
 				}
 			}
 		}
-		const all = new Map(savedArtifacts.map((artifact) => [artifact.artifact_id, artifact]));
-		for (const [id, artifact] of fromMessages) all.set(id, artifact);
-		return {
-			artifacts: all,
-			recoveredArtifacts: savedArtifacts.filter((artifact) => !fromMessages.has(artifact.artifact_id)),
-		};
-	}, [messages, savedArtifacts]);
+		return mergeFinanceArtifacts(savedArtifacts, [...fromMessages.values()], loadedArtifacts);
+	}, [messages, savedArtifacts, loadedArtifacts]);
 
 	const reports = useMemo(() => {
 		const current = new Map<string, FinanceReport>();
@@ -94,8 +98,14 @@ export function FinancialResultsProvider({ sessionId, messages, children }: {
 		}
 		return current;
 	}, [messages]);
-	const selectedReport = reportSelection ? resolveFinanceReport(reportSelection, reports, artifacts) : null;
+	const selectedReport = resultSelection?.kind === 'narrative'
+		? resolveFinanceReport({ artifactId: resultSelection.artifact_id }, reports, artifacts)
+		: reportSelection ? resolveFinanceReport(reportSelection, reports, artifacts) : null;
 	const openReport = useCallback((selection: ReportSelection) => {
+		resultRequest.current?.abort();
+		setResultSelection(null);
+		setResultLoading(false);
+		setResultError(null);
 		reportOrigin.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
 		setReportSelection(selection);
 	}, []);
@@ -132,6 +142,43 @@ export function FinancialResultsProvider({ sessionId, messages, children }: {
 		setSourceLoading(false);
 	}, []);
 
+	const loadResult = useCallback((summary: ResultSummary) => {
+		resultRequest.current?.abort();
+		setResultError(null);
+		if (artifacts.has(summary.artifact_id)) { setResultLoading(false); return; }
+		const controller = new AbortController();
+		resultRequest.current = controller;
+		pending.current.add(controller);
+		setResultLoading(true);
+		void financeApi.artifact(summary.artifact_id, controller.signal).then((artifact) => {
+			if (controller.signal.aborted) return;
+			if (!isFinanceArtifact(artifact) || artifact.artifact_id !== summary.artifact_id || artifact.kind !== summary.kind ||
+				(artifact.kind === 'narrative' && !validNarrative(artifact))) throw new Error(t('finance.catalog.invalid'));
+			setLoadedArtifacts((current) => new Map(current).set(artifact.artifact_id, artifact));
+		}).catch((error: unknown) => {
+			if (!controller.signal.aborted) setResultError(error instanceof Error ? error.message : String(error));
+		}).finally(() => {
+			pending.current.delete(controller);
+			if (!controller.signal.aborted) setResultLoading(false);
+		});
+	}, [artifacts, t]);
+
+	const openResult = useCallback((summary: ResultSummary) => {
+		reportOrigin.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+		closeCitation();
+		setReportSelection(null);
+		setResultSelection(summary);
+		loadResult(summary);
+	}, [closeCitation, loadResult]);
+
+	const closeReport = useCallback(() => {
+		resultRequest.current?.abort();
+		setReportSelection(null);
+		setResultSelection(null);
+		setResultLoading(false);
+		setResultError(null);
+	}, []);
+
 	const downloadArtifact = useCallback(async (artifact: Pick<FinanceArtifact, 'artifact_id' | 'kind' | 'filename' | 'document'>) => {
 		const controller = new AbortController();
 		pending.current.add(controller);
@@ -155,8 +202,8 @@ export function FinancialResultsProvider({ sessionId, messages, children }: {
 		}
 	}, []);
 
-	const value = useMemo(() => ({ artifacts, recoveredArtifacts, hydrationError, openCitation, openReport, reports, downloadArtifact }),
-		[artifacts, recoveredArtifacts, hydrationError, openCitation, openReport, reports, downloadArtifact]);
+	const value = useMemo(() => ({ artifacts, recoveredArtifacts, hydrationError, openCitation, openReport, openResult, reports, downloadArtifact }),
+		[artifacts, recoveredArtifacts, hydrationError, openCitation, openReport, openResult, reports, downloadArtifact]);
 	const sourceDrawer = <FactProvenanceDrawer open={citation !== null} onClose={closeCitation} loading={sourceLoading}
 		data={provenance} error={sourceError} onRetry={() => citation && openCitation(citation)}
 		restoreFocus={() => citationOrigin.current?.isConnected && citationOrigin.current.focus()} />;
@@ -164,7 +211,12 @@ export function FinancialResultsProvider({ sessionId, messages, children }: {
 	return (
 		<FinancialResultsContext.Provider value={value}>
 			{children}
-			{reportSelection ? <FinanceReportPanel report={selectedReport} open onClose={() => setReportSelection(null)}
+			{resultSelection && resultSelection.kind !== 'narrative' ? <FinanceResultPanel summary={resultSelection} artifact={artifacts.get(resultSelection.artifact_id)}
+				loading={resultLoading} error={resultError} onRetry={() => loadResult(resultSelection)} onClose={closeReport}
+				sourceOpen={citation !== null} restoreFocus={() => reportOrigin.current?.isConnected && reportOrigin.current.focus()}>
+				{sourceDrawer}
+			</FinanceResultPanel> : reportSelection || resultSelection ? <FinanceReportPanel report={selectedReport} open onClose={closeReport}
+				savedResult={resultSelection ? { title: resultSelection.title, loading: resultLoading, error: resultError, onRetry: () => loadResult(resultSelection) } : undefined}
 				sourceOpen={citation !== null} restoreFocus={() => reportOrigin.current?.isConnected && reportOrigin.current.focus()}>
 				{sourceDrawer}
 			</FinanceReportPanel> : sourceDrawer}

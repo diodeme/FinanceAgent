@@ -31,6 +31,18 @@ DOCUMENT_INFO = {'source_document_id':'sec_document_fixture','company':'AAPL','c
 DOCUMENT = {**DATA,'artifact_id':'document_fixture','kind':'document','title':'AAPL original filing','data':None,'document':DOCUMENT_INFO,'warnings':[],'filename':'aapl-fixture.htm','mime_type':'application/octet-stream'}
 DOCUMENT_BODY = '这段分析引用原始文件。[财报原文](#filing/document_fixture)'
 DOCUMENT_REPORT = {**REPORT,'artifact_id':'narrative_document_fixture','input_ids':['document_fixture'],'text':DOCUMENT_BODY,'citations':[{'document_id':'document_fixture','label':'财报原文'}],'warnings':[]}
+CATALOG_REPORT = {**REPORT, 'artifact_id':'catalog_report', 'title':'Historical AAPL report', 'text':BODY + '\n\n' + DOCUMENT_BODY}
+LATE_REPORT = {**CATALOG_REPORT, 'artifact_id':'catalog_late', 'title':'Delayed historical report', 'text':'Late response must never replace B.'}
+
+
+def summary(artifact, current=False, complete=True):
+    return {'artifact_id':artifact['artifact_id'], 'kind':artifact['kind'], 'title':artifact['title'], 'created_at':artifact['created_at'],
+            'companies':['AAPL'] if complete else [], 'periods':[{'company':'AAPL','period_start':'2026-01-01','period_end':'2026-03-31'}] if complete else [],
+            'source_session_id':'fixture-session' if current else 'old-session', 'is_current_session':current,
+            'run_status':'succeeded' if complete else 'partial', 'scope_complete':complete}
+
+
+CATALOG = [summary(CATALOG_REPORT), summary(DOCUMENT_REPORT), summary(LATE_REPORT, complete=False), summary(DATA, current=True), summary(DOCUMENT)]
 
 
 def frame(kind, **payload):
@@ -39,8 +51,10 @@ def frame(kind, **payload):
 
 def run():
     OUT.mkdir(parents=True, exist_ok=True)
-    result = {'status':'running','checks':[], 'page_errors':[], 'model_calls':0}
+    result = {'status':'running','checks':[], 'page_errors':[], 'model_calls':0, 'chat_posts':0, 'detail_gets':[]}
     artifacts = [DATA, DOCUMENT]
+    artifact_details = {artifact['artifact_id']:artifact for artifact in [DATA, DOCUMENT, CATALOG_REPORT, DOCUMENT_REPORT, LATE_REPORT]}
+    fail_details = set()
     with sync_playwright() as p:
         browser = p.chromium.launch()
         context = browser.new_context(locale='zh-CN', viewport={'width':1440,'height':1000})
@@ -53,8 +67,20 @@ def run():
             headers = {'Access-Control-Allow-Origin':'*','Access-Control-Allow-Headers':'*','Access-Control-Allow-Methods':'GET, OPTIONS'}
             if route.request.method == 'OPTIONS':
                 route.fulfill(status=204, headers=headers)
+            elif route.request.method != 'GET':
+                result['chat_posts'] += int(route.request.method == 'POST')
+                result['model_calls'] += 1
+                route.abort()
+                raise AssertionError('Unexpected non-GET fixture API request: ' + path)
             elif path == '/fin/results':
                 route.fulfill(json={'artifacts':artifacts}, headers=headers)
+            elif path.removeprefix('/fin/results/') in artifact_details:
+                artifact_id = path.removeprefix('/fin/results/')
+                result['detail_gets'].append(artifact_id)
+                if artifact_id in fail_details:
+                    route.fulfill(status=503, json={'detail':'Fixture detail unavailable'}, headers=headers)
+                else:
+                    route.fulfill(json=artifact_details[artifact_id], headers=headers)
             elif path == '/fin/results/dataset_fixture/cells/c_fixture':
                 route.fulfill(json={'artifact_id':'dataset_fixture','title':'Fixture data','row':ROW,'cell':CELL,'sources':[SOURCE],'warnings':[ORIGINAL]}, headers=headers)
             elif path == '/fin/results/document_fixture/document':
@@ -204,6 +230,116 @@ def run():
             expect(partial.locator('[data-finance-artifact="document_fixture"]')).to_be_visible()
             expect(partial.locator('[role="alert"]')).to_have_count(0)
             result['checks'].append('partial_filing_batch_keeps_downloaded_document_visible')
+
+            # A new session has no local artifacts. Its persisted find_results
+            # metadata can still list the user's older reports, without bodies.
+            artifacts.clear()
+            page.evaluate('window.financeFixture.switchSession()')
+            page.evaluate('results => window.financeFixture.catalog(results)', CATALOG)
+            index = page.get_by_test_id('finance-index')
+            directory = page.locator('[data-finance-catalog]')
+            rows = directory.locator('[data-finance-result-summary]')
+            expect(rows).to_have_count(len(CATALOG))
+            expect(index).to_have_attribute('data-artifact-ids','[]')
+            expect(index).to_have_attribute('data-recovered-ids','[]')
+            expect(cards).to_have_count(0)
+            expect(directory).not_to_contain_text('这是完整报告')
+            expect(directory).to_contain_text('其他会话')
+            expect(directory).to_contain_text('当前会话')
+            expect(directory).to_contain_text('2026-01-01 → 2026-03-31')
+            expect(directory).to_contain_text('范围未知或不完整')
+            expect(directory).to_contain_text('部分完成的结果')
+            assert result['detail_gets'] == []
+            page.reload(wait_until='networkidle')
+            expect(rows).to_have_count(len(CATALOG))
+            expect(index).to_have_attribute('data-artifact-ids','[]')
+            assert result['detail_gets'] == []
+            page.screenshot(path=str(OUT/'catalog-directory.png'), full_page=True)
+            result['checks'].append('persisted_catalog_reload_empty_local_session_no_eager_detail_or_chat')
+
+            def open_catalog(artifact_id):
+                page.locator(f'[data-finance-result-summary="{artifact_id}"] [data-finance-result-open]').click()
+
+            fail_details.add('catalog_report')
+            open_catalog('catalog_report')
+            expect(panel.get_by_role('alert')).to_contain_text('未能加载历史结果')
+            expect(panel).not_to_contain_text('实时草稿')
+            expect(index).to_have_attribute('data-artifact-ids','[]')
+            fail_details.clear()
+            panel.get_by_role('button',name='重试',exact=True).click()
+            expect(panel.locator('.cn-markdown')).to_contain_text('这是完整报告')
+            expect(index).to_have_attribute('data-artifact-ids','["catalog_report"]')
+            expect(index).to_have_attribute('data-recovered-ids','[]')
+            page.screenshot(path=str(OUT/'catalog-report-open.png'), full_page=True)
+            for label in ['证据', '财报原文']:
+                panel.get_by_role('link',name=label,exact=True).click()
+                expect(source).to_be_visible()
+                page.keyboard.press('Escape')
+                expect(source).to_be_hidden()
+                expect(panel).to_be_visible()
+                expect(panel.get_by_role('link',name=label,exact=True)).to_be_focused()
+            close_report()
+            expect(cards).to_have_count(0)
+            result['checks'].append('lazy_old_report_failure_retry_numeric_and_document_citations_no_recovered_leak')
+
+            open_catalog('dataset_fixture')
+            detail_panel = page.get_by_test_id('finance-result-detail')
+            expect(detail_panel.locator('table')).to_contain_text('100 USD')
+            detail_panel.get_by_role('button',name='100 USD',exact=True).click()
+            expect(source.locator('dl')).to_have_count(1)
+            page.keyboard.press('Escape')
+            expect(source).to_be_hidden()
+            expect(detail_panel).to_be_visible()
+            page.keyboard.press('Escape')
+            expect(detail_panel).to_be_hidden()
+            open_catalog('document_fixture')
+            expect(detail_panel.locator('[data-finance-document]')).to_contain_text(DOCUMENT_INFO['sha256'])
+            with page.expect_download() as catalog_download:
+                detail_panel.get_by_role('button',name='下载原文',exact=True).click()
+            assert catalog_download.value.suggested_filename == 'aapl-fixture.htm'
+            page.keyboard.press('Escape')
+            expect(detail_panel).to_be_hidden()
+            result['checks'].append('catalog_non_narratives_reuse_table_provenance_document_download')
+
+            # The harness deliberately ignores AbortSignal for this transport;
+            # stale-response checks must still reject late A after selecting B.
+            page.evaluate('window.financeFixture.deferResult("catalog_late")')
+            open_catalog('catalog_late')
+            expect(panel).to_contain_text('正在加载历史结果')
+            page.evaluate('summary => window.fixtureOpenResult(summary)', summary(DOCUMENT_REPORT))
+            expect(panel.locator('.cn-markdown')).to_contain_text('这段分析引用原始文件')
+            page.evaluate('window.financeFixture.releaseResult("catalog_late")')
+            expect(panel.locator('.cn-markdown')).to_contain_text('这段分析引用原始文件')
+            expect(panel).not_to_contain_text('Late response')
+            expect(index).not_to_have_attribute('data-artifact-ids',re.compile('catalog_late'))
+            close_report()
+            result['checks'].append('rapid_A_B_ignores_late_detail_even_when_transport_ignores_abort')
+
+            for action in ['close', 'switchSession', 'switchUser']:
+                page.evaluate('window.financeFixture.deferResult("catalog_late")')
+                open_catalog('catalog_late')
+                expect(panel).to_contain_text('正在加载历史结果')
+                if action == 'close':
+                    close_report()
+                else:
+                    page.evaluate(f'window.financeFixture.{action}()')
+                    expect(panel).to_be_hidden()
+                page.evaluate('window.financeFixture.releaseResult("catalog_late")')
+                expect(panel).to_be_hidden()
+                expect(index).not_to_have_attribute('data-artifact-ids',re.compile('catalog_late'))
+                if action != 'close':
+                    expect(index).to_have_attribute('data-artifact-ids','[]')
+                    page.evaluate('results => window.financeFixture.catalog(results)', CATALOG)
+            result['checks'].append('close_session_user_unmount_clear_cache_and_reject_late_detail')
+
+            page.evaluate('artifact => window.financeFixture.getResult(artifact)', CATALOG_REPORT)
+            expect(page.locator('[data-finance-tool="get_result"] [data-finance-report-card]')).to_have_count(1)
+            expect(directory).to_have_count(0)
+            open_report()
+            expect(panel.locator('.cn-markdown')).to_contain_text('这是完整报告')
+            close_report()
+            result['checks'].append('get_result_full_metadata_automatically_renders_existing_report_card')
+            assert result['model_calls'] == 0 and result['chat_posts'] == 0, result
             assert not result['page_errors'], result['page_errors']
             result['status'] = 'passed'
         except Exception as error:
