@@ -2,8 +2,9 @@
 
 No live action occurs on import or without --run-real-model. Inherits the current
 model/credential *reference* from an existing session, creates exactly one new
-session, and never retries a paid turn. max_tokens is a per-call ceiling, NOT a
-whole-turn spending cap. Native model-internal retries are outside this runner.
+session, and never retries a paid turn. Model parameters are copied unchanged;
+no test-specific max_tokens or sampling settings are injected. Native model-internal
+retries are outside this runner.
 
 Reuses acceptance.py for browser lifecycle, numeric citations, formulas, Excel
 precision and reload; filing_acceptance.py for original-document download/hash.
@@ -14,7 +15,6 @@ finding a workspace Skill does not prove that the model read or followed it.
 from __future__ import annotations
 
 import argparse
-from copy import deepcopy
 from contextlib import contextmanager
 import json
 from pathlib import Path
@@ -23,11 +23,10 @@ from urllib.parse import quote
 from openpyxl import load_workbook
 
 from acceptance import Acceptance, base_url, require, sanitized_error
-from filing_acceptance import FilingAcceptance
+from filing_acceptance import FilingAcceptance, model_reference
 
 
 SESSION_NAME = "Skill 综合财务分析实测"
-MAX_TOKENS = 4000
 BASE_METRICS = {
     "revenue", "cost_of_revenue", "operating_income", "net_income",
     "operating_cash_flow", "capital_expenditures", "total_assets",
@@ -38,32 +37,6 @@ PROMPT = """请对苹果（AAPL）最新一个已披露财季做综合财务分�
 请通过财务数据工具取得十项基础指标：营收、营业成本、营业利润、净利润、经营现金流、资本开支、总资产、总负债、股东权益及现金与现金等价物；基础指标一次不要超过十二项。毛利率、营业利润率、净利率、自由现金流以及营收增长请交给确定性计算工具，增长优先同比，无可比基期则明确缺口，不要心算补数。保留实际财季起止日、单位和现金流口径，资产负债表使用期末时点；累计现金流不得直接冒充单季。
 同时获取与最新分析季度对应的一份官方原始申报文件（10-Q 或 10-K），不要为了四季趋势额外下载其他原文。结合管理层讨论和风险披露解释数字，明确哪些是原文陈述、哪些是分析推断。缺失数据、口径差异或证据不足要直接说明，不要虚构原因。
 请用分析工具把已保存的数值结果和原文文件共同作为依据，形成约600至900字中文报告，覆盖增长、盈利、现金流、资产负债状况和主要风险，报告中同时提供可点击的数值来源与原文引用。最后复用这些已保存的表格、分析和原文来源，导出可下载的 Excel 报告，保留精确数值及文档来源信息。聊天里简短提示完成情况即可，不必再复制整篇报告。如果工具或分析失败，请如实报告并停止，不要自动重复付费分析，也不要另开任务补跑。"""
-
-
-def model_reference(source: dict) -> dict:
-    """Copy only native model reference fields, without accessing credentials."""
-    require(not source.get("is_running"), "Source session is running; refusing to overlap")
-    config = source.get("session", {}).get("config", {}).get("chat_model_config")
-    require(isinstance(config, dict), "Source session has no configured model")
-    require(all(isinstance(config.get(key), str) and config[key] for key in
-                ("type", "credential_id", "model")), "Source model reference is incomplete")
-    parameters = deepcopy(config.get("parameters") or {})
-    require(isinstance(parameters, dict), "Model parameters must be an object")
-    # Credentials belong in credential_id, not in copied provider parameters.
-    def no_secrets(value):
-        if isinstance(value, dict):
-            require(not any(str(key).lower() in {
-                "api_key", "apikey", "authorization", "access_token", "secret", "password",
-            } for key in value), "Model parameters contain inline credentials; refusing to copy")
-            for child in value.values():
-                no_secrets(child)
-        elif isinstance(value, list):
-            for child in value:
-                no_secrets(child)
-    no_secrets(parameters)
-    current = parameters.get("max_tokens")
-    parameters["max_tokens"] = min(current, MAX_TOKENS) if type(current) is int and current > 0 else MAX_TOKENS
-    return {**{key: config[key] for key in ("type", "credential_id", "model")}, "parameters": parameters}
 
 
 def validate_chain(artifacts: list[dict]) -> dict:
@@ -148,7 +121,7 @@ class SkillAcceptance(FilingAcceptance):
         self.args.session_id = response.json()["session_id"]
         self.report["session_id"] = self.args.session_id
         self.report["model"] = {"model": config["model"], "type": config["type"],
-                                "max_output_tokens_per_call": config["parameters"]["max_tokens"]}
+                                "max_output_tokens_per_call": config["parameters"].get("max_tokens")}
         print(json.dumps({"created_session_id": self.args.session_id, **self.report["model"]}, ensure_ascii=False), flush=True)
 
     def run(self):

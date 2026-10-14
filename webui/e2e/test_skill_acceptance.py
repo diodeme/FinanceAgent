@@ -15,6 +15,7 @@ from unittest.mock import Mock, patch
 
 from openpyxl import Workbook
 
+import filing_acceptance as filing_runner
 import skill_acceptance as runner
 from acceptance import Acceptance
 from filing_acceptance import FilingAcceptance
@@ -75,19 +76,91 @@ class RunnerTests(unittest.TestCase):
         self.assertIn("financial-analysis", runner.PROMPT)
         self.assertEqual(runner.SESSION_NAME, "Skill 综合财务分析实测")
 
-    def test_model_reference_copies_without_secrets_and_bounds_tokens(self):
-        source = source_session()
-        original = deepcopy(source)
-        config = runner.model_reference(source)
-        self.assertEqual(source, original)
-        self.assertEqual(set(config), {"type", "model", "credential_id", "parameters"})
-        self.assertEqual(config["model"], "existing-model")
-        self.assertEqual(config["parameters"]["max_tokens"], 4000)
-        source["session"]["config"]["chat_model_config"]["parameters"]["max_tokens"] = 1200
-        self.assertEqual(runner.model_reference(source)["parameters"]["max_tokens"], 1200)
+    def test_model_reference_preserves_parameters_without_mutating_source(self):
+        self.assertIs(runner.model_reference, filing_runner.model_reference)
+        for limit in (9000, 1200, None):
+            with self.subTest(max_tokens=limit):
+                source = source_session()
+                parameters = source["session"]["config"]["chat_model_config"]["parameters"]
+                parameters.update({"max_tokens": limit, "nested": {"stop": ["END"]}})
+                original = deepcopy(source)
+                config = runner.model_reference(source)
+                self.assertEqual(source, original)
+                self.assertEqual(set(config), {"type", "model", "credential_id", "parameters"})
+                self.assertEqual(config["model"], "existing-model")
+                self.assertEqual(config["parameters"], parameters)
+                config["parameters"]["nested"]["stop"].append("OTHER")
+                config["parameters"]["max_tokens"] = 1
+                self.assertEqual(source, original)
         source["is_running"] = True
         with self.assertRaises(AssertionError):
             runner.model_reference(source)
+
+    def test_model_reference_does_not_inject_missing_output_limit(self):
+        for parameters in ({}, {"temperature": 0.3}):
+            source = source_session()
+            source["session"]["config"]["chat_model_config"]["parameters"] = parameters
+            original = deepcopy(source)
+            config = runner.model_reference(source)
+            self.assertEqual(config["parameters"], parameters)
+            self.assertNotIn("max_tokens", config["parameters"])
+            self.assertEqual(source, original)
+        del source["session"]["config"]["chat_model_config"]["parameters"]
+        self.assertEqual(runner.model_reference(source)["parameters"], {})
+
+    def test_filing_opt_in_guard_before_api_or_browser(self):
+        with patch("sys.argv", ["filing_acceptance.py", "--agent-id", "agent",
+                                "--source-session-id", "source"]), \
+                patch.object(filing_runner.httpx, "Client") as client, \
+                patch.object(filing_runner, "FilingAcceptance") as harness, \
+                redirect_stderr(io.StringIO()):
+            with self.assertRaises(SystemExit) as error:
+                filing_runner.main()
+        self.assertEqual(error.exception.code, 2)
+        client.assert_not_called()
+        harness.assert_not_called()
+
+    def test_filing_session_creation_preserves_config_without_source_writes(self):
+        for parameters in ({}, {"temperature": 0.3, "max_tokens": 9000}):
+            source = source_session()
+            source["session"]["config"]["chat_model_config"]["parameters"] = parameters
+            original = deepcopy(source)
+            with patch("sys.argv", ["filing_acceptance.py", "--run-real-model",
+                                    "--agent-id", "agent", "--source-session-id", "existing"]), \
+                    patch.object(filing_runner.httpx, "Client") as client_factory, \
+                    patch.object(filing_runner, "FilingAcceptance") as harness, \
+                    patch("builtins.print"):
+                client = client_factory.return_value.__enter__.return_value
+                client.get.return_value.json.return_value = {"sessions": [source]}
+                client.post.return_value.json.return_value = {"session_id": "new-test"}
+                harness.return_value.run.return_value = 0
+                self.assertEqual(filing_runner.main(), 0)
+            client.post.assert_called_once_with("/sessions/", json={
+                "agent_id": "agent", "name": "SEC 原文分析实测",
+                "chat_model_config": runner.model_reference(source)})
+            self.assertEqual([call[0] for call in client.method_calls], ["get", "post"])
+            self.assertEqual(source, original)
+
+    def test_skill_session_creation_preserves_config_without_source_writes(self):
+        for parameters in ({}, {"temperature": 0.3, "max_tokens": 9000}):
+            source = source_session()
+            source["session"]["config"]["chat_model_config"]["parameters"] = parameters
+            original = deepcopy(source)
+            harness = object.__new__(runner.SkillAcceptance)
+            harness.args = SimpleNamespace(agent_id="agent", source_session_id="existing", session_id="")
+            harness.report = {}
+            harness.api_get = Mock(return_value={"sessions": [source]})
+            harness.api = Mock()
+            harness.api.post.return_value.is_success = True
+            harness.api.post.return_value.json.return_value = {"session_id": "new-test"}
+            with patch("builtins.print"):
+                harness.provision_session()
+            harness.api.post.assert_called_once_with("/sessions/", json={
+                "agent_id": "agent", "name": runner.SESSION_NAME,
+                "chat_model_config": runner.model_reference(source)})
+            self.assertEqual([call[0] for call in harness.api.method_calls], ["post"])
+            self.assertEqual(harness.report["model"]["max_output_tokens_per_call"], parameters.get("max_tokens"))
+            self.assertEqual(source, original)
 
     def test_inline_secret_is_rejected(self):
         source = source_session()
