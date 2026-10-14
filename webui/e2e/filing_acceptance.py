@@ -1,9 +1,11 @@
 """Explicit one-turn live-model acceptance for the original-filing analyst.
 
-Creates one new test session using an existing session's model reference, never
-reads credential secrets, and sends through the real browser composer. No retry.
+Creates one new test session using an existing session's model reference and
+unchanged parameters; no test-only output limit is injected. Never reads credential
+secrets or updates the source session. Sends through the real browser composer. No retry.
 """
 import argparse
+from copy import deepcopy
 import hashlib
 import json
 from pathlib import Path
@@ -13,6 +15,30 @@ import httpx
 from playwright.sync_api import expect
 
 from acceptance import Acceptance, require
+
+
+def model_reference(source: dict) -> dict:
+    """Copy native model settings unchanged; never inject test-only parameters."""
+    require(not source.get("is_running"), "Source session is running; refusing to overlap")
+    config = source.get("session", {}).get("config", {}).get("chat_model_config")
+    require(isinstance(config, dict), "Source session has no configured model")
+    require(all(isinstance(config.get(key), str) and config[key] for key in
+                ("type", "credential_id", "model")), "Source model reference is incomplete")
+    parameters = deepcopy(config.get("parameters") or {})
+    require(isinstance(parameters, dict), "Model parameters must be an object")
+    # Credentials belong in credential_id, not in copied provider parameters.
+    def no_secrets(value):
+        if isinstance(value, dict):
+            require(not any(str(key).lower() in {
+                "api_key", "apikey", "authorization", "access_token", "secret", "password",
+            } for key in value), "Model parameters contain inline credentials; refusing to copy")
+            for child in value.values():
+                no_secrets(child)
+        elif isinstance(value, list):
+            for child in value:
+                no_secrets(child)
+    no_secrets(parameters)
+    return {**{key: config[key] for key in ("type", "credential_id", "model")}, "parameters": parameters}
 
 
 class FilingAcceptance(Acceptance):
@@ -81,15 +107,12 @@ def main():
         response.raise_for_status()
         sessions = response.json()["sessions"]
         source = next(item for item in sessions if item["session"]["id"] == args.source_session_id)
-        require(not source["is_running"], "Source session is running; do not overlap the test")
-        config = source["session"]["config"]["chat_model_config"]
-        require(bool(config), "Existing session must have a configured model")
-        config = {**config, "parameters": {**config["parameters"], "max_tokens": 3000}}
+        config = model_reference(source)
         response = client.post("/sessions/", json={"agent_id": args.agent_id,
             "name": "SEC 原文分析实测", "chat_model_config": config})
         response.raise_for_status()
         session_id = response.json()["session_id"]
-    print(json.dumps({"created_session_id": session_id, "model": config["model"], "max_output_tokens_per_call": 3000}), flush=True)
+    print(json.dumps({"created_session_id": session_id, "model": config["model"], "max_output_tokens_per_call": config["parameters"].get("max_tokens")}), flush=True)
     prompt = "获取苹果最新一期10-Q，只获取一份。使用原文分析总营收同比变化及管理层给出的原因。请调用分析工具，尽量只做必要的文件读取和搜索，报告控制在300字以内，附可点击的原文引用；区分原文陈述与推断。不要另行采集companyfacts，不要导出Excel，不要自动重复失败的分析。"
     run_args = SimpleNamespace(**vars(args), session_id=session_id, multi_turn=True, headed=False,
                                ui_timeout=45, turn_timeout=420, prompts=[prompt])

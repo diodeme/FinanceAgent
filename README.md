@@ -1,17 +1,33 @@
 # FinanceAgent
 
-基于 AgentScope 的财务分析助手，支持 SEC 财报查询、跨季度指标对比、来源追溯、财报原文分析和 Excel 导出。后端使用 Python / FastAPI，前端使用 React，数据存储使用 PostgreSQL 和 Redis。
+**English** | [简体中文](README.zh-CN.md)
 
-## 环境要求
+A financial analysis assistant for SEC filings. Compare quarterly results, trace figures back to their sources, analyze original filings, and export tables and reports to Excel.
 
-- Git、Docker Engine 和 Docker Compose v2；使用 Linux 容器。
-- Windows 建议在 WSL2 中执行下方命令，并确保 WSL 中可运行 `docker compose`。
-- 能访问 SEC、模型 API 及构建所需的镜像/依赖源。
-- 一个支持工具调用的模型 API 凭证；开发环境使用 DeepSeek，在网页中配置即可。
+[Quick start](#quick-start) · [Usage](#usage) · [Common commands](#common-commands) · [Troubleshooting](#troubleshooting) · [Documentation](#documentation)
 
-> 仅用于可信的本地开发/演示环境。用户名通过 `X-User-ID` 传递，不是正式身份认证；后端挂载 Docker socket 以创建分析容器。当前 UI/API 端口未限定为本机监听，请勿直接暴露到公网。
+## Features
 
-## 1. 配置
+- **Quarterly comparisons** — retrieve reported financials and calculate metrics across companies and fiscal quarters.
+- **Source tracing** — inspect the period, unit, filing, and calculation behind a result cell or report citation.
+- **Filing analysis** — combine structured financial data with original SEC documents using a Docker-backed analysis agent and an editable analysis Skill.
+- **Saved results and exports** — revisit completed results in chat and download tables and narrative reports as Excel files.
+
+Built with **AgentScope 2.0.10**, **Python / FastAPI**, **React / TypeScript**, **PostgreSQL 16**, and **Redis**.
+
+> [!WARNING]
+> For trusted local development and demos only. `X-User-ID` is a placeholder identity mechanism, not secure authentication. The backend mounts the Docker socket, which grants Docker management privileges. UI and API ports are not restricted to loopback; do not expose this stack directly to the public internet.
+
+## Quick start
+
+### Prerequisites
+
+- Git, Docker Engine, and Docker Compose v2, using Linux containers.
+- On Windows, use WSL2 and ensure `docker compose` works inside WSL.
+- Network access to SEC, your model provider, and the image/package registries needed for builds.
+- A tool-calling model API credential. Development uses DeepSeek; configure your credential in the web UI.
+
+### 1. Configure
 
 ```bash
 git clone https://github.com/diodeme/FinanceAgent.git
@@ -19,102 +35,108 @@ cd FinanceAgent
 cp .env.example .env
 ```
 
-编辑 `.env`，主要配置如下：
+Edit `.env` using [`.env.example`](.env.example) as a reference:
 
-| 变量 | 说明 |
+| Variable | Configuration |
 | --- | --- |
-| `POSTGRES_USER` | 数据库用户名，可保留示例值 |
-| `POSTGRES_PASSWORD` | 数据库密码，请替换示例值；当前连接 URL 直接拼接密码，避免使用未编码的 URL 特殊字符 |
-| `POSTGRES_DB` | 数据库名，可保留示例值 |
-| `SEC_USER_AGENT` | SEC 请求身份，填写应用名及真实联系邮箱，例如 `"FinanceAgent/0.1 your-name@your-domain.com"`，请换成自己的真实地址 |
-| `CORS_ORIGINS` | 可选，允许的前端来源，多个来源用逗号分隔；本机可设为 `http://localhost:8080` |
-| `ANALYSIS_WORKSPACE_DIR` | 可选，分析临时目录，默认 `/tmp/financeagent-analysis` |
+| `POSTGRES_USER` | Database user; the example value can be kept. |
+| `POSTGRES_PASSWORD` | Replace the example password. It is interpolated into a connection URL, so avoid unencoded URL-special characters. |
+| `POSTGRES_DB` | Database name; the example value can be kept. |
+| `SEC_USER_AGENT` | Application name and a **real contact email**, e.g. `"FinanceAgent/0.1 your-name@your-domain.com"`. Replace the address with your own. |
+| `CORS_ORIGINS` | Optional, comma-separated allowed origins. For local use, set `http://localhost:8080`. |
+| `ANALYSIS_WORKSPACE_DIR` | Optional, defaults to `/tmp/financeagent-analysis`. See the path requirement below. |
 
-获取 SEC 财报原文需要有效的 `SEC_USER_AGENT`；占位邮箱不可用，合规配置也不能保证 SEC 不返回 403。
+> [!IMPORTANT]
+> Analysis requires a Linux Docker daemon and access to `/var/run/docker.sock`. The analysis workspace must be the **same absolute Linux path, pointing to the same files**, on the Docker daemon host and inside the backend container. Keep the default unless you need to change it. Verify bind-mount behavior with Docker Desktop or a remote daemon; do not use a Windows path such as `E:\...`.
 
-分析工作区路径必须是 **Docker daemon 宿主机与后端容器中相同的绝对 Linux 路径**，两边需要访问同一份文件。通常保留默认值即可；使用 Docker Desktop 或远程 daemon 时需确认路径映射，不要填写 `E:\...` 这样的 Windows 路径。
+The `DEEPSEEK_*` variables are only used by the optional [`scripts/seed.sh`](scripts/seed.sh) development helper. They are not required for browser setup and do not automatically create UI credentials. The knowledge base is disabled; no embedding configuration is needed.
 
-`.env` 中的 `DEEPSEEK_*` 仅供可选的 `scripts/seed.sh` 初始化脚本使用，正常网页使用无需填写，也不会自动导入网页凭证。知识库当前未启用，无需配置 embedding。
-
-## 2. 启动
-
-在仓库根目录执行：
+### 2. Start the services
 
 ```bash
 docker compose up -d --build
 docker compose ps
 ```
 
-首次启动会构建镜像并自动执行数据库迁移，不需要手动建表。
+The backend applies database migrations automatically before starting the API. A fresh installation needs no manual table creation.
 
-| 服务 | 地址 |
+| Service | Address |
 | --- | --- |
-| 网页 | http://localhost:8080 |
-| 后端 API | http://localhost:8000 |
+| Web UI | http://localhost:8080 |
+| Backend API | http://localhost:8000 |
 | PostgreSQL | `127.0.0.1:5432` |
 | Redis | `127.0.0.1:6379` |
 
-检查后端是否就绪：
+Check backend readiness:
 
 ```bash
 curl -H "X-User-ID: dev" http://localhost:8000/health
 ```
 
-如果启动失败，先查看日志：
+### 3. Connect a model
 
-```bash
-docker compose logs --tail=100 backend
-```
+1. Open **http://localhost:8080**.
+2. On the setup page, enter `http://localhost:8000` as the server URL and a username such as `dev`. Use the same username to return to your existing conversations.
+3. In **Credentials**, add your model API credential. For DeepSeek, use `https://api.deepseek.com` as the Base URL.
+4. Open chat, select the automatically provisioned **FinanceAgent**, create a conversation, and select the credential and an available model.
+5. Send a question. The first analysis may take several minutes to prepare its Docker workspace image.
 
-已有旧版数据库但尚未登记迁移版本时，请参考 [数据库迁移说明](docs/数据库迁移.md)，不要通过删除数据卷或强制 stamp 来解决。
+## Usage
 
-## 3. 首次使用
-
-1. 打开 http://localhost:8080。
-2. 在初始化页面填写服务地址 `http://localhost:8000`，用户名可填 `dev`。后续使用相同用户名可继续访问原有会话。
-3. 在 **Credentials / 凭证** 页面添加模型 API Key。使用 DeepSeek 时，Base URL 为 `https://api.deepseek.com`。
-4. 进入聊天页面，选择自动创建的 **FinanceAgent**，新建会话并选择可用的凭证和模型。
-5. 发送问题即可。首次运行分析时需要准备工作区镜像，可能等待数分钟。
-
-可在同一会话中依次尝试：
+Try these as successive turns in one conversation:
 
 ```text
-查一下苹果最近一个已披露财季的营收。
-再对比苹果和微软最近四个已披露财季的营收和毛利率。
-结合对应财报原文，分析这些变化的原因。
-把刚才的对比表和分析整理成 Excel。
+What was Apple's revenue in its latest reported fiscal quarter?
+Compare revenue and gross margin for Apple and Microsoft over the last four reported fiscal quarters.
+Use the corresponding original filings to analyze the reasons for these changes.
+Export the comparison table and analysis to Excel.
 ```
 
-点击结果表中的数值或报告引用可查看来源；分析报告支持展开阅读，Excel 可从导出卡片下载。
+Click a result cell or report citation to inspect its source. Open an analysis card to read the report, and use the export card to download Excel files.
 
-当前支持的公司为 AAPL、MSFT、NVDA、AMZN、GOOGL（GOOG 别名）和 META，一次最多查询 8 个财季。缺失指标会明确标注；不提供通用网页搜索。
+**Current coverage:** consolidated US-GAAP financials for AAPL, MSFT, NVDA, AMZN, GOOGL (with GOOG as an alias), and META; up to 8 fiscal quarters per request. Unsupported metrics and missing data are shown as gaps. There is no general web search or RAG pipeline.
 
-分析方法使用 `financial-analysis` Skill。需要调整时，可复制并编辑 `backend/finagent/skills/financial-analysis/SKILL.md`，保留名称，在聊天工作区的 Skills 面板移除旧版本后上传修改后的文件夹；下一次分析生效，无需重启。
+**Customize the analysis:** edit a copy of [`financial-analysis/SKILL.md`](backend/finagent/skills/financial-analysis/SKILL.md), keeping the `financial-analysis` name. In the chat workspace's **Skills** panel, remove the old Skill and upload the edited folder. The next analysis uses the updated methodology without a restart; saved reports remain unchanged.
 
-## 常用操作
+## Common commands
 
-```bash
-# 查看服务状态
-docker compose ps
+Run from the repository root:
 
-# 跟踪后端日志
-docker compose logs -f backend
+| Task | Command |
+| --- | --- |
+| Check service status | `docker compose ps` |
+| Follow backend logs | `docker compose logs -f backend` |
+| Rebuild after code changes | `docker compose up -d --build` |
+| Apply backend `.env` changes, when no analysis is running | `docker compose up -d --force-recreate backend` |
+| Stop services, keeping data volumes | `docker compose down` |
 
-# 更新代码后重新构建并启动
-docker compose up -d --build
+> [!CAUTION]
+> Database contents, conversations, and persistent files live in Docker volumes. `docker compose down -v` deletes those volumes. Keep `.env`, local data, and exported reports out of Git.
 
-# 修改 .env 后，在没有分析任务运行时重新创建后端
-docker compose up -d --force-recreate backend
+## Troubleshooting
 
-# 停止服务，保留数据卷
-docker compose down
+| Symptom | What to check |
+| --- | --- |
+| Backend does not start | Run `docker compose logs --tail=100 backend`. Check database configuration and migration errors. For an old, unversioned database, follow the [migration guide](docs/数据库迁移.md) (Chinese); do not delete its volume or force a migration stamp. |
+| UI cannot connect | Check that the server URL is reachable **from your browser**. A browser on another machine cannot use your server's `localhost`. Check `CORS_ORIGINS` as well. |
+| SEC filing download fails | Set a real contact email in `SEC_USER_AGENT`, then recreate the backend. Placeholder addresses are rejected; a compliant User-Agent does not guarantee access or prevent HTTP 403 responses. |
+| Analysis workspace fails or starts slowly | Check Docker socket access and the shared absolute workspace path. The first image build needs network access and can take several minutes. |
+
+## Project layout
+
+```text
+backend/   API, financial tools, analysis agent, migrations, and tests
+webui/     React frontend, nginx configuration, and browser acceptance tests
+db/        PostgreSQL initialization
+scripts/   Optional development setup helper
+docs/      Design, data model, migrations, and acceptance records
 ```
 
-数据库、会话和持久化文件保存在 Docker volumes 中。**不要使用 `docker compose down -v`，除非确定要删除这些数据。** `.env`、本地数据及导出的报表不提交到仓库。
+## Documentation
 
-## 更多文档
+The detailed project documents are currently in Chinese:
 
-- [设计说明](docs/设计.md)
-- [数据结构](docs/数据结构.md)
-- [数据库迁移](docs/数据库迁移.md)
-- [验收记录](docs/验收.md)
+- [Design](docs/设计.md)
+- [Data model](docs/数据结构.md)
+- [Database migrations](docs/数据库迁移.md)
+- [Acceptance records](docs/验收.md)
