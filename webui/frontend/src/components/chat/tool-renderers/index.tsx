@@ -10,6 +10,7 @@ import {
 	defaultRenderHeader,
 } from './DefaultRenderer';
 import { EditRenderer } from './EditRenderer';
+import { FinanceRenderer } from './FinanceRenderer';
 import { GlobRenderer } from './GlobRenderer';
 import { GrepRenderer } from './GrepRenderer';
 import { ReadRenderer } from './ReadRenderer';
@@ -25,6 +26,13 @@ const renderers: Record<string, ToolRenderer> = {
 	Glob: GlobRenderer,
 	Grep: GrepRenderer,
 	TaskCreate: TaskCreateRenderer,
+	lookup_company: FinanceRenderer,
+	data_fetch: FinanceRenderer,
+	fetch_filings: FinanceRenderer,
+	calculate_metrics: FinanceRenderer,
+	data_analyze: FinanceRenderer,
+	find_results: FinanceRenderer,
+	export_report: FinanceRenderer,
 };
 
 function getRenderer(toolName: string): ToolRenderer {

@@ -11,6 +11,9 @@ import React, { useEffect, useMemo, useState } from 'react';
 
 import { Button } from '../ui/button';
 import { DiffStats } from './tool-renderers/_shared';
+import { RecoveredFinanceResults } from './finance/FinanceResults';
+import { getUserId } from '@/api/client';
+import { FinancialResultsProvider } from '@/context/FinancialResultsContext';
 import type { GitStatus } from '@/api';
 import { ASMessageBubble } from '@/components/chat/ASMessageBubble.tsx';
 import { ConfirmCard } from '@/components/chat/ConfirmCard.tsx';
@@ -177,14 +180,16 @@ const ChatContentComponent: React.FC<ChatContentProps> = ({
 				className,
 			)}
 		>
+			<FinancialResultsProvider key={`${getUserId()}:${sessionId ?? ''}`} sessionId={sessionId} messages={loading ? [] : msgs}>
 			{loading ? (
 				<div className="flex flex-1 w-full items-center justify-center">
 					{showSpinner ? <Spinner className="size-5 text-muted-foreground" /> : null}
 				</div>
 			) : isEmpty ? (
-				<span className="text-center text-4xl font-light tracking-[-0.035em] text-foreground mb-2">
-					{t('chat.greeting')}
-				</span>
+				<div className="w-full min-h-0 overflow-y-auto text-center">
+					<span className="text-4xl font-light tracking-[-0.035em] text-foreground mb-2">{t('chat.greeting')}</span>
+					<div className="text-left"><RecoveredFinanceResults /></div>
+				</div>
 			) : (
 				<MessageScrollerProvider autoScroll={true} defaultScrollPosition={'end'}>
 					<MessageScroller>
@@ -258,12 +263,14 @@ const ChatContentComponent: React.FC<ChatContentProps> = ({
 											</AlertAction>
 										</Alert>
 									)}
+								<RecoveredFinanceResults />
 							</MessageScrollerContent>
 						</MessageScrollerViewport>
 						<MessageScrollerButton className="rounded-full" />
 					</MessageScroller>
 				</MessageScrollerProvider>
 			)}
+			</FinancialResultsProvider>
 
 			{loading ? null : (
 				<div className="relative min-w-full max-w-full w-full">

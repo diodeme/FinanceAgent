@@ -24,6 +24,7 @@ import {
 import * as mime from 'mime-types';
 import { memo, useEffect, useRef, useState } from 'react';
 
+import { FinanceBubbleResults } from './finance/FinanceResults';
 import { renderToolCall } from './tool-renderers';
 import { countDiffStats, DiffStats, getResultDiff } from './tool-renderers/_shared';
 import type { TFunction, ToolCallWithResult } from './tool-renderers/types';
@@ -48,6 +49,7 @@ import {
 import { Message, MessageFooter, MessageContent } from '@/components/ui/message';
 import { useAudioBlock, useReplayController } from '@/context/AudioContext';
 import { useTranslation } from '@/i18n/useI18n';
+import { FINANCE_TOOLS } from '@/lib/finance';
 import { cn } from '@/lib/utils';
 import { copyToClipboard, formatNumber, formatTime } from '@/utils/common';
 import 'streamdown/styles.css';
@@ -440,7 +442,12 @@ function ASMessageBubbleComponent({ message }: MessageBubbleProps) {
 		(b): b is DataBlock => b.type === 'data' && b.source.media_type.split('/')[0] === 'audio',
 	);
 
-	const blocks = groupToolCalls(message.content);
+	const groupedBlocks = groupToolCalls(message.content);
+	const financeCalls = groupedBlocks.flatMap((block) => block.type === 'tool_call_group'
+		? block.calls.filter((pair) => FINANCE_TOOLS.has(pair.call.name)) : []);
+	const blocks = groupedBlocks.map((block) => block.type === 'tool_call_group'
+		? { ...block, calls: block.calls.filter((pair) => !FINANCE_TOOLS.has(pair.call.name)) } : block)
+		.filter((block) => block.type !== 'tool_call_group' || block.calls.length > 0);
 
 	// What the copy button hands over — the prose of the message, without
 	// the tool calls and attachments around it.
@@ -457,6 +464,7 @@ function ASMessageBubbleComponent({ message }: MessageBubbleProps) {
 	return (
 		<Message align={isUser ? 'end' : 'start'} data-role={message.role}>
 			<MessageContent>
+				<FinanceBubbleResults calls={financeCalls} replyFinished={!isRunning} replyId={message.id} />
 				{blocks
 					.filter((block) => block.type !== 'data')
 					.map((block, index) => (

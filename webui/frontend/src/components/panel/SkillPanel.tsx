@@ -1,10 +1,11 @@
 import { FileX, PlusCircle, Search, SearchX, Trash } from 'lucide-react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 import type { Skill } from '@/api';
 import type { UploadOptions } from '@/api/workspace';
 import { AddSkillDialog } from '@/components/dialog/AddSkillDialog.tsx';
 import { DeleteDialog } from '@/components/dialog/DeleteDialog.tsx';
+import { ResourceDetailDrawer } from '@/components/drawer/ResourceDetailDrawer.tsx';
 import { PanelEmpty } from '@/components/panel/PanelEmpty';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar.tsx';
 import { Button } from '@/components/ui/button';
@@ -49,7 +50,7 @@ interface SkillPanelProps {
 /**
  * Pure content body for the Skill dock panel: a search box, the list
  * of equipped skills, and an "Add Skill" action. Holds only local UI
- * state (search text, delete confirmation target); all data arrives
+ * state (search text, selected detail, delete confirmation target); all data arrives
  * via props so it owns no data fetching.
  *
  * Renders without its own header/border — the surrounding `Panel`
@@ -73,6 +74,13 @@ export function SkillPanel({
 	const [search, setSearch] = useState('');
 	const [deleteOpen, setDeleteOpen] = useState(false);
 	const [deleteTarget, setDeleteTarget] = useState<string | null>(null);
+	const [selectedName, setSelectedName] = useState<string | null>(null);
+	const opener = useRef<HTMLButtonElement | null>(null);
+	const selectedSkill = skills.find((skill) => skill.name === selectedName);
+	const closeDetails = () => {
+		setSelectedName(null);
+		requestAnimationFrame(() => opener.current?.focus());
+	};
 	// The workspace stores only the skill itself, so the icon and author
 	// are looked up in the library, matched on the shared name.
 	const { skills: library } = useSkills();
@@ -115,7 +123,17 @@ export function SkillPanel({
 					{filtered.map((skill) => {
 						const installed = byName.get(skill.name);
 						return (
-							<Item key={skill.name} variant="outline" className="group/skill">
+							<Item key={skill.name} variant="outline" className="group/skill relative hover:bg-accent/50">
+								<button
+									type="button"
+									aria-label={skill.name}
+									data-workspace-skill-open={skill.name}
+									className="absolute inset-0 z-10 cursor-pointer rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+									onClick={(event) => {
+										opener.current = event.currentTarget;
+										setSelectedName(skill.name);
+									}}
+								/>
 								<ItemMedia>
 									<Avatar className="rounded-md">
 										<AvatarImage
@@ -141,7 +159,7 @@ export function SkillPanel({
 										{skill.description}
 									</ItemDescription>
 								</ItemContent>
-								<ItemActions>
+								<ItemActions className="relative z-20">
 									{/* Only on hover: deleting is rare, and a
 									    button on every row competes with the
 									    content for attention. */}
@@ -174,6 +192,12 @@ export function SkillPanel({
 					{t('panel.skill.add')}
 				</Button>
 			</AddSkillDialog>
+
+			<ResourceDetailDrawer
+				skill={selectedSkill ? { ...selectedSkill, tags: [] } : null}
+				onOpenChange={(open) => { if (!open) closeDetails(); }}
+				action={<Button variant="outline" onClick={closeDetails}>{t('common.close')}</Button>}
+			/>
 
 			<DeleteDialog
 				open={deleteOpen}

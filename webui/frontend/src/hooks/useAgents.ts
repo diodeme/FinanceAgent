@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 
 import { agentApi } from '../api';
+import { financeApi } from '@/api/finance';
 import type { AgentView, CreateAgentRequest, UpdateAgentRequest } from '../api';
 
 /**
@@ -16,6 +17,7 @@ export function useAgents() {
 		setLoading(true);
 		setError(null);
 		try {
+			await financeApi.bootstrap();
 			const res = await agentApi.list();
 			setAgents(res.agents);
 		} catch (e) {

@@ -1,5 +1,13 @@
 # Locked per docs/数据结构.md decision: pin exact version, 2.0 moves fast.
 agentscope[service,storage-sql,storage-redis]==2.0.10
+# Native DockerWorkspaceManager / DockerBackend (not installed by service extra)
+aiodocker==0.24.0
 # asyncpg: postgres driver for AsyncSQLAlchemyStorage (agent extras ship no driver)
 asyncpg
+# Application-owned fin migrations (separate from AgentScope's revisions)
+alembic==1.20.0
+SQLAlchemy==2.1.4
 uvicorn[standard]
+# Public SEC HTTP access and deterministic spreadsheet rendering
+httpx==0.28.1
+openpyxl==3.1.5

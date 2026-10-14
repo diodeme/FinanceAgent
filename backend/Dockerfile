@@ -12,5 +12,5 @@ COPY finagent ./finagent
 ENV PYTHONPATH=/app
 
 EXPOSE 8000
-# fin schema (idempotent) before serving; retry loop covers pg restarts
+# Upgrade fin to Alembic head before serving; a failed migration stops startup.
 CMD ["sh", "-c", "python -m finagent.migrate && uvicorn finagent.app:app --host 0.0.0.0 --port 8000"]

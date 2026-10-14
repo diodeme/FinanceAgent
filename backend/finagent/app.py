@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
-"""FinanceAgent backend: AgentScope Agent Service wiring.
+"""Native AgentScope service with owner-scoped financial tools.
 
-Thin adapter layer only. All domain logic (EDGAR ingestion, registries,
-fact table, report tooling) lives in plain Python modules and is attached
-later via tools / middlewares. See docs/设计.md and docs/数据结构.md.
+Company lookup, SEC collection, calculations, narrative analysis and Excel
+exports are attached through finance_factory. Framework sessions, credentials,
+model selection and streaming remain managed by AgentScope.
 """
 
 import logging
 import os
+from contextlib import asynccontextmanager
 
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware import Middleware
@@ -18,7 +19,7 @@ from agentscope.app.storage import AsyncSQLAlchemyStorage
 from agentscope.app.workspace_manager import LocalWorkspaceManager
 
 from .routes import fin_router
-from .runsteps import runsteps_factory
+from .finance_middleware import finance_factory
 
 logging.basicConfig(level=logging.INFO)
 
@@ -63,11 +64,15 @@ app = create_app(
     #        blob_store=LocalFilesystemBlobStore(...),   # doc uploads
     #   4. re-enable the /knowledge nav item in
     #      webui/frontend/src/components/layout/AppSidebar.tsx
+    #      and flip KNOWLEDGE_BASE_ENABLED in
+    #      webui/frontend/src/lib/features.ts (the chat viewport fetches
+    #      the KB list on mount; the flag keeps that call — and its 503
+    #      toast — off while no manager is wired)
     # KB embedding models are resolved per-KB from stored credentials
     # (EmbeddingModelConfig: type + credential_id + model + dimensions).
     # fin.run_steps logging on every LLM/tool call (framework plumbing;
     # run_id stays NULL until the orchestrator business logic sets it)
-    extra_agent_middlewares=runsteps_factory,
+    extra_agent_middlewares=finance_factory,
     extra_middlewares=[
         Middleware(
             CORSMiddleware,
@@ -78,6 +83,22 @@ app = create_app(
     ],
     title="FinanceAgent",
 )
+
+# Compose with (rather than replace) the framework-owned service lifecycle.
+_native_lifespan = app.router.lifespan_context
+
+
+@asynccontextmanager
+async def _finance_lifespan(application):
+    from .analysis_workspace import analysis_workspace_lifespan
+    from .analysis_skills import analysis_skills_lifespan
+
+    async with analysis_workspace_lifespan(), _native_lifespan(application):
+        async with analysis_skills_lifespan(application.state.workspace_service):
+            yield
+
+
+app.router.lifespan_context = _finance_lifespan
 
 # Our own routes on the same app — one origin, no extra service needed.
 app.include_router(fin_router)

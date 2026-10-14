@@ -7,6 +7,7 @@ import type {
 	SearchKnowledgeBaseRequest,
 	UpdateKnowledgeBaseRequest,
 } from '@/api';
+import { KNOWLEDGE_BASE_ENABLED } from '@/lib/features';
 
 /**
  * Knowledge base CRUD + search wrapper.
@@ -14,6 +15,10 @@ import type {
  * Loads the caller's knowledge bases from `/knowledge_bases/` on mount
  * and refetches after every mutation, so the UI stays consistent with
  * the server-side state.
+ *
+ * While the backend runs without a `knowledge_base_manager` the list
+ * stays empty and no request is made — otherwise every mounted caller
+ * (the chat viewport included) would toast a 503 on load.
  */
 export function useKnowledgeBases() {
 	const [knowledgeBases, setKnowledgeBases] = useState<KnowledgeBaseView[]>([]);
@@ -22,6 +27,7 @@ export function useKnowledgeBases() {
 	const [error, setError] = useState<Error | null>(null);
 
 	const refetch = useCallback(async () => {
+		if (!KNOWLEDGE_BASE_ENABLED) return;
 		setLoading(true);
 		setError(null);
 		try {

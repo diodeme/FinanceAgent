@@ -35,9 +35,16 @@ services:
       REDIS_HOST: redis
       REDIS_PORT: "6379"
       WORKSPACE_DIR: /data/workspaces
+      FIN_DATA_DIR: /data/workspaces/.finance
+      ANALYSIS_WORKSPACE_DIR: ${ANALYSIS_WORKSPACE_DIR:-/tmp/financeagent-analysis}
+      SEC_USER_AGENT: ${SEC_USER_AGENT:-FinanceAgent/0.1}
       CORS_ORIGINS: ${CORS_ORIGINS:-*}
     volumes:
       - workspaces:/data/workspaces
+      # Native manager creates sibling containers; trusted local development only.
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Docker daemon and backend must resolve the identical absolute host path.
+      - ${ANALYSIS_WORKSPACE_DIR:-/tmp/financeagent-analysis}:${ANALYSIS_WORKSPACE_DIR:-/tmp/financeagent-analysis}
     ports:
       - "8000:8000"
     depends_on:
