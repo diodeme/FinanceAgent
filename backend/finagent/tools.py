@@ -222,8 +222,13 @@ class FinanceTools:
                 self.user_id, context.run_id, "narrative", title,
                 input_ids=list(dict.fromkeys(request.data_ids + request.document_ids)), **result,
             )
-            return FinanceEnvelope(message="Saved complete, citation-validated analysis.", artifacts=[artifact],
-                                   warnings=result["warnings"])
+            return FinanceEnvelope(
+                message="Saved analysis; citation links validated (not semantic verification). "
+                        "The report document card is already the deliverable. Briefly confirm its title/location only; "
+                        "do not rewrite its data, repeat the report, or add numbers, trends or analysis. "
+                        "Update the report only if the user explicitly requests a revision.",
+                artifacts=[artifact], warnings=result["warnings"],
+            )
         if name == "export_report":
             # The report service repeats ownership/type checks when resolving IDs.
             await self._owned_inputs(request.data_ids + request.analysis_ids)

@@ -139,6 +139,8 @@ class AnalystTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(self.workspace.files["/workspace/inputs/document-0.html"], RAW)
         self.reader.assert_awaited_once_with("owner", "doc/owned")
         self.assertEqual(self.workspace.files["/workspace/inputs/numeric-evidence.json"], b"[]")
+        manifest = json.loads(self.workspace.files["/workspace/inputs/manifest.json"])
+        self.assertEqual(manifest["artifacts"][0]["citation"], f"[Original filing]({self.link})")
         self.assertEqual(len(model.calls), 5)
         self.assertEqual(model.calls[-1]["tools"], [])
         self.assertEqual(model.calls[-1]["tool_choice"].mode, "none")
@@ -238,6 +240,50 @@ class AnalystTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(data.model_dump(mode="json"), before)
         self.assertEqual(self.workspace.files["/workspace/inputs/document-1.html"], RAW)
         self.assertTrue(all(all(key in item for key in ("value", "unit", "period_end", "citation")) for item in expected))
+
+    async def test_complete_research_over_concision_target_is_passed_losslessly(self):
+        from finagent.analysis import MAX_RESEARCH_CHARS
+        for length in (8001, MAX_RESEARCH_CHARS):
+            with self.subTest(length=length):
+                prefix = "Original excerpt and supported findings. "
+                findings = prefix + "x" * (length - len(prefix))
+                model = ScriptModel([response(findings), response(f"Report [filing]({self.link}).")])
+                await self.analyze(model)
+                payload = json.loads(model.calls[-1]["messages"][1].content[0].text)
+                self.assertEqual(payload["research_findings"], findings)
+                self.assertEqual(len(model.calls), 2)
+
+    async def test_empty_and_oversized_completed_research_have_distinct_errors(self):
+        from finagent.analysis import MAX_RESEARCH_CHARS
+        for findings, code in ((" \n ", "empty_research"), ("x" * (MAX_RESEARCH_CHARS + 1), "research_too_long")):
+            with self.subTest(code=code):
+                model = ScriptModel([response(findings)])
+                with self.assertRaises(FinanceError) as error:
+                    await self.analyze(model)
+                self.assertEqual(error.exception.code, code)
+                self.assertEqual(len(model.calls), 1)
+        self.body.assert_not_awaited()
+
+    async def test_prompt_contracts_preserve_evidence_and_handoff_rules(self):
+        # Presence checks protect instructions, not proof of model compliance.
+        from finagent.prompts import ANALYSIS_PROMPT, ANALYST_PROMPT, FINANCE_PROMPT
+        for prompt in (ANALYST_PROMPT, ANALYSIS_PROMPT):
+            compact = " ".join(prompt.split())
+            for rule in ("[label](target)", "citation protocol", "adjacent-period",
+                         "monotonic trend", "ending month", "excerpt", "uncertainty"):
+                self.assertIn(rule, compact)
+        self.assertIn("start_date/end_date", FINANCE_PROMPT)
+        self.assertIn("separate calls", FINANCE_PROMPT)
+        self.assertIn("quarterly rows are not verified annual aggregates", FINANCE_PROMPT)
+        self.assertIn("title/location only", FINANCE_PROMPT)
+        self.assertIn("do not republish it", FINANCE_PROMPT)
+        for rule in ("opposite directions", "adjacent-period", "accounting scope", "original-text excerpts",
+                     "not completed research", "complete the report with data_analyze"):
+            self.assertIn(rule, FINANCE_PROMPT)
+        self.assertIn("renderer already receives every authorized row", ANALYST_PROMPT)
+        skill = (Path(__file__).parents[1] / "finagent/skills/financial-analysis/SKILL.md").read_text(encoding="utf-8")
+        for rule in ("相邻期", "首尾", "真实日期", "短摘录", "不确定性", "[label](target)"):
+            self.assertIn(rule, skill)
 
     async def test_each_analysis_has_fresh_native_state(self):
         model = ScriptModel([response(f"First finding [f]({self.link})."), response(f"First report [f]({self.link})."),

@@ -1,0 +1,485 @@
+{
+  "extraction": "Final user-visible table manually reviewed; exact excerpts retained, no golden values used for extraction. Supporting saved reports have the same required table figures where present.",
+  "cells": [
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-12-30",
+      "metric": "operating_cash_flow",
+      "value": 39895,
+      "evidence": "final-response.md:15: | Q1 | 2023-12-30 | [39,895](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_8cc6c996fe2443b58789daf9) | [2,392](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_85064f6fd1365269dad8c6cc) | [37,503](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_8f7bb304d3c6a777cbd9db49) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-12-30",
+      "metric": "capital_expenditures",
+      "value": 2392,
+      "evidence": "final-response.md:15: | Q1 | 2023-12-30 | [39,895](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_8cc6c996fe2443b58789daf9) | [2,392](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_85064f6fd1365269dad8c6cc) | [37,503](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_8f7bb304d3c6a777cbd9db49) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-12-30",
+      "metric": "free_cash_flow",
+      "value": 37503,
+      "evidence": "final-response.md:15: | Q1 | 2023-12-30 | [39,895](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_8cc6c996fe2443b58789daf9) | [2,392](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_85064f6fd1365269dad8c6cc) | [37,503](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_8f7bb304d3c6a777cbd9db49) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "operating_cash_flow",
+      "value": 22690,
+      "evidence": "final-response.md:16: | Q2 | 2024-03-30 | [22,690](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_adc4a315360b716666bb0ff5) | [1,996](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_4636c1fbd3d100b8f6c4842c) | [20,694](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_70e6c5070de341313de2d106) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "capital_expenditures",
+      "value": 1996,
+      "evidence": "final-response.md:16: | Q2 | 2024-03-30 | [22,690](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_adc4a315360b716666bb0ff5) | [1,996](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_4636c1fbd3d100b8f6c4842c) | [20,694](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_70e6c5070de341313de2d106) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "free_cash_flow",
+      "value": 20694,
+      "evidence": "final-response.md:16: | Q2 | 2024-03-30 | [22,690](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_adc4a315360b716666bb0ff5) | [1,996](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_4636c1fbd3d100b8f6c4842c) | [20,694](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_70e6c5070de341313de2d106) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "operating_cash_flow",
+      "value": 28858,
+      "evidence": "final-response.md:17: | Q3 | 2024-06-29 | [28,858](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_9ce87b1bf6dc5639df1e92f5) | [2,151](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_f7dd45e2ea30fdc29c9c6f81) | [26,707](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_fe68831040ff44cb1738e2e5) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "capital_expenditures",
+      "value": 2151,
+      "evidence": "final-response.md:17: | Q3 | 2024-06-29 | [28,858](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_9ce87b1bf6dc5639df1e92f5) | [2,151](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_f7dd45e2ea30fdc29c9c6f81) | [26,707](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_fe68831040ff44cb1738e2e5) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "free_cash_flow",
+      "value": 26707,
+      "evidence": "final-response.md:17: | Q3 | 2024-06-29 | [28,858](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_9ce87b1bf6dc5639df1e92f5) | [2,151](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_f7dd45e2ea30fdc29c9c6f81) | [26,707](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_fe68831040ff44cb1738e2e5) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "operating_cash_flow",
+      "value": 26811,
+      "evidence": "final-response.md:18: | Q4 | 2024-09-28 | [26,811](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_6c238584595fd7db89ad2ac2) | [2,908](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_893f1c6e784edf92344d094f) | [23,903](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_922eff277eeb395e70d23b4b) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "capital_expenditures",
+      "value": 2908,
+      "evidence": "final-response.md:18: | Q4 | 2024-09-28 | [26,811](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_6c238584595fd7db89ad2ac2) | [2,908](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_893f1c6e784edf92344d094f) | [23,903](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_922eff277eeb395e70d23b4b) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "free_cash_flow",
+      "value": 23903,
+      "evidence": "final-response.md:18: | Q4 | 2024-09-28 | [26,811](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_6c238584595fd7db89ad2ac2) | [2,908](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_893f1c6e784edf92344d094f) | [23,903](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_922eff277eeb395e70d23b4b) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "operating_cash_flow",
+      "value": 29935,
+      "evidence": "final-response.md:24: | Q1 | 2024-12-28 | [29,935](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_5e43b799270879854c6dcece) | [2,940](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_37371cb3cf2142508f500dc2) | [26,995](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_64fa9176e6766bd843ab102a) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "capital_expenditures",
+      "value": 2940,
+      "evidence": "final-response.md:24: | Q1 | 2024-12-28 | [29,935](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_5e43b799270879854c6dcece) | [2,940](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_37371cb3cf2142508f500dc2) | [26,995](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_64fa9176e6766bd843ab102a) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "free_cash_flow",
+      "value": 26995,
+      "evidence": "final-response.md:24: | Q1 | 2024-12-28 | [29,935](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_5e43b799270879854c6dcece) | [2,940](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_37371cb3cf2142508f500dc2) | [26,995](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_64fa9176e6766bd843ab102a) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2025-03-29",
+      "metric": "operating_cash_flow",
+      "value": 23952,
+      "evidence": "final-response.md:25: | Q2 | 2025-03-29 | [23,952](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_2797adde447dbf0ab6a58108) | [3,071](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_a0c3f433f758fc85c61b5a4f) | [20,881](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_17e968b8dd98f73d0d690d29) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2025-03-29",
+      "metric": "capital_expenditures",
+      "value": 3071,
+      "evidence": "final-response.md:25: | Q2 | 2025-03-29 | [23,952](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_2797adde447dbf0ab6a58108) | [3,071](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_a0c3f433f758fc85c61b5a4f) | [20,881](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_17e968b8dd98f73d0d690d29) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2025-03-29",
+      "metric": "free_cash_flow",
+      "value": 20881,
+      "evidence": "final-response.md:25: | Q2 | 2025-03-29 | [23,952](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_2797adde447dbf0ab6a58108) | [3,071](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_a0c3f433f758fc85c61b5a4f) | [20,881](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_17e968b8dd98f73d0d690d29) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-06-28",
+      "metric": "operating_cash_flow",
+      "value": 27867,
+      "evidence": "final-response.md:26: | Q3 | 2025-06-28 | [27,867](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_9750d3588b52a746ce2e907a) | [3,462](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_565967067cdd7e1d793ec7e9) | [24,405](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_b31d028274ec97b5f54ecc18) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-06-28",
+      "metric": "capital_expenditures",
+      "value": 3462,
+      "evidence": "final-response.md:26: | Q3 | 2025-06-28 | [27,867](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_9750d3588b52a746ce2e907a) | [3,462](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_565967067cdd7e1d793ec7e9) | [24,405](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_b31d028274ec97b5f54ecc18) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-06-28",
+      "metric": "free_cash_flow",
+      "value": 24405,
+      "evidence": "final-response.md:26: | Q3 | 2025-06-28 | [27,867](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_9750d3588b52a746ce2e907a) | [3,462](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_565967067cdd7e1d793ec7e9) | [24,405](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_b31d028274ec97b5f54ecc18) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-09-27",
+      "metric": "operating_cash_flow",
+      "value": 29728,
+      "evidence": "final-response.md:27: | Q4 | 2025-09-27 | [29,728](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_d4bfe2079ad9e7f5d0d2afcf) | [3,242](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_7cc53f4f5218787b6bc4c888) | [26,486](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_91f16cadabe877f5b071a740) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-09-27",
+      "metric": "capital_expenditures",
+      "value": 3242,
+      "evidence": "final-response.md:27: | Q4 | 2025-09-27 | [29,728](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_d4bfe2079ad9e7f5d0d2afcf) | [3,242](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_7cc53f4f5218787b6bc4c888) | [26,486](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_91f16cadabe877f5b071a740) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-09-27",
+      "metric": "free_cash_flow",
+      "value": 26486,
+      "evidence": "final-response.md:27: | Q4 | 2025-09-27 | [29,728](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_d4bfe2079ad9e7f5d0d2afcf) | [3,242](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_7cc53f4f5218787b6bc4c888) | [26,486](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_91f16cadabe877f5b071a740) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-09-30",
+      "metric": "operating_cash_flow",
+      "value": 30583,
+      "evidence": "final-response.md:35: | Q1 | 2023-09-30 | [30,583](#finance/table_685f65ec794e418a96ab67ad99f464df/c_2a72ecce175b5bad52bc4e45) | [9,917](#finance/table_685f65ec794e418a96ab67ad99f464df/c_84ca6ea6dcbf26e29a5b9a9e) | [20,666](#finance/table_685f65ec794e418a96ab67ad99f464df/c_9ec4fa5fa6c5b0d722b983ac) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-09-30",
+      "metric": "capital_expenditures",
+      "value": 9917,
+      "evidence": "final-response.md:35: | Q1 | 2023-09-30 | [30,583](#finance/table_685f65ec794e418a96ab67ad99f464df/c_2a72ecce175b5bad52bc4e45) | [9,917](#finance/table_685f65ec794e418a96ab67ad99f464df/c_84ca6ea6dcbf26e29a5b9a9e) | [20,666](#finance/table_685f65ec794e418a96ab67ad99f464df/c_9ec4fa5fa6c5b0d722b983ac) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-09-30",
+      "metric": "free_cash_flow",
+      "value": 20666,
+      "evidence": "final-response.md:35: | Q1 | 2023-09-30 | [30,583](#finance/table_685f65ec794e418a96ab67ad99f464df/c_2a72ecce175b5bad52bc4e45) | [9,917](#finance/table_685f65ec794e418a96ab67ad99f464df/c_84ca6ea6dcbf26e29a5b9a9e) | [20,666](#finance/table_685f65ec794e418a96ab67ad99f464df/c_9ec4fa5fa6c5b0d722b983ac) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2023-12-31",
+      "metric": "operating_cash_flow",
+      "value": 18853,
+      "evidence": "final-response.md:36: | Q2 | 2023-12-31 | [18,853](#finance/table_685f65ec794e418a96ab67ad99f464df/c_281f59015a3c2be73d07e532) | [9,735](#finance/table_685f65ec794e418a96ab67ad99f464df/c_3a6dd74bc1330b442cee347f) | [9,118](#finance/table_685f65ec794e418a96ab67ad99f464df/c_98f42746a6841027e40ab739) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2023-12-31",
+      "metric": "capital_expenditures",
+      "value": 9735,
+      "evidence": "final-response.md:36: | Q2 | 2023-12-31 | [18,853](#finance/table_685f65ec794e418a96ab67ad99f464df/c_281f59015a3c2be73d07e532) | [9,735](#finance/table_685f65ec794e418a96ab67ad99f464df/c_3a6dd74bc1330b442cee347f) | [9,118](#finance/table_685f65ec794e418a96ab67ad99f464df/c_98f42746a6841027e40ab739) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2023-12-31",
+      "metric": "free_cash_flow",
+      "value": 9118,
+      "evidence": "final-response.md:36: | Q2 | 2023-12-31 | [18,853](#finance/table_685f65ec794e418a96ab67ad99f464df/c_281f59015a3c2be73d07e532) | [9,735](#finance/table_685f65ec794e418a96ab67ad99f464df/c_3a6dd74bc1330b442cee347f) | [9,118](#finance/table_685f65ec794e418a96ab67ad99f464df/c_98f42746a6841027e40ab739) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "operating_cash_flow",
+      "value": 31917,
+      "evidence": "final-response.md:37: | Q3 | 2024-03-31 | [31,917](#finance/table_685f65ec794e418a96ab67ad99f464df/c_75ccea1b1c94c84ff7f6b3fd) | [10,952](#finance/table_685f65ec794e418a96ab67ad99f464df/c_c72d8ac5686650f4abfc1402) | [20,965](#finance/table_685f65ec794e418a96ab67ad99f464df/c_f481665631a36aac4a000fcc) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "capital_expenditures",
+      "value": 10952,
+      "evidence": "final-response.md:37: | Q3 | 2024-03-31 | [31,917](#finance/table_685f65ec794e418a96ab67ad99f464df/c_75ccea1b1c94c84ff7f6b3fd) | [10,952](#finance/table_685f65ec794e418a96ab67ad99f464df/c_c72d8ac5686650f4abfc1402) | [20,965](#finance/table_685f65ec794e418a96ab67ad99f464df/c_f481665631a36aac4a000fcc) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "free_cash_flow",
+      "value": 20965,
+      "evidence": "final-response.md:37: | Q3 | 2024-03-31 | [31,917](#finance/table_685f65ec794e418a96ab67ad99f464df/c_75ccea1b1c94c84ff7f6b3fd) | [10,952](#finance/table_685f65ec794e418a96ab67ad99f464df/c_c72d8ac5686650f4abfc1402) | [20,965](#finance/table_685f65ec794e418a96ab67ad99f464df/c_f481665631a36aac4a000fcc) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "operating_cash_flow",
+      "value": 37195,
+      "evidence": "final-response.md:38: | Q4 | 2024-06-30 | [37,195](#finance/table_685f65ec794e418a96ab67ad99f464df/c_e88c69d79cf2757cb18f1828) | [13,873](#finance/table_685f65ec794e418a96ab67ad99f464df/c_248f71d2e397773fd34217c9) | [23,322](#finance/table_685f65ec794e418a96ab67ad99f464df/c_d37236134a2317a2f3718e87) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "capital_expenditures",
+      "value": 13873,
+      "evidence": "final-response.md:38: | Q4 | 2024-06-30 | [37,195](#finance/table_685f65ec794e418a96ab67ad99f464df/c_e88c69d79cf2757cb18f1828) | [13,873](#finance/table_685f65ec794e418a96ab67ad99f464df/c_248f71d2e397773fd34217c9) | [23,322](#finance/table_685f65ec794e418a96ab67ad99f464df/c_d37236134a2317a2f3718e87) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "free_cash_flow",
+      "value": 23322,
+      "evidence": "final-response.md:38: | Q4 | 2024-06-30 | [37,195](#finance/table_685f65ec794e418a96ab67ad99f464df/c_e88c69d79cf2757cb18f1828) | [13,873](#finance/table_685f65ec794e418a96ab67ad99f464df/c_248f71d2e397773fd34217c9) | [23,322](#finance/table_685f65ec794e418a96ab67ad99f464df/c_d37236134a2317a2f3718e87) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "operating_cash_flow",
+      "value": 34180,
+      "evidence": "final-response.md:44: | Q1 | 2024-09-30 | [34,180](#finance/table_685f65ec794e418a96ab67ad99f464df/c_4a5a816eee5d6451de2f74b6) | [14,923](#finance/table_685f65ec794e418a96ab67ad99f464df/c_b451b9cd47f02d4b5bd9830c) | [19,257](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5ec8e3c3d691a0ebccb95ad7) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "capital_expenditures",
+      "value": 14923,
+      "evidence": "final-response.md:44: | Q1 | 2024-09-30 | [34,180](#finance/table_685f65ec794e418a96ab67ad99f464df/c_4a5a816eee5d6451de2f74b6) | [14,923](#finance/table_685f65ec794e418a96ab67ad99f464df/c_b451b9cd47f02d4b5bd9830c) | [19,257](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5ec8e3c3d691a0ebccb95ad7) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "free_cash_flow",
+      "value": 19257,
+      "evidence": "final-response.md:44: | Q1 | 2024-09-30 | [34,180](#finance/table_685f65ec794e418a96ab67ad99f464df/c_4a5a816eee5d6451de2f74b6) | [14,923](#finance/table_685f65ec794e418a96ab67ad99f464df/c_b451b9cd47f02d4b5bd9830c) | [19,257](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5ec8e3c3d691a0ebccb95ad7) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "operating_cash_flow",
+      "value": 22291,
+      "evidence": "final-response.md:45: | Q2 | 2024-12-31 | [22,291](#finance/table_685f65ec794e418a96ab67ad99f464df/c_b225b2aeaf4d9b0441b87a05) | [15,804](#finance/table_685f65ec794e418a96ab67ad99f464df/c_921f32b10b455a0cf4fb9fc1) | [6,487](#finance/table_685f65ec794e418a96ab67ad99f464df/c_51f6cc856791dcf6d4152f09) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "capital_expenditures",
+      "value": 15804,
+      "evidence": "final-response.md:45: | Q2 | 2024-12-31 | [22,291](#finance/table_685f65ec794e418a96ab67ad99f464df/c_b225b2aeaf4d9b0441b87a05) | [15,804](#finance/table_685f65ec794e418a96ab67ad99f464df/c_921f32b10b455a0cf4fb9fc1) | [6,487](#finance/table_685f65ec794e418a96ab67ad99f464df/c_51f6cc856791dcf6d4152f09) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "free_cash_flow",
+      "value": 6487,
+      "evidence": "final-response.md:45: | Q2 | 2024-12-31 | [22,291](#finance/table_685f65ec794e418a96ab67ad99f464df/c_b225b2aeaf4d9b0441b87a05) | [15,804](#finance/table_685f65ec794e418a96ab67ad99f464df/c_921f32b10b455a0cf4fb9fc1) | [6,487](#finance/table_685f65ec794e418a96ab67ad99f464df/c_51f6cc856791dcf6d4152f09) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-03-31",
+      "metric": "operating_cash_flow",
+      "value": 37044,
+      "evidence": "final-response.md:46: | Q3 | 2025-03-31 | [37,044](#finance/table_685f65ec794e418a96ab67ad99f464df/c_cacbb053aea6155991e5feaa) | [16,745](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5b11acb2eb3596b6c4a26dae) | [20,299](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5082f2585d22d3f55a00b027) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-03-31",
+      "metric": "capital_expenditures",
+      "value": 16745,
+      "evidence": "final-response.md:46: | Q3 | 2025-03-31 | [37,044](#finance/table_685f65ec794e418a96ab67ad99f464df/c_cacbb053aea6155991e5feaa) | [16,745](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5b11acb2eb3596b6c4a26dae) | [20,299](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5082f2585d22d3f55a00b027) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-03-31",
+      "metric": "free_cash_flow",
+      "value": 20299,
+      "evidence": "final-response.md:46: | Q3 | 2025-03-31 | [37,044](#finance/table_685f65ec794e418a96ab67ad99f464df/c_cacbb053aea6155991e5feaa) | [16,745](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5b11acb2eb3596b6c4a26dae) | [20,299](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5082f2585d22d3f55a00b027) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-06-30",
+      "metric": "operating_cash_flow",
+      "value": 42647,
+      "evidence": "final-response.md:47: | Q4 | 2025-06-30 | [42,647](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5fe02c87f6c566251463e901) | [17,079](#finance/table_685f65ec794e418a96ab67ad99f464df/c_a94808a5ec8065c0b7cb89cd) | [25,568](#finance/table_685f65ec794e418a96ab67ad99f464df/c_cef1b242351c27715296a4c0) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-06-30",
+      "metric": "capital_expenditures",
+      "value": 17079,
+      "evidence": "final-response.md:47: | Q4 | 2025-06-30 | [42,647](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5fe02c87f6c566251463e901) | [17,079](#finance/table_685f65ec794e418a96ab67ad99f464df/c_a94808a5ec8065c0b7cb89cd) | [25,568](#finance/table_685f65ec794e418a96ab67ad99f464df/c_cef1b242351c27715296a4c0) |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-06-30",
+      "metric": "free_cash_flow",
+      "value": 25568,
+      "evidence": "final-response.md:47: | Q4 | 2025-06-30 | [42,647](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5fe02c87f6c566251463e901) | [17,079](#finance/table_685f65ec794e418a96ab67ad99f464df/c_a94808a5ec8065c0b7cb89cd) | [25,568](#finance/table_685f65ec794e418a96ab67ad99f464df/c_cef1b242351c27715296a4c0) |",
+      "provenance_supported": null
+    }
+  ]
+}

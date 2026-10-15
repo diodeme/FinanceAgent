@@ -1,0 +1,178 @@
+{
+  "case_id": "trend-counterexample",
+  "extracted_at": "2026-10-14T17:52:33.756Z",
+  "gold_read_before_extraction": false,
+  "required_numeric_cells": 4,
+  "extracted_required_keys": 4,
+  "unextracted_required_cells": [],
+  "included_saved_artifacts": [
+    {
+      "artifact_id": "table_bf1a1cc3ab9849d58e611adbdde452df",
+      "kind": "table",
+      "delivery": "Explicitly linked from final chat or saved narrative."
+    }
+  ],
+  "period_label_conflicts": [],
+  "notes": [
+    "Assistant-reviewed extraction, not independent human annotation. No golden file read for this extraction and no missing values filled. No provenance-support audit.",
+    "Only explicit delivered numeric tables; raw datasets, formula operands, history rows and internal computations excluded."
+  ],
+  "cells": [
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-09-30",
+      "metric": "revenue",
+      "value": 56517,
+      "unit": "USD_millions",
+      "printed_value": "56,517",
+      "normalization": "Explicit USD millions, identity",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/final-response.md:7: | Q1 | 2023-09-30 | 56,517 | — |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/final-response.md",
+        "line": 7,
+        "kind": "final_chat",
+        "excerpt": "| Q1 | 2023-09-30 | 56,517 | — |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/final-response.md, line 5: | 财季 | 季度截止日 | 营收（百万美元） | 环比（QoQ） |"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2023-12-31",
+      "metric": "revenue",
+      "value": 62020,
+      "unit": "USD_millions",
+      "printed_value": "62,020",
+      "normalization": "Explicit USD millions, identity",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/final-response.md:8: | Q2 | 2023-12-31 | 62,020 | **+9.74%** ↑ |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/final-response.md",
+        "line": 8,
+        "kind": "final_chat",
+        "excerpt": "| Q2 | 2023-12-31 | 62,020 | **+9.74%** ↑ |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/final-response.md, line 5: | 财季 | 季度截止日 | 营收（百万美元） | 环比（QoQ） |"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "revenue",
+      "value": 61858,
+      "unit": "USD_millions",
+      "printed_value": "61,858",
+      "normalization": "Explicit USD millions, identity",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/final-response.md:9: | Q3 | 2024-03-31 | 61,858 | **−0.26%** ↓ |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/final-response.md",
+        "line": 9,
+        "kind": "final_chat",
+        "excerpt": "| Q3 | 2024-03-31 | 61,858 | **−0.26%** ↓ |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/final-response.md, line 5: | 财季 | 季度截止日 | 营收（百万美元） | 环比（QoQ） |"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "revenue",
+      "value": 64727,
+      "unit": "USD_millions",
+      "printed_value": "64,727",
+      "normalization": "Explicit USD millions, identity",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/final-response.md:10: | Q4 | 2024-06-30 | 64,727 | **+4.64%** ↑ |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/final-response.md",
+        "line": 10,
+        "kind": "final_chat",
+        "excerpt": "| Q4 | 2024-06-30 | 64,727 | **+4.64%** ↑ |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/final-response.md, line 5: | 财季 | 季度截止日 | 营收（百万美元） | 环比（QoQ） |"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "revenue",
+      "value": 64727,
+      "unit": "USD_millions",
+      "printed_value": "64727000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/artifacts.json#/0/data/rows/0/cells/0; artifact=table_bf1a1cc3ab9849d58e611adbdde452df; cell=c_8b6a774ff6f1d941e6cfa58d; value=\"64727000000\", unit=\"USD\"; company=MSFT; period_end=2024-06-30",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/artifacts.json",
+        "json_pointer": "/0/data/rows/0/cells/0",
+        "artifact_id": "table_bf1a1cc3ab9849d58e611adbdde452df",
+        "cell_id": "c_8b6a774ff6f1d941e6cfa58d",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "revenue",
+      "value": 61858,
+      "unit": "USD_millions",
+      "printed_value": "61858000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/artifacts.json#/0/data/rows/1/cells/0; artifact=table_bf1a1cc3ab9849d58e611adbdde452df; cell=c_b8b757fad0cef3c9117c93fc; value=\"61858000000\", unit=\"USD\"; company=MSFT; period_end=2024-03-31",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/artifacts.json",
+        "json_pointer": "/0/data/rows/1/cells/0",
+        "artifact_id": "table_bf1a1cc3ab9849d58e611adbdde452df",
+        "cell_id": "c_b8b757fad0cef3c9117c93fc",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2023-12-31",
+      "metric": "revenue",
+      "value": 62020,
+      "unit": "USD_millions",
+      "printed_value": "62020000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/artifacts.json#/0/data/rows/2/cells/0; artifact=table_bf1a1cc3ab9849d58e611adbdde452df; cell=c_db7c397154a9232323d4265f; value=\"62020000000\", unit=\"USD\"; company=MSFT; period_end=2023-12-31",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/artifacts.json",
+        "json_pointer": "/0/data/rows/2/cells/0",
+        "artifact_id": "table_bf1a1cc3ab9849d58e611adbdde452df",
+        "cell_id": "c_db7c397154a9232323d4265f",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-09-30",
+      "metric": "revenue",
+      "value": 56517,
+      "unit": "USD_millions",
+      "printed_value": "56517000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/artifacts.json#/0/data/rows/3/cells/0; artifact=table_bf1a1cc3ab9849d58e611adbdde452df; cell=c_dcffde299b5914c560347e06; value=\"56517000000\", unit=\"USD\"; company=MSFT; period_end=2023-09-30",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/artifacts.json",
+        "json_pointer": "/0/data/rows/3/cells/0",
+        "artifact_id": "table_bf1a1cc3ab9849d58e611adbdde452df",
+        "cell_id": "c_dcffde299b5914c560347e06",
+        "kind": "delivered_table"
+      }
+    }
+  ]
+}

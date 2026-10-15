@@ -1,0 +1,961 @@
+{
+  "case_id": "quarterly-cash-flow",
+  "required": 48,
+  "answered": 48,
+  "correct": 48,
+  "accuracy": 1,
+  "coverage": 1,
+  "correct_coverage": 1,
+  "provenance_assessed": 0,
+  "provenance_supported": 0,
+  "verified_correct_coverage": 0,
+  "missing_extraction_evidence": 0,
+  "date_checks": [
+    {
+      "key": "AAPL:2024:1",
+      "expected": "2023-12-30",
+      "observed": [
+        "2023-12-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2024:2",
+      "expected": "2024-03-30",
+      "observed": [
+        "2024-03-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2024:3",
+      "expected": "2024-06-29",
+      "observed": [
+        "2024-06-29"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2024:4",
+      "expected": "2024-09-28",
+      "observed": [
+        "2024-09-28"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2025:1",
+      "expected": "2024-12-28",
+      "observed": [
+        "2024-12-28"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2025:2",
+      "expected": "2025-03-29",
+      "observed": [
+        "2025-03-29"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2025:3",
+      "expected": "2025-06-28",
+      "observed": [
+        "2025-06-28"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2025:4",
+      "expected": "2025-09-27",
+      "observed": [
+        "2025-09-27"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:1",
+      "expected": "2023-09-30",
+      "observed": [
+        "2023-09-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:2",
+      "expected": "2023-12-31",
+      "observed": [
+        "2023-12-31"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:3",
+      "expected": "2024-03-31",
+      "observed": [
+        "2024-03-31"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:4",
+      "expected": "2024-06-30",
+      "observed": [
+        "2024-06-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2025:1",
+      "expected": "2024-09-30",
+      "observed": [
+        "2024-09-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2025:2",
+      "expected": "2024-12-31",
+      "observed": [
+        "2024-12-31"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2025:3",
+      "expected": "2025-03-31",
+      "observed": [
+        "2025-03-31"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2025:4",
+      "expected": "2025-06-30",
+      "observed": [
+        "2025-06-30"
+      ],
+      "correct": true
+    }
+  ],
+  "details": [
+    {
+      "key": "AAPL:2024:1:operating_cash_flow",
+      "expected": 39895,
+      "observed": [
+        39895
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:15: | Q1 | 2023-12-30 | 39,895 | 2,392 | 37,503 |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:1:capital_expenditures",
+      "expected": 2392,
+      "observed": [
+        2392
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:15: | Q1 | 2023-12-30 | 39,895 | 2,392 | 37,503 |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:1:free_cash_flow",
+      "expected": 37503,
+      "observed": [
+        37503
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:15: | Q1 | 2023-12-30 | 39,895 | 2,392 | 37,503 |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:2:operating_cash_flow",
+      "expected": 22690,
+      "observed": [
+        22690
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:16: | Q2 | 2024-03-30 | 22,690 | 1,996 | 20,694 |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:2:capital_expenditures",
+      "expected": 1996,
+      "observed": [
+        1996
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:16: | Q2 | 2024-03-30 | 22,690 | 1,996 | 20,694 |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:2:free_cash_flow",
+      "expected": 20694,
+      "observed": [
+        20694
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:16: | Q2 | 2024-03-30 | 22,690 | 1,996 | 20,694 |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:3:operating_cash_flow",
+      "expected": 28858,
+      "observed": [
+        28858
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:17: | Q3 | 2024-06-29 | 28,858 | 2,151 | 26,707 |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:3:capital_expenditures",
+      "expected": 2151,
+      "observed": [
+        2151
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:17: | Q3 | 2024-06-29 | 28,858 | 2,151 | 26,707 |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:3:free_cash_flow",
+      "expected": 26707,
+      "observed": [
+        26707
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:17: | Q3 | 2024-06-29 | 28,858 | 2,151 | 26,707 |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:4:operating_cash_flow",
+      "expected": 26811,
+      "observed": [
+        26811
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:18: | Q4 | 2024-09-28 | 26,811 | 2,908 | 23,903 |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:4:capital_expenditures",
+      "expected": 2908,
+      "observed": [
+        2908
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:18: | Q4 | 2024-09-28 | 26,811 | 2,908 | 23,903 |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:4:free_cash_flow",
+      "expected": 23903,
+      "observed": [
+        23903
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:18: | Q4 | 2024-09-28 | 26,811 | 2,908 | 23,903 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:1:operating_cash_flow",
+      "expected": 29935,
+      "observed": [
+        29935
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:25: | Q1 | 2024-12-28 | 29,935 | 2,940 | 26,995 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:1:capital_expenditures",
+      "expected": 2940,
+      "observed": [
+        2940
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:25: | Q1 | 2024-12-28 | 29,935 | 2,940 | 26,995 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:1:free_cash_flow",
+      "expected": 26995,
+      "observed": [
+        26995
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:25: | Q1 | 2024-12-28 | 29,935 | 2,940 | 26,995 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:2:operating_cash_flow",
+      "expected": 23952,
+      "observed": [
+        23952
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:26: | Q2 | 2025-03-29 | 23,952 | 3,071 | 20,881 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:2:capital_expenditures",
+      "expected": 3071,
+      "observed": [
+        3071
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:26: | Q2 | 2025-03-29 | 23,952 | 3,071 | 20,881 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:2:free_cash_flow",
+      "expected": 20881,
+      "observed": [
+        20881
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:26: | Q2 | 2025-03-29 | 23,952 | 3,071 | 20,881 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:3:operating_cash_flow",
+      "expected": 27867,
+      "observed": [
+        27867
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:27: | Q3 | 2025-06-28 | 27,867 | 3,462 | 24,405 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:3:capital_expenditures",
+      "expected": 3462,
+      "observed": [
+        3462
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:27: | Q3 | 2025-06-28 | 27,867 | 3,462 | 24,405 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:3:free_cash_flow",
+      "expected": 24405,
+      "observed": [
+        24405
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:27: | Q3 | 2025-06-28 | 27,867 | 3,462 | 24,405 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:4:operating_cash_flow",
+      "expected": 29728,
+      "observed": [
+        29728
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:28: | Q4 | 2025-09-27 | 29,728 | 3,242 | 26,486 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:4:capital_expenditures",
+      "expected": 3242,
+      "observed": [
+        3242
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:28: | Q4 | 2025-09-27 | 29,728 | 3,242 | 26,486 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:4:free_cash_flow",
+      "expected": 26486,
+      "observed": [
+        26486
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:28: | Q4 | 2025-09-27 | 29,728 | 3,242 | 26,486 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:1:operating_cash_flow",
+      "expected": 30583,
+      "observed": [
+        30583
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:37: | Q1 | 2023-09-30 | 30,583 | 9,917 | 20,666 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:1:capital_expenditures",
+      "expected": 9917,
+      "observed": [
+        9917
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:37: | Q1 | 2023-09-30 | 30,583 | 9,917 | 20,666 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:1:free_cash_flow",
+      "expected": 20666,
+      "observed": [
+        20666
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:37: | Q1 | 2023-09-30 | 30,583 | 9,917 | 20,666 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:2:operating_cash_flow",
+      "expected": 18853,
+      "observed": [
+        18853
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:38: | Q2 | 2023-12-31 | 18,853 | 9,735 | 9,118 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:2:capital_expenditures",
+      "expected": 9735,
+      "observed": [
+        9735
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:38: | Q2 | 2023-12-31 | 18,853 | 9,735 | 9,118 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:2:free_cash_flow",
+      "expected": 9118,
+      "observed": [
+        9118
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:38: | Q2 | 2023-12-31 | 18,853 | 9,735 | 9,118 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:3:operating_cash_flow",
+      "expected": 31917,
+      "observed": [
+        31917
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:39: | Q3 | 2024-03-31 | 31,917 | 10,952 | 20,965 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:3:capital_expenditures",
+      "expected": 10952,
+      "observed": [
+        10952
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:39: | Q3 | 2024-03-31 | 31,917 | 10,952 | 20,965 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:3:free_cash_flow",
+      "expected": 20965,
+      "observed": [
+        20965
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:39: | Q3 | 2024-03-31 | 31,917 | 10,952 | 20,965 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:4:operating_cash_flow",
+      "expected": 37195,
+      "observed": [
+        37195
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:40: | Q4 | 2024-06-30 | 37,195 | 13,873 | 23,322 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:4:capital_expenditures",
+      "expected": 13873,
+      "observed": [
+        13873
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:40: | Q4 | 2024-06-30 | 37,195 | 13,873 | 23,322 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:4:free_cash_flow",
+      "expected": 23322,
+      "observed": [
+        23322
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:40: | Q4 | 2024-06-30 | 37,195 | 13,873 | 23,322 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:1:operating_cash_flow",
+      "expected": 34180,
+      "observed": [
+        34180
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:47: | Q1 | 2024-09-30 | 34,180 | 14,923 | 19,257 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:1:capital_expenditures",
+      "expected": 14923,
+      "observed": [
+        14923
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:47: | Q1 | 2024-09-30 | 34,180 | 14,923 | 19,257 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:1:free_cash_flow",
+      "expected": 19257,
+      "observed": [
+        19257
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:47: | Q1 | 2024-09-30 | 34,180 | 14,923 | 19,257 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:2:operating_cash_flow",
+      "expected": 22291,
+      "observed": [
+        22291
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:48: | Q2 | 2024-12-31 | 22,291 | 15,804 | 6,487 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:2:capital_expenditures",
+      "expected": 15804,
+      "observed": [
+        15804
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:48: | Q2 | 2024-12-31 | 22,291 | 15,804 | 6,487 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:2:free_cash_flow",
+      "expected": 6487,
+      "observed": [
+        6487
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:48: | Q2 | 2024-12-31 | 22,291 | 15,804 | 6,487 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:3:operating_cash_flow",
+      "expected": 37044,
+      "observed": [
+        37044
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:49: | Q3 | 2025-03-31 | 37,044 | 16,745 | 20,299 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:3:capital_expenditures",
+      "expected": 16745,
+      "observed": [
+        16745
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:49: | Q3 | 2025-03-31 | 37,044 | 16,745 | 20,299 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:3:free_cash_flow",
+      "expected": 20299,
+      "observed": [
+        20299
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:49: | Q3 | 2025-03-31 | 37,044 | 16,745 | 20,299 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:4:operating_cash_flow",
+      "expected": 42647,
+      "observed": [
+        42647
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:50: | Q4 | 2025-06-30 | 42,647 | 17,079 | 25,568 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:4:capital_expenditures",
+      "expected": 17079,
+      "observed": [
+        17079
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:50: | Q4 | 2025-06-30 | 42,647 | 17,079 | 25,568 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:4:free_cash_flow",
+      "expected": 25568,
+      "observed": [
+        25568
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:50: | Q4 | 2025-06-30 | 42,647 | 17,079 | 25,568 |"
+      ]
+    }
+  ]
+}

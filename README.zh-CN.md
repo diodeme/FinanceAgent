@@ -122,6 +122,12 @@ curl -H "X-User-ID: dev" http://localhost:8000/health
 | SEC 财报下载失败 | 在 `SEC_USER_AGENT` 中填写真实联系邮箱，再重新创建后端。占位邮箱会被拒绝；合规的 User-Agent 也不能保证访问成功或避免 HTTP 403。 |
 | 分析工作区启动失败或较慢 | 检查 Docker socket 权限和共享的绝对工作区路径。首次构建镜像需要联网，可能耗时数分钟。 |
 
+## 评估
+
+五道对照题覆盖 AAPL/MSFT 财报、财年与自然年对齐，以及财务分析。FinanceAgent 与原生 Codex Agent 接收相同问题，使用同一配置的 `deepseek-flash` 模型，每题上限五分钟。标准答案从官方报表独立核验，不取自应用数据库；分别报告数值正确覆盖率、助手评分的分析质量、token 和耗时，保留失败与退化的运行记录。
+
+结果及限制见[评估报告](docs/评估.md)，复现方式见[评测说明](eval/README.md)。Codex 是通用 Agent 基线，**不是 ChatGPT 产品本身**；这份小规模实验不证明系统全面优于 ChatGPT。
+
 ## 项目结构
 
 ```text
@@ -129,6 +135,7 @@ backend/   API、财务工具、分析 Agent、数据库迁移和测试
 webui/     React 前端、nginx 配置和浏览器验收测试
 db/        PostgreSQL 初始化
 scripts/   可选的开发初始化脚本
+eval/      固定题目、独立标准答案、执行脚本、评分及答案快照
 docs/      设计、数据结构、迁移说明和验收记录
 ```
 

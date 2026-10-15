@@ -1,0 +1,863 @@
+{
+  "case_id": "annual-research-note",
+  "extracted_at": "2026-10-14T17:40:11.171Z",
+  "gold_read_before_extraction": false,
+  "required_numeric_cells": 24,
+  "extracted_required_keys": 24,
+  "unextracted_required_cells": [],
+  "included_saved_artifacts": [
+    {
+      "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+      "kind": "narrative",
+      "delivery": "Announced as saved research brief in final chat line 1."
+    }
+  ],
+  "notes": [
+    "Assistant-reviewed extraction, not independent human annotation. Golden values not read before extraction. No missing cells filled. No provenance-support audit.",
+    "Only explicit delivered tables; exclude approximate prose ranges, raw datasets, history rows, inputs, unpublished analysis, and manufactured annual sums.",
+    "AAPL FY2024 revenue conflicts: final chat line 7 prints 390,035 million, saved narrative prints $391.035B. Neither explicitly corrects the other; both retained for scorer.",
+    "Quarterly saved tables are not summed into annual values; they are not the delivered annual summary."
+  ],
+  "cells": [
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "revenue",
+      "value": 390035,
+      "unit": "USD_millions",
+      "printed_value": "390,035",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:7: | AAPL FY2024 (截至2024-09-28) | 390,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 7,
+        "excerpt": "| AAPL FY2024 (截至2024-09-28) | 390,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "net_income",
+      "value": 93736,
+      "unit": "USD_millions",
+      "printed_value": "93,736",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:7: | AAPL FY2024 (截至2024-09-28) | 390,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 7,
+        "excerpt": "| AAPL FY2024 (截至2024-09-28) | 390,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "operating_cash_flow",
+      "value": 118254,
+      "unit": "USD_millions",
+      "printed_value": "118,254",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:7: | AAPL FY2024 (截至2024-09-28) | 390,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 7,
+        "excerpt": "| AAPL FY2024 (截至2024-09-28) | 390,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "capital_expenditures",
+      "value": 9447,
+      "unit": "USD_millions",
+      "printed_value": "9,447",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:7: | AAPL FY2024 (截至2024-09-28) | 390,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 7,
+        "excerpt": "| AAPL FY2024 (截至2024-09-28) | 390,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow",
+      "value": 108807,
+      "unit": "USD_millions",
+      "printed_value": "108,807",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:7: | AAPL FY2024 (截至2024-09-28) | 390,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 7,
+        "excerpt": "| AAPL FY2024 (截至2024-09-28) | 390,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 1.16,
+      "unit": "ratio",
+      "printed_value": "1.16",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:7: | AAPL FY2024 (截至2024-09-28) | 390,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 7,
+        "excerpt": "| AAPL FY2024 (截至2024-09-28) | 390,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "revenue",
+      "value": 416161,
+      "unit": "USD_millions",
+      "printed_value": "416,161",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:8: | AAPL FY2025 (截至2025-09-27) | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 8,
+        "excerpt": "| AAPL FY2025 (截至2025-09-27) | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "net_income",
+      "value": 112010,
+      "unit": "USD_millions",
+      "printed_value": "112,010",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:8: | AAPL FY2025 (截至2025-09-27) | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 8,
+        "excerpt": "| AAPL FY2025 (截至2025-09-27) | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "operating_cash_flow",
+      "value": 111482,
+      "unit": "USD_millions",
+      "printed_value": "111,482",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:8: | AAPL FY2025 (截至2025-09-27) | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 8,
+        "excerpt": "| AAPL FY2025 (截至2025-09-27) | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "capital_expenditures",
+      "value": 12715,
+      "unit": "USD_millions",
+      "printed_value": "12,715",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:8: | AAPL FY2025 (截至2025-09-27) | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 8,
+        "excerpt": "| AAPL FY2025 (截至2025-09-27) | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow",
+      "value": 98767,
+      "unit": "USD_millions",
+      "printed_value": "98,767",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:8: | AAPL FY2025 (截至2025-09-27) | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 8,
+        "excerpt": "| AAPL FY2025 (截至2025-09-27) | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 0.88,
+      "unit": "ratio",
+      "printed_value": "0.88",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:8: | AAPL FY2025 (截至2025-09-27) | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 8,
+        "excerpt": "| AAPL FY2025 (截至2025-09-27) | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "revenue",
+      "value": 245122,
+      "unit": "USD_millions",
+      "printed_value": "245,122",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:9: | MSFT FY2024 (截至2024-06-30) | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 9,
+        "excerpt": "| MSFT FY2024 (截至2024-06-30) | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "net_income",
+      "value": 88136,
+      "unit": "USD_millions",
+      "printed_value": "88,136",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:9: | MSFT FY2024 (截至2024-06-30) | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 9,
+        "excerpt": "| MSFT FY2024 (截至2024-06-30) | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "operating_cash_flow",
+      "value": 118548,
+      "unit": "USD_millions",
+      "printed_value": "118,548",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:9: | MSFT FY2024 (截至2024-06-30) | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 9,
+        "excerpt": "| MSFT FY2024 (截至2024-06-30) | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "capital_expenditures",
+      "value": 44477,
+      "unit": "USD_millions",
+      "printed_value": "44,477",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:9: | MSFT FY2024 (截至2024-06-30) | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 9,
+        "excerpt": "| MSFT FY2024 (截至2024-06-30) | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow",
+      "value": 74071,
+      "unit": "USD_millions",
+      "printed_value": "74,071",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:9: | MSFT FY2024 (截至2024-06-30) | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 9,
+        "excerpt": "| MSFT FY2024 (截至2024-06-30) | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 0.84,
+      "unit": "ratio",
+      "printed_value": "0.84",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:9: | MSFT FY2024 (截至2024-06-30) | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 9,
+        "excerpt": "| MSFT FY2024 (截至2024-06-30) | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "revenue",
+      "value": 281724,
+      "unit": "USD_millions",
+      "printed_value": "281,724",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:10: | MSFT FY2025 (截至2025-06-30) | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 10,
+        "excerpt": "| MSFT FY2025 (截至2025-06-30) | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "net_income",
+      "value": 101832,
+      "unit": "USD_millions",
+      "printed_value": "101,832",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:10: | MSFT FY2025 (截至2025-06-30) | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 10,
+        "excerpt": "| MSFT FY2025 (截至2025-06-30) | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "operating_cash_flow",
+      "value": 136162,
+      "unit": "USD_millions",
+      "printed_value": "136,162",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:10: | MSFT FY2025 (截至2025-06-30) | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 10,
+        "excerpt": "| MSFT FY2025 (截至2025-06-30) | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "capital_expenditures",
+      "value": 64551,
+      "unit": "USD_millions",
+      "printed_value": "64,551",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:10: | MSFT FY2025 (截至2025-06-30) | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 10,
+        "excerpt": "| MSFT FY2025 (截至2025-06-30) | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow",
+      "value": 71611,
+      "unit": "USD_millions",
+      "printed_value": "71,611",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:10: | MSFT FY2025 (截至2025-06-30) | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 10,
+        "excerpt": "| MSFT FY2025 (截至2025-06-30) | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 0.7,
+      "unit": "ratio",
+      "printed_value": "0.70",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:10: | MSFT FY2025 (截至2025-06-30) | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md",
+        "line": 10,
+        "excerpt": "| MSFT FY2025 (截至2025-06-30) | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/final-response.md:3: Here is the requested summary table (金额单位：百万美元；自由现金流 = 经营现金流 − 购置PP&E支付的现金；各年数据由四个经核验的财季加总):"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "revenue",
+      "value": 391035,
+      "unit": "USD_millions",
+      "printed_value": "$391.035B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 9: | 收入 | $391.035B | $416.161B | $245.122B | $281.724B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 9,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 收入 | $391.035B | $416.161B | $245.122B | $281.724B |"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "revenue",
+      "value": 416161,
+      "unit": "USD_millions",
+      "printed_value": "$416.161B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 9: | 收入 | $391.035B | $416.161B | $245.122B | $281.724B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 9,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 收入 | $391.035B | $416.161B | $245.122B | $281.724B |"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "revenue",
+      "value": 245122,
+      "unit": "USD_millions",
+      "printed_value": "$245.122B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 9: | 收入 | $391.035B | $416.161B | $245.122B | $281.724B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 9,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 收入 | $391.035B | $416.161B | $245.122B | $281.724B |"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "revenue",
+      "value": 281724,
+      "unit": "USD_millions",
+      "printed_value": "$281.724B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 9: | 收入 | $391.035B | $416.161B | $245.122B | $281.724B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 9,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 收入 | $391.035B | $416.161B | $245.122B | $281.724B |"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "net_income",
+      "value": 93736,
+      "unit": "USD_millions",
+      "printed_value": "$93.736B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 10: | 净利润 | $93.736B | $112.010B | $88.136B | $101.832B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 10,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 净利润 | $93.736B | $112.010B | $88.136B | $101.832B |"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "net_income",
+      "value": 112010,
+      "unit": "USD_millions",
+      "printed_value": "$112.010B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 10: | 净利润 | $93.736B | $112.010B | $88.136B | $101.832B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 10,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 净利润 | $93.736B | $112.010B | $88.136B | $101.832B |"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "net_income",
+      "value": 88136,
+      "unit": "USD_millions",
+      "printed_value": "$88.136B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 10: | 净利润 | $93.736B | $112.010B | $88.136B | $101.832B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 10,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 净利润 | $93.736B | $112.010B | $88.136B | $101.832B |"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "net_income",
+      "value": 101832,
+      "unit": "USD_millions",
+      "printed_value": "$101.832B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 10: | 净利润 | $93.736B | $112.010B | $88.136B | $101.832B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 10,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 净利润 | $93.736B | $112.010B | $88.136B | $101.832B |"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "operating_cash_flow",
+      "value": 118254,
+      "unit": "USD_millions",
+      "printed_value": "$118.254B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 11: | 经营现金流 | $118.254B | $111.482B | $118.548B | $136.162B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 11,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 经营现金流 | $118.254B | $111.482B | $118.548B | $136.162B |"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "operating_cash_flow",
+      "value": 111482,
+      "unit": "USD_millions",
+      "printed_value": "$111.482B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 11: | 经营现金流 | $118.254B | $111.482B | $118.548B | $136.162B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 11,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 经营现金流 | $118.254B | $111.482B | $118.548B | $136.162B |"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "operating_cash_flow",
+      "value": 118548,
+      "unit": "USD_millions",
+      "printed_value": "$118.548B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 11: | 经营现金流 | $118.254B | $111.482B | $118.548B | $136.162B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 11,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 经营现金流 | $118.254B | $111.482B | $118.548B | $136.162B |"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "operating_cash_flow",
+      "value": 136162,
+      "unit": "USD_millions",
+      "printed_value": "$136.162B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 11: | 经营现金流 | $118.254B | $111.482B | $118.548B | $136.162B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 11,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 经营现金流 | $118.254B | $111.482B | $118.548B | $136.162B |"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "capital_expenditures",
+      "value": 9447,
+      "unit": "USD_millions",
+      "printed_value": "$9.447B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 12: | 资本开支 | $9.447B | $12.715B | $44.477B | $64.551B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 12,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 资本开支 | $9.447B | $12.715B | $44.477B | $64.551B |"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "capital_expenditures",
+      "value": 12715,
+      "unit": "USD_millions",
+      "printed_value": "$12.715B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 12: | 资本开支 | $9.447B | $12.715B | $44.477B | $64.551B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 12,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 资本开支 | $9.447B | $12.715B | $44.477B | $64.551B |"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "capital_expenditures",
+      "value": 44477,
+      "unit": "USD_millions",
+      "printed_value": "$44.477B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 12: | 资本开支 | $9.447B | $12.715B | $44.477B | $64.551B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 12,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 资本开支 | $9.447B | $12.715B | $44.477B | $64.551B |"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "capital_expenditures",
+      "value": 64551,
+      "unit": "USD_millions",
+      "printed_value": "$64.551B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 12: | 资本开支 | $9.447B | $12.715B | $44.477B | $64.551B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 12,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 资本开支 | $9.447B | $12.715B | $44.477B | $64.551B |"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow",
+      "value": 108807,
+      "unit": "USD_millions",
+      "printed_value": "$108.807B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 13: | 自由现金流 | $108.807B | $98.767B | $74.071B | $71.611B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 13,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 自由现金流 | $108.807B | $98.767B | $74.071B | $71.611B |"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow",
+      "value": 98767,
+      "unit": "USD_millions",
+      "printed_value": "$98.767B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 13: | 自由现金流 | $108.807B | $98.767B | $74.071B | $71.611B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 13,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 自由现金流 | $108.807B | $98.767B | $74.071B | $71.611B |"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow",
+      "value": 74071,
+      "unit": "USD_millions",
+      "printed_value": "$74.071B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 13: | 自由现金流 | $108.807B | $98.767B | $74.071B | $71.611B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 13,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 自由现金流 | $108.807B | $98.767B | $74.071B | $71.611B |"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow",
+      "value": 71611,
+      "unit": "USD_millions",
+      "printed_value": "$71.611B",
+      "normalization": "USD billions * 1000",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 13: | 自由现金流 | $108.807B | $98.767B | $74.071B | $71.611B |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 13,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| 自由现金流 | $108.807B | $98.767B | $74.071B | $71.611B |"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 1.16,
+      "unit": "ratio",
+      "printed_value": "1.16×",
+      "normalization": "Explicit times multiple",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 14: | FCF/净利润 | 1.16× | 0.88× | 0.84× | 0.70× |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 14,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| FCF/净利润 | 1.16× | 0.88× | 0.84× | 0.70× |"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 0.88,
+      "unit": "ratio",
+      "printed_value": "0.88×",
+      "normalization": "Explicit times multiple",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 14: | FCF/净利润 | 1.16× | 0.88× | 0.84× | 0.70× |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 14,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| FCF/净利润 | 1.16× | 0.88× | 0.84× | 0.70× |"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 0.84,
+      "unit": "ratio",
+      "printed_value": "0.84×",
+      "normalization": "Explicit times multiple",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 14: | FCF/净利润 | 1.16× | 0.88× | 0.84× | 0.70× |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 14,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| FCF/净利润 | 1.16× | 0.88× | 0.84× | 0.70× |"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 0.7,
+      "unit": "ratio",
+      "printed_value": "0.70×",
+      "normalization": "Explicit times multiple",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 14: | FCF/净利润 | 1.16× | 0.88× | 0.84× | 0.70× |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 14,
+        "artifact_id": "narrative_2e39c07a410941e08296bbe095181a9a",
+        "kind": "delivered_narrative",
+        "excerpt": "| FCF/净利润 | 1.16× | 0.88× | 0.84× | 0.70× |"
+      }
+    }
+  ]
+}

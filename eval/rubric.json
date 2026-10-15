@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "frozen_before_execution": true,
+  "numeric": {
+    "unit": "USD millions unless percentage/ratio explicitly stated",
+    "absolute_tolerance_usd_millions": 0.5,
+    "absolute_tolerance_percentage_points": 0.1,
+    "absolute_tolerance_ratio": 0.005,
+    "accuracy": "correct answered required cells / answered required cells; null if none answered",
+    "coverage": "answered required cells / all required cells",
+    "correct_coverage": "correct required cells / all required cells",
+    "period_check": "Company, fiscal year, quarter, metric and unit must match; check required quarter end dates separately.",
+    "extraction": "Human-reviewed normalized JSON with a verbatim output excerpt or artifact/cell pointer per answer. Missing cells remain missing; do not fill from golden values.",
+    "contradictions": "Conflicting values for the same required cell are incorrect unless explicitly corrected in the final answer. Numbers omitted from final chat but present in a user-accessible delivered table count as answered.",
+    "rounding": "Prompts require million-dollar output. If the answer uses another explicit unit, normalize it but do not widen tolerance post hoc.",
+    "provenance": "A citation must identify the original document and support the metric/period; derived values need source operands. Count structurally resolvable references separately from independently checked support."
+  },
+  "analysis": {
+    "maximum": 20,
+    "dimensions": [
+      {"id": "task_coverage", "maximum": 4, "description": "Addresses the requested comparisons and conclusions; missing core deliverables limit the score."},
+      {"id": "evidence", "maximum": 4, "description": "Claims are tied to figures and sources that actually support them; distinguishes evidence from unsupported hypotheses."},
+      {"id": "financial_reasoning", "maximum": 4, "description": "Sound fiscal-period alignment, cumulative vs quarterly handling, cash-capex definition, ratios and accounting logic."},
+      {"id": "insight_and_calibration", "maximum": 4, "description": "Explains material differences with substantiated drivers, recognizes one-offs and uncertainty, avoids overstated causality."},
+      {"id": "clarity", "maximum": 4, "description": "Readable, internally consistent, concise answer with explicit units, periods and limitations."}
+    ],
+    "scale": {
+      "0": "Absent or fundamentally misleading",
+      "1": "Major omissions or errors",
+      "2": "Partially useful with material gaps",
+      "3": "Good with minor limitations",
+      "4": "Complete, well-supported and appropriately qualified"
+    },
+    "method": "Assistant review with the fixed rubric and primary-source gold. Where possible, remove engine labels before review. Every deduction must cite an answer excerpt and a source or explicit requirement. This is subjective evaluation, not independent human annotation.",
+    "critical_errors": "Flag unsupported causal claims, material numerical contradictions and fiscal-period mixups explicitly; do not hide them in a total score."
+  },
+  "runtime": {
+    "timeout_seconds": 300,
+    "wall_time": "From dispatch of the user task until final completion/error/timeout. Session provisioning and collection overhead reported separately where measurable.",
+    "tokens": "Sum provider-reported model-call usage across the entire task, including analysis subcalls; report cache/reasoning separately where available. Missing telemetry is unknown, never zero.",
+    "cost": "Do not invent monetary cost without verified provider rates. Cache-inclusive input token totals are not comparable to uncached billed input.",
+    "failures": "Retain every timeout and failure. Do not exclude them from coverage or replace them with a successful retry. New attempts get separate run IDs."
+  },
+  "comparison": {
+    "baseline": "Native Codex agent with Full Access; only the user question, no financial retrieval hints or attached documents",
+    "treatment": "Current FinanceAgent via its real chat service; only the same user question",
+    "model": "Same configured provider and model. Record per-call model identity and relevant differences in configuration.",
+    "isolation": "Fresh Codex home/workspace per case and fresh FinanceAgent session per case. Keep golden assets outside Codex working directories. Full Access is not a filesystem isolation boundary.",
+    "limitations": ["Codex is a generic-agent proxy, not the ChatGPT product", "Tools and data integrations differ intentionally", "Small exploratory sample, no statistical generalization", "Local Windows Codex and Linux FinanceAgent runtimes may differ", "Single runs are subject to model and network variance", "FinanceAgent may use shared raw-data caches; report their state"]
+  }
+}

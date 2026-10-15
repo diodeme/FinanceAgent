@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "timeout_seconds": 300,
+  "companies": ["AAPL", "MSFT"],
+  "fiscal_years": [2024, 2025],
+  "cases": [
+    {
+      "id": "quarterly-profit",
+      "category": "two-year-comparison",
+      "prompt": "请比较苹果（AAPL）和微软（MSFT）各自2024、2025两个完整财年的季度经营表现。按公司、财年、财季列出营业收入、净利润和净利率，标明每个季度的截止日期，金额统一为百万美元，并提供可核验的数据来源。请覆盖每家公司八个财季，不要只列年度合计。最后给出三条有数据支持的比较结论，说明两家公司财年时间不同对比较有什么影响。",
+      "period_type": "quarter",
+      "metrics": ["revenue", "net_income", "net_margin"],
+      "required_numeric_cells": 48,
+      "required_date_cells": 16,
+      "analysis_requirements": ["Three quantitative comparisons", "Correct fiscal-year alignment caveat", "No unsupported causal claims"]
+    },
+    {
+      "id": "quarterly-cash-flow",
+      "category": "cash-flow-derivation",
+      "prompt": "请对比苹果（AAPL）和微软（MSFT）各自2024、2025两个完整财年的季度现金创造能力。按公司、财年、财季列出经营现金流、购置不动产厂房设备支付的现金（作为正数）和自由现金流，自由现金流定义为经营现金流减上述现金资本开支，金额统一为百万美元。每家公司需覆盖八个财季，不能把累计数当单季数；标明季度截止日期、计算依据和可核验来源。最后指出两家公司现金流趋势最大的两个差异，并区分报表事实与推测。",
+      "period_type": "quarter",
+      "metrics": ["operating_cash_flow", "capital_expenditures", "free_cash_flow"],
+      "required_numeric_cells": 48,
+      "required_date_cells": 16,
+      "analysis_requirements": ["Quarterly rather than year-to-date cash flows", "Cash capex excluding noncash financing leases", "Two supported comparisons", "Traceable derivation operands"]
+    },
+    {
+      "id": "annual-research-note",
+      "category": "evidence-grounded-analysis",
+      "prompt": "请写一份比较苹果（AAPL）和微软（MSFT）2024、2025两个完整财年的研究简报，回答：哪家公司的盈利增长更好地转化成了自由现金流？先用一张表列出两家公司每年的营收、净利润、经营现金流、现金资本开支、自由现金流，以及自由现金流/净利润，金额用百万美元，自由现金流定义为经营现金流减购置不动产厂房设备支付的现金。然后用约600到900字解释你的判断，讨论会计或一次性因素、投资支出及财年可比性；区分有原文支持的解释和仅凭数字提出的假设。请给出可核验来源，不做投资买卖建议。",
+      "period_type": "year",
+      "metrics": ["revenue", "net_income", "operating_cash_flow", "capital_expenditures", "free_cash_flow", "free_cash_flow_to_net_income"],
+      "required_numeric_cells": 24,
+      "required_date_cells": 0,
+      "analysis_requirements": ["Answer cash conversion question quantitatively", "Discuss verified one-off/accounting factors", "Discuss cash investment expenditure", "Fiscal calendar caveat", "Distinguish evidence and hypotheses"]
+    }
+  ]
+}

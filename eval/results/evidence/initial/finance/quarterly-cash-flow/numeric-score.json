@@ -1,0 +1,961 @@
+{
+  "case_id": "quarterly-cash-flow",
+  "required": 48,
+  "answered": 48,
+  "correct": 48,
+  "accuracy": 1,
+  "coverage": 1,
+  "correct_coverage": 1,
+  "provenance_assessed": 0,
+  "provenance_supported": 0,
+  "verified_correct_coverage": 0,
+  "missing_extraction_evidence": 0,
+  "date_checks": [
+    {
+      "key": "AAPL:2024:1",
+      "expected": "2023-12-30",
+      "observed": [
+        "2023-12-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2024:2",
+      "expected": "2024-03-30",
+      "observed": [
+        "2024-03-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2024:3",
+      "expected": "2024-06-29",
+      "observed": [
+        "2024-06-29"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2024:4",
+      "expected": "2024-09-28",
+      "observed": [
+        "2024-09-28"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2025:1",
+      "expected": "2024-12-28",
+      "observed": [
+        "2024-12-28"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2025:2",
+      "expected": "2025-03-29",
+      "observed": [
+        "2025-03-29"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2025:3",
+      "expected": "2025-06-28",
+      "observed": [
+        "2025-06-28"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2025:4",
+      "expected": "2025-09-27",
+      "observed": [
+        "2025-09-27"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:1",
+      "expected": "2023-09-30",
+      "observed": [
+        "2023-09-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:2",
+      "expected": "2023-12-31",
+      "observed": [
+        "2023-12-31"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:3",
+      "expected": "2024-03-31",
+      "observed": [
+        "2024-03-31"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:4",
+      "expected": "2024-06-30",
+      "observed": [
+        "2024-06-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2025:1",
+      "expected": "2024-09-30",
+      "observed": [
+        "2024-09-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2025:2",
+      "expected": "2024-12-31",
+      "observed": [
+        "2024-12-31"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2025:3",
+      "expected": "2025-03-31",
+      "observed": [
+        "2025-03-31"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2025:4",
+      "expected": "2025-06-30",
+      "observed": [
+        "2025-06-30"
+      ],
+      "correct": true
+    }
+  ],
+  "details": [
+    {
+      "key": "AAPL:2024:1:operating_cash_flow",
+      "expected": 39895,
+      "observed": [
+        39895
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:15: | Q1 | 2023-12-30 | [39,895](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_8cc6c996fe2443b58789daf9) | [2,392](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_85064f6fd1365269dad8c6cc) | [37,503](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_8f7bb304d3c6a777cbd9db49) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:1:capital_expenditures",
+      "expected": 2392,
+      "observed": [
+        2392
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:15: | Q1 | 2023-12-30 | [39,895](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_8cc6c996fe2443b58789daf9) | [2,392](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_85064f6fd1365269dad8c6cc) | [37,503](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_8f7bb304d3c6a777cbd9db49) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:1:free_cash_flow",
+      "expected": 37503,
+      "observed": [
+        37503
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:15: | Q1 | 2023-12-30 | [39,895](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_8cc6c996fe2443b58789daf9) | [2,392](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_85064f6fd1365269dad8c6cc) | [37,503](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_8f7bb304d3c6a777cbd9db49) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:2:operating_cash_flow",
+      "expected": 22690,
+      "observed": [
+        22690
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:16: | Q2 | 2024-03-30 | [22,690](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_adc4a315360b716666bb0ff5) | [1,996](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_4636c1fbd3d100b8f6c4842c) | [20,694](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_70e6c5070de341313de2d106) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:2:capital_expenditures",
+      "expected": 1996,
+      "observed": [
+        1996
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:16: | Q2 | 2024-03-30 | [22,690](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_adc4a315360b716666bb0ff5) | [1,996](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_4636c1fbd3d100b8f6c4842c) | [20,694](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_70e6c5070de341313de2d106) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:2:free_cash_flow",
+      "expected": 20694,
+      "observed": [
+        20694
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:16: | Q2 | 2024-03-30 | [22,690](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_adc4a315360b716666bb0ff5) | [1,996](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_4636c1fbd3d100b8f6c4842c) | [20,694](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_70e6c5070de341313de2d106) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:3:operating_cash_flow",
+      "expected": 28858,
+      "observed": [
+        28858
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:17: | Q3 | 2024-06-29 | [28,858](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_9ce87b1bf6dc5639df1e92f5) | [2,151](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_f7dd45e2ea30fdc29c9c6f81) | [26,707](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_fe68831040ff44cb1738e2e5) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:3:capital_expenditures",
+      "expected": 2151,
+      "observed": [
+        2151
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:17: | Q3 | 2024-06-29 | [28,858](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_9ce87b1bf6dc5639df1e92f5) | [2,151](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_f7dd45e2ea30fdc29c9c6f81) | [26,707](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_fe68831040ff44cb1738e2e5) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:3:free_cash_flow",
+      "expected": 26707,
+      "observed": [
+        26707
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:17: | Q3 | 2024-06-29 | [28,858](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_9ce87b1bf6dc5639df1e92f5) | [2,151](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_f7dd45e2ea30fdc29c9c6f81) | [26,707](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_fe68831040ff44cb1738e2e5) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:4:operating_cash_flow",
+      "expected": 26811,
+      "observed": [
+        26811
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:18: | Q4 | 2024-09-28 | [26,811](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_6c238584595fd7db89ad2ac2) | [2,908](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_893f1c6e784edf92344d094f) | [23,903](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_922eff277eeb395e70d23b4b) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:4:capital_expenditures",
+      "expected": 2908,
+      "observed": [
+        2908
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:18: | Q4 | 2024-09-28 | [26,811](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_6c238584595fd7db89ad2ac2) | [2,908](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_893f1c6e784edf92344d094f) | [23,903](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_922eff277eeb395e70d23b4b) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:4:free_cash_flow",
+      "expected": 23903,
+      "observed": [
+        23903
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:18: | Q4 | 2024-09-28 | [26,811](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_6c238584595fd7db89ad2ac2) | [2,908](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_893f1c6e784edf92344d094f) | [23,903](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_922eff277eeb395e70d23b4b) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:1:operating_cash_flow",
+      "expected": 29935,
+      "observed": [
+        29935
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:24: | Q1 | 2024-12-28 | [29,935](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_5e43b799270879854c6dcece) | [2,940](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_37371cb3cf2142508f500dc2) | [26,995](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_64fa9176e6766bd843ab102a) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:1:capital_expenditures",
+      "expected": 2940,
+      "observed": [
+        2940
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:24: | Q1 | 2024-12-28 | [29,935](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_5e43b799270879854c6dcece) | [2,940](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_37371cb3cf2142508f500dc2) | [26,995](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_64fa9176e6766bd843ab102a) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:1:free_cash_flow",
+      "expected": 26995,
+      "observed": [
+        26995
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:24: | Q1 | 2024-12-28 | [29,935](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_5e43b799270879854c6dcece) | [2,940](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_37371cb3cf2142508f500dc2) | [26,995](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_64fa9176e6766bd843ab102a) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:2:operating_cash_flow",
+      "expected": 23952,
+      "observed": [
+        23952
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:25: | Q2 | 2025-03-29 | [23,952](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_2797adde447dbf0ab6a58108) | [3,071](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_a0c3f433f758fc85c61b5a4f) | [20,881](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_17e968b8dd98f73d0d690d29) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:2:capital_expenditures",
+      "expected": 3071,
+      "observed": [
+        3071
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:25: | Q2 | 2025-03-29 | [23,952](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_2797adde447dbf0ab6a58108) | [3,071](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_a0c3f433f758fc85c61b5a4f) | [20,881](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_17e968b8dd98f73d0d690d29) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:2:free_cash_flow",
+      "expected": 20881,
+      "observed": [
+        20881
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:25: | Q2 | 2025-03-29 | [23,952](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_2797adde447dbf0ab6a58108) | [3,071](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_a0c3f433f758fc85c61b5a4f) | [20,881](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_17e968b8dd98f73d0d690d29) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:3:operating_cash_flow",
+      "expected": 27867,
+      "observed": [
+        27867
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:26: | Q3 | 2025-06-28 | [27,867](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_9750d3588b52a746ce2e907a) | [3,462](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_565967067cdd7e1d793ec7e9) | [24,405](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_b31d028274ec97b5f54ecc18) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:3:capital_expenditures",
+      "expected": 3462,
+      "observed": [
+        3462
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:26: | Q3 | 2025-06-28 | [27,867](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_9750d3588b52a746ce2e907a) | [3,462](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_565967067cdd7e1d793ec7e9) | [24,405](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_b31d028274ec97b5f54ecc18) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:3:free_cash_flow",
+      "expected": 24405,
+      "observed": [
+        24405
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:26: | Q3 | 2025-06-28 | [27,867](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_9750d3588b52a746ce2e907a) | [3,462](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_565967067cdd7e1d793ec7e9) | [24,405](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_b31d028274ec97b5f54ecc18) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:4:operating_cash_flow",
+      "expected": 29728,
+      "observed": [
+        29728
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:27: | Q4 | 2025-09-27 | [29,728](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_d4bfe2079ad9e7f5d0d2afcf) | [3,242](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_7cc53f4f5218787b6bc4c888) | [26,486](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_91f16cadabe877f5b071a740) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:4:capital_expenditures",
+      "expected": 3242,
+      "observed": [
+        3242
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:27: | Q4 | 2025-09-27 | [29,728](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_d4bfe2079ad9e7f5d0d2afcf) | [3,242](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_7cc53f4f5218787b6bc4c888) | [26,486](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_91f16cadabe877f5b071a740) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:4:free_cash_flow",
+      "expected": 26486,
+      "observed": [
+        26486
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:27: | Q4 | 2025-09-27 | [29,728](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_d4bfe2079ad9e7f5d0d2afcf) | [3,242](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_7cc53f4f5218787b6bc4c888) | [26,486](#finance/table_fb846ea6d2274df19e19dc3621c0b369/c_91f16cadabe877f5b071a740) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:1:operating_cash_flow",
+      "expected": 30583,
+      "observed": [
+        30583
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:35: | Q1 | 2023-09-30 | [30,583](#finance/table_685f65ec794e418a96ab67ad99f464df/c_2a72ecce175b5bad52bc4e45) | [9,917](#finance/table_685f65ec794e418a96ab67ad99f464df/c_84ca6ea6dcbf26e29a5b9a9e) | [20,666](#finance/table_685f65ec794e418a96ab67ad99f464df/c_9ec4fa5fa6c5b0d722b983ac) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:1:capital_expenditures",
+      "expected": 9917,
+      "observed": [
+        9917
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:35: | Q1 | 2023-09-30 | [30,583](#finance/table_685f65ec794e418a96ab67ad99f464df/c_2a72ecce175b5bad52bc4e45) | [9,917](#finance/table_685f65ec794e418a96ab67ad99f464df/c_84ca6ea6dcbf26e29a5b9a9e) | [20,666](#finance/table_685f65ec794e418a96ab67ad99f464df/c_9ec4fa5fa6c5b0d722b983ac) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:1:free_cash_flow",
+      "expected": 20666,
+      "observed": [
+        20666
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:35: | Q1 | 2023-09-30 | [30,583](#finance/table_685f65ec794e418a96ab67ad99f464df/c_2a72ecce175b5bad52bc4e45) | [9,917](#finance/table_685f65ec794e418a96ab67ad99f464df/c_84ca6ea6dcbf26e29a5b9a9e) | [20,666](#finance/table_685f65ec794e418a96ab67ad99f464df/c_9ec4fa5fa6c5b0d722b983ac) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:2:operating_cash_flow",
+      "expected": 18853,
+      "observed": [
+        18853
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:36: | Q2 | 2023-12-31 | [18,853](#finance/table_685f65ec794e418a96ab67ad99f464df/c_281f59015a3c2be73d07e532) | [9,735](#finance/table_685f65ec794e418a96ab67ad99f464df/c_3a6dd74bc1330b442cee347f) | [9,118](#finance/table_685f65ec794e418a96ab67ad99f464df/c_98f42746a6841027e40ab739) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:2:capital_expenditures",
+      "expected": 9735,
+      "observed": [
+        9735
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:36: | Q2 | 2023-12-31 | [18,853](#finance/table_685f65ec794e418a96ab67ad99f464df/c_281f59015a3c2be73d07e532) | [9,735](#finance/table_685f65ec794e418a96ab67ad99f464df/c_3a6dd74bc1330b442cee347f) | [9,118](#finance/table_685f65ec794e418a96ab67ad99f464df/c_98f42746a6841027e40ab739) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:2:free_cash_flow",
+      "expected": 9118,
+      "observed": [
+        9118
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:36: | Q2 | 2023-12-31 | [18,853](#finance/table_685f65ec794e418a96ab67ad99f464df/c_281f59015a3c2be73d07e532) | [9,735](#finance/table_685f65ec794e418a96ab67ad99f464df/c_3a6dd74bc1330b442cee347f) | [9,118](#finance/table_685f65ec794e418a96ab67ad99f464df/c_98f42746a6841027e40ab739) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:3:operating_cash_flow",
+      "expected": 31917,
+      "observed": [
+        31917
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:37: | Q3 | 2024-03-31 | [31,917](#finance/table_685f65ec794e418a96ab67ad99f464df/c_75ccea1b1c94c84ff7f6b3fd) | [10,952](#finance/table_685f65ec794e418a96ab67ad99f464df/c_c72d8ac5686650f4abfc1402) | [20,965](#finance/table_685f65ec794e418a96ab67ad99f464df/c_f481665631a36aac4a000fcc) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:3:capital_expenditures",
+      "expected": 10952,
+      "observed": [
+        10952
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:37: | Q3 | 2024-03-31 | [31,917](#finance/table_685f65ec794e418a96ab67ad99f464df/c_75ccea1b1c94c84ff7f6b3fd) | [10,952](#finance/table_685f65ec794e418a96ab67ad99f464df/c_c72d8ac5686650f4abfc1402) | [20,965](#finance/table_685f65ec794e418a96ab67ad99f464df/c_f481665631a36aac4a000fcc) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:3:free_cash_flow",
+      "expected": 20965,
+      "observed": [
+        20965
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:37: | Q3 | 2024-03-31 | [31,917](#finance/table_685f65ec794e418a96ab67ad99f464df/c_75ccea1b1c94c84ff7f6b3fd) | [10,952](#finance/table_685f65ec794e418a96ab67ad99f464df/c_c72d8ac5686650f4abfc1402) | [20,965](#finance/table_685f65ec794e418a96ab67ad99f464df/c_f481665631a36aac4a000fcc) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:4:operating_cash_flow",
+      "expected": 37195,
+      "observed": [
+        37195
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:38: | Q4 | 2024-06-30 | [37,195](#finance/table_685f65ec794e418a96ab67ad99f464df/c_e88c69d79cf2757cb18f1828) | [13,873](#finance/table_685f65ec794e418a96ab67ad99f464df/c_248f71d2e397773fd34217c9) | [23,322](#finance/table_685f65ec794e418a96ab67ad99f464df/c_d37236134a2317a2f3718e87) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:4:capital_expenditures",
+      "expected": 13873,
+      "observed": [
+        13873
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:38: | Q4 | 2024-06-30 | [37,195](#finance/table_685f65ec794e418a96ab67ad99f464df/c_e88c69d79cf2757cb18f1828) | [13,873](#finance/table_685f65ec794e418a96ab67ad99f464df/c_248f71d2e397773fd34217c9) | [23,322](#finance/table_685f65ec794e418a96ab67ad99f464df/c_d37236134a2317a2f3718e87) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:4:free_cash_flow",
+      "expected": 23322,
+      "observed": [
+        23322
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:38: | Q4 | 2024-06-30 | [37,195](#finance/table_685f65ec794e418a96ab67ad99f464df/c_e88c69d79cf2757cb18f1828) | [13,873](#finance/table_685f65ec794e418a96ab67ad99f464df/c_248f71d2e397773fd34217c9) | [23,322](#finance/table_685f65ec794e418a96ab67ad99f464df/c_d37236134a2317a2f3718e87) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:1:operating_cash_flow",
+      "expected": 34180,
+      "observed": [
+        34180
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:44: | Q1 | 2024-09-30 | [34,180](#finance/table_685f65ec794e418a96ab67ad99f464df/c_4a5a816eee5d6451de2f74b6) | [14,923](#finance/table_685f65ec794e418a96ab67ad99f464df/c_b451b9cd47f02d4b5bd9830c) | [19,257](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5ec8e3c3d691a0ebccb95ad7) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:1:capital_expenditures",
+      "expected": 14923,
+      "observed": [
+        14923
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:44: | Q1 | 2024-09-30 | [34,180](#finance/table_685f65ec794e418a96ab67ad99f464df/c_4a5a816eee5d6451de2f74b6) | [14,923](#finance/table_685f65ec794e418a96ab67ad99f464df/c_b451b9cd47f02d4b5bd9830c) | [19,257](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5ec8e3c3d691a0ebccb95ad7) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:1:free_cash_flow",
+      "expected": 19257,
+      "observed": [
+        19257
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:44: | Q1 | 2024-09-30 | [34,180](#finance/table_685f65ec794e418a96ab67ad99f464df/c_4a5a816eee5d6451de2f74b6) | [14,923](#finance/table_685f65ec794e418a96ab67ad99f464df/c_b451b9cd47f02d4b5bd9830c) | [19,257](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5ec8e3c3d691a0ebccb95ad7) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:2:operating_cash_flow",
+      "expected": 22291,
+      "observed": [
+        22291
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:45: | Q2 | 2024-12-31 | [22,291](#finance/table_685f65ec794e418a96ab67ad99f464df/c_b225b2aeaf4d9b0441b87a05) | [15,804](#finance/table_685f65ec794e418a96ab67ad99f464df/c_921f32b10b455a0cf4fb9fc1) | [6,487](#finance/table_685f65ec794e418a96ab67ad99f464df/c_51f6cc856791dcf6d4152f09) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:2:capital_expenditures",
+      "expected": 15804,
+      "observed": [
+        15804
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:45: | Q2 | 2024-12-31 | [22,291](#finance/table_685f65ec794e418a96ab67ad99f464df/c_b225b2aeaf4d9b0441b87a05) | [15,804](#finance/table_685f65ec794e418a96ab67ad99f464df/c_921f32b10b455a0cf4fb9fc1) | [6,487](#finance/table_685f65ec794e418a96ab67ad99f464df/c_51f6cc856791dcf6d4152f09) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:2:free_cash_flow",
+      "expected": 6487,
+      "observed": [
+        6487
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:45: | Q2 | 2024-12-31 | [22,291](#finance/table_685f65ec794e418a96ab67ad99f464df/c_b225b2aeaf4d9b0441b87a05) | [15,804](#finance/table_685f65ec794e418a96ab67ad99f464df/c_921f32b10b455a0cf4fb9fc1) | [6,487](#finance/table_685f65ec794e418a96ab67ad99f464df/c_51f6cc856791dcf6d4152f09) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:3:operating_cash_flow",
+      "expected": 37044,
+      "observed": [
+        37044
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:46: | Q3 | 2025-03-31 | [37,044](#finance/table_685f65ec794e418a96ab67ad99f464df/c_cacbb053aea6155991e5feaa) | [16,745](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5b11acb2eb3596b6c4a26dae) | [20,299](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5082f2585d22d3f55a00b027) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:3:capital_expenditures",
+      "expected": 16745,
+      "observed": [
+        16745
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:46: | Q3 | 2025-03-31 | [37,044](#finance/table_685f65ec794e418a96ab67ad99f464df/c_cacbb053aea6155991e5feaa) | [16,745](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5b11acb2eb3596b6c4a26dae) | [20,299](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5082f2585d22d3f55a00b027) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:3:free_cash_flow",
+      "expected": 20299,
+      "observed": [
+        20299
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:46: | Q3 | 2025-03-31 | [37,044](#finance/table_685f65ec794e418a96ab67ad99f464df/c_cacbb053aea6155991e5feaa) | [16,745](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5b11acb2eb3596b6c4a26dae) | [20,299](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5082f2585d22d3f55a00b027) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:4:operating_cash_flow",
+      "expected": 42647,
+      "observed": [
+        42647
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:47: | Q4 | 2025-06-30 | [42,647](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5fe02c87f6c566251463e901) | [17,079](#finance/table_685f65ec794e418a96ab67ad99f464df/c_a94808a5ec8065c0b7cb89cd) | [25,568](#finance/table_685f65ec794e418a96ab67ad99f464df/c_cef1b242351c27715296a4c0) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:4:capital_expenditures",
+      "expected": 17079,
+      "observed": [
+        17079
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:47: | Q4 | 2025-06-30 | [42,647](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5fe02c87f6c566251463e901) | [17,079](#finance/table_685f65ec794e418a96ab67ad99f464df/c_a94808a5ec8065c0b7cb89cd) | [25,568](#finance/table_685f65ec794e418a96ab67ad99f464df/c_cef1b242351c27715296a4c0) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:4:free_cash_flow",
+      "expected": 25568,
+      "observed": [
+        25568
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "final-response.md:47: | Q4 | 2025-06-30 | [42,647](#finance/table_685f65ec794e418a96ab67ad99f464df/c_5fe02c87f6c566251463e901) | [17,079](#finance/table_685f65ec794e418a96ab67ad99f464df/c_a94808a5ec8065c0b7cb89cd) | [25,568](#finance/table_685f65ec794e418a96ab67ad99f464df/c_cef1b242351c27715296a4c0) |"
+      ]
+    }
+  ]
+}

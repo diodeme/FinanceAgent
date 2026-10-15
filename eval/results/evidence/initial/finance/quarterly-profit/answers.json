@@ -1,0 +1,485 @@
+{
+  "extraction": "Final user-visible table manually reviewed; exact excerpts retained, no golden values used for extraction. Supporting saved reports have the same required table figures where present.",
+  "cells": [
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-12-30",
+      "metric": "revenue",
+      "value": 119575,
+      "evidence": "final-response.md:9: | FY2024 | Q1 | 2023-12-30 | 119,575 | 33,916 | 28.4% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-12-30",
+      "metric": "net_income",
+      "value": 33916,
+      "evidence": "final-response.md:9: | FY2024 | Q1 | 2023-12-30 | 119,575 | 33,916 | 28.4% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-12-30",
+      "metric": "net_margin",
+      "value": 28.4,
+      "evidence": "final-response.md:9: | FY2024 | Q1 | 2023-12-30 | 119,575 | 33,916 | 28.4% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "revenue",
+      "value": 90753,
+      "evidence": "final-response.md:10: | FY2024 | Q2 | 2024-03-30 | 90,753 | 23,636 | 26.0% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "net_income",
+      "value": 23636,
+      "evidence": "final-response.md:10: | FY2024 | Q2 | 2024-03-30 | 90,753 | 23,636 | 26.0% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "net_margin",
+      "value": 26,
+      "evidence": "final-response.md:10: | FY2024 | Q2 | 2024-03-30 | 90,753 | 23,636 | 26.0% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "revenue",
+      "value": 85777,
+      "evidence": "final-response.md:11: | FY2024 | Q3 | 2024-06-29 | 85,777 | 21,448 | 25.0% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "net_income",
+      "value": 21448,
+      "evidence": "final-response.md:11: | FY2024 | Q3 | 2024-06-29 | 85,777 | 21,448 | 25.0% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "net_margin",
+      "value": 25,
+      "evidence": "final-response.md:11: | FY2024 | Q3 | 2024-06-29 | 85,777 | 21,448 | 25.0% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "revenue",
+      "value": 94930,
+      "evidence": "final-response.md:12: | FY2024 | Q4 | 2024-09-28 | 94,930 | 14,736 | 15.5% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "net_income",
+      "value": 14736,
+      "evidence": "final-response.md:12: | FY2024 | Q4 | 2024-09-28 | 94,930 | 14,736 | 15.5% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "net_margin",
+      "value": 15.5,
+      "evidence": "final-response.md:12: | FY2024 | Q4 | 2024-09-28 | 94,930 | 14,736 | 15.5% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "revenue",
+      "value": 124300,
+      "evidence": "final-response.md:13: | FY2025 | Q1 | 2024-12-28 | 124,300 | 36,330 | 29.2% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "net_income",
+      "value": 36330,
+      "evidence": "final-response.md:13: | FY2025 | Q1 | 2024-12-28 | 124,300 | 36,330 | 29.2% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "net_margin",
+      "value": 29.2,
+      "evidence": "final-response.md:13: | FY2025 | Q1 | 2024-12-28 | 124,300 | 36,330 | 29.2% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2025-03-29",
+      "metric": "revenue",
+      "value": 95359,
+      "evidence": "final-response.md:14: | FY2025 | Q2 | 2025-03-29 | 95,359 | 24,780 | 26.0% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2025-03-29",
+      "metric": "net_income",
+      "value": 24780,
+      "evidence": "final-response.md:14: | FY2025 | Q2 | 2025-03-29 | 95,359 | 24,780 | 26.0% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2025-03-29",
+      "metric": "net_margin",
+      "value": 26,
+      "evidence": "final-response.md:14: | FY2025 | Q2 | 2025-03-29 | 95,359 | 24,780 | 26.0% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-06-28",
+      "metric": "revenue",
+      "value": 94036,
+      "evidence": "final-response.md:15: | FY2025 | Q3 | 2025-06-28 | 94,036 | 23,434 | 24.9% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-06-28",
+      "metric": "net_income",
+      "value": 23434,
+      "evidence": "final-response.md:15: | FY2025 | Q3 | 2025-06-28 | 94,036 | 23,434 | 24.9% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-06-28",
+      "metric": "net_margin",
+      "value": 24.9,
+      "evidence": "final-response.md:15: | FY2025 | Q3 | 2025-06-28 | 94,036 | 23,434 | 24.9% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-09-27",
+      "metric": "revenue",
+      "value": 102466,
+      "evidence": "final-response.md:16: | FY2025 | Q4 | 2025-09-27 | 102,466 | 27,466 | 26.8% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-09-27",
+      "metric": "net_income",
+      "value": 27466,
+      "evidence": "final-response.md:16: | FY2025 | Q4 | 2025-09-27 | 102,466 | 27,466 | 26.8% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-09-27",
+      "metric": "net_margin",
+      "value": 26.8,
+      "evidence": "final-response.md:16: | FY2025 | Q4 | 2025-09-27 | 102,466 | 27,466 | 26.8% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-09-30",
+      "metric": "revenue",
+      "value": 56517,
+      "evidence": "final-response.md:22: | FY2024 | Q1 | 2023-09-30 | 56,517 | 22,291 | 39.4% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-09-30",
+      "metric": "net_income",
+      "value": 22291,
+      "evidence": "final-response.md:22: | FY2024 | Q1 | 2023-09-30 | 56,517 | 22,291 | 39.4% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-09-30",
+      "metric": "net_margin",
+      "value": 39.4,
+      "evidence": "final-response.md:22: | FY2024 | Q1 | 2023-09-30 | 56,517 | 22,291 | 39.4% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2023-12-31",
+      "metric": "revenue",
+      "value": 62020,
+      "evidence": "final-response.md:23: | FY2024 | Q2 | 2023-12-31 | 62,020 | 21,870 | 35.3% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2023-12-31",
+      "metric": "net_income",
+      "value": 21870,
+      "evidence": "final-response.md:23: | FY2024 | Q2 | 2023-12-31 | 62,020 | 21,870 | 35.3% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2023-12-31",
+      "metric": "net_margin",
+      "value": 35.3,
+      "evidence": "final-response.md:23: | FY2024 | Q2 | 2023-12-31 | 62,020 | 21,870 | 35.3% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "revenue",
+      "value": 61858,
+      "evidence": "final-response.md:24: | FY2024 | Q3 | 2024-03-31 | 61,858 | 21,939 | 35.5% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "net_income",
+      "value": 21939,
+      "evidence": "final-response.md:24: | FY2024 | Q3 | 2024-03-31 | 61,858 | 21,939 | 35.5% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "net_margin",
+      "value": 35.5,
+      "evidence": "final-response.md:24: | FY2024 | Q3 | 2024-03-31 | 61,858 | 21,939 | 35.5% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "revenue",
+      "value": 64727,
+      "evidence": "final-response.md:25: | FY2024 | Q4 | 2024-06-30 | 64,727 | 22,036 | 34.0% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "net_income",
+      "value": 22036,
+      "evidence": "final-response.md:25: | FY2024 | Q4 | 2024-06-30 | 64,727 | 22,036 | 34.0% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "net_margin",
+      "value": 34,
+      "evidence": "final-response.md:25: | FY2024 | Q4 | 2024-06-30 | 64,727 | 22,036 | 34.0% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "revenue",
+      "value": 65585,
+      "evidence": "final-response.md:26: | FY2025 | Q1 | 2024-09-30 | 65,585 | 24,667 | 37.6% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "net_income",
+      "value": 24667,
+      "evidence": "final-response.md:26: | FY2025 | Q1 | 2024-09-30 | 65,585 | 24,667 | 37.6% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "net_margin",
+      "value": 37.6,
+      "evidence": "final-response.md:26: | FY2025 | Q1 | 2024-09-30 | 65,585 | 24,667 | 37.6% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "revenue",
+      "value": 69632,
+      "evidence": "final-response.md:27: | FY2025 | Q2 | 2024-12-31 | 69,632 | 24,108 | 34.6% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "net_income",
+      "value": 24108,
+      "evidence": "final-response.md:27: | FY2025 | Q2 | 2024-12-31 | 69,632 | 24,108 | 34.6% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "net_margin",
+      "value": 34.6,
+      "evidence": "final-response.md:27: | FY2025 | Q2 | 2024-12-31 | 69,632 | 24,108 | 34.6% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-03-31",
+      "metric": "revenue",
+      "value": 70066,
+      "evidence": "final-response.md:28: | FY2025 | Q3 | 2025-03-31 | 70,066 | 25,824 | 36.9% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-03-31",
+      "metric": "net_income",
+      "value": 25824,
+      "evidence": "final-response.md:28: | FY2025 | Q3 | 2025-03-31 | 70,066 | 25,824 | 36.9% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-03-31",
+      "metric": "net_margin",
+      "value": 36.9,
+      "evidence": "final-response.md:28: | FY2025 | Q3 | 2025-03-31 | 70,066 | 25,824 | 36.9% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-06-30",
+      "metric": "revenue",
+      "value": 76441,
+      "evidence": "final-response.md:29: | FY2025 | Q4 | 2025-06-30 | 76,441 | 27,233 | 35.6% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-06-30",
+      "metric": "net_income",
+      "value": 27233,
+      "evidence": "final-response.md:29: | FY2025 | Q4 | 2025-06-30 | 76,441 | 27,233 | 35.6% |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-06-30",
+      "metric": "net_margin",
+      "value": 35.6,
+      "evidence": "final-response.md:29: | FY2025 | Q4 | 2025-06-30 | 76,441 | 27,233 | 35.6% |",
+      "provenance_supported": null
+    }
+  ]
+}

@@ -1,0 +1,880 @@
+{
+  "case_id": "quarterly-profit",
+  "extracted_at": "2026-10-14T17:40:11.167Z",
+  "gold_read_before_extraction": false,
+  "required_numeric_cells": 48,
+  "extracted_required_keys": 48,
+  "unextracted_required_cells": [],
+  "included_saved_artifacts": [],
+  "notes": [
+    "Assistant-reviewed extraction, not independent human annotation. Golden values not read before extraction. No missing cells filled. No provenance-support audit.",
+    "Only explicit delivered tables; exclude approximate prose ranges, raw datasets, history rows, inputs, unpublished analysis, and manufactured annual sums.",
+    "Line 9 generic fraction wording is ambiguous, but every table margin explicitly prints %. Values are percentage points."
+  ],
+  "cells": [
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-12-30",
+      "metric": "revenue",
+      "value": 119575,
+      "unit": "USD_millions",
+      "printed_value": "119,575",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:15: | FY2024 | Q1（2023-12-30） | [119,575](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_41d5ace39162815fe4da84ed) | [33,916](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_38066507725baa2e828adbeb) | [28.36%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_21d69480313678fee874e832) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 15,
+        "excerpt": "| FY2024 | Q1（2023-12-30） | [119,575](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_41d5ace39162815fe4da84ed) | [33,916](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_38066507725baa2e828adbeb) | [28.36%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_21d69480313678fee874e832) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-12-30",
+      "metric": "net_income",
+      "value": 33916,
+      "unit": "USD_millions",
+      "printed_value": "33,916",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:15: | FY2024 | Q1（2023-12-30） | [119,575](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_41d5ace39162815fe4da84ed) | [33,916](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_38066507725baa2e828adbeb) | [28.36%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_21d69480313678fee874e832) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 15,
+        "excerpt": "| FY2024 | Q1（2023-12-30） | [119,575](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_41d5ace39162815fe4da84ed) | [33,916](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_38066507725baa2e828adbeb) | [28.36%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_21d69480313678fee874e832) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-12-30",
+      "metric": "net_margin",
+      "value": 28.36,
+      "unit": "percentage_points",
+      "printed_value": "28.36%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:15: | FY2024 | Q1（2023-12-30） | [119,575](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_41d5ace39162815fe4da84ed) | [33,916](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_38066507725baa2e828adbeb) | [28.36%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_21d69480313678fee874e832) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 15,
+        "excerpt": "| FY2024 | Q1（2023-12-30） | [119,575](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_41d5ace39162815fe4da84ed) | [33,916](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_38066507725baa2e828adbeb) | [28.36%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_21d69480313678fee874e832) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "revenue",
+      "value": 90753,
+      "unit": "USD_millions",
+      "printed_value": "90,753",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:16: | FY2024 | Q2（2024-03-30） | [90,753](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ebfdfa5f5eb4313785d2a080) | [23,636](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_62ab0a150b214ffe04578d1b) | [26.04%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_d3eb6d2c8b1b13e84621048b) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 16,
+        "excerpt": "| FY2024 | Q2（2024-03-30） | [90,753](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ebfdfa5f5eb4313785d2a080) | [23,636](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_62ab0a150b214ffe04578d1b) | [26.04%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_d3eb6d2c8b1b13e84621048b) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "net_income",
+      "value": 23636,
+      "unit": "USD_millions",
+      "printed_value": "23,636",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:16: | FY2024 | Q2（2024-03-30） | [90,753](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ebfdfa5f5eb4313785d2a080) | [23,636](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_62ab0a150b214ffe04578d1b) | [26.04%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_d3eb6d2c8b1b13e84621048b) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 16,
+        "excerpt": "| FY2024 | Q2（2024-03-30） | [90,753](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ebfdfa5f5eb4313785d2a080) | [23,636](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_62ab0a150b214ffe04578d1b) | [26.04%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_d3eb6d2c8b1b13e84621048b) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "net_margin",
+      "value": 26.04,
+      "unit": "percentage_points",
+      "printed_value": "26.04%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:16: | FY2024 | Q2（2024-03-30） | [90,753](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ebfdfa5f5eb4313785d2a080) | [23,636](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_62ab0a150b214ffe04578d1b) | [26.04%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_d3eb6d2c8b1b13e84621048b) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 16,
+        "excerpt": "| FY2024 | Q2（2024-03-30） | [90,753](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ebfdfa5f5eb4313785d2a080) | [23,636](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_62ab0a150b214ffe04578d1b) | [26.04%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_d3eb6d2c8b1b13e84621048b) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "revenue",
+      "value": 85777,
+      "unit": "USD_millions",
+      "printed_value": "85,777",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:17: | FY2024 | Q3（2024-06-29） | [85,777](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5842c7a633b6f61e18ae1504) | [21,448](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_e7e881dd7efd797d7c8446f5) | [25.00%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_3ff4c00d765c1ea691d4402c) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 17,
+        "excerpt": "| FY2024 | Q3（2024-06-29） | [85,777](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5842c7a633b6f61e18ae1504) | [21,448](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_e7e881dd7efd797d7c8446f5) | [25.00%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_3ff4c00d765c1ea691d4402c) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "net_income",
+      "value": 21448,
+      "unit": "USD_millions",
+      "printed_value": "21,448",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:17: | FY2024 | Q3（2024-06-29） | [85,777](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5842c7a633b6f61e18ae1504) | [21,448](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_e7e881dd7efd797d7c8446f5) | [25.00%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_3ff4c00d765c1ea691d4402c) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 17,
+        "excerpt": "| FY2024 | Q3（2024-06-29） | [85,777](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5842c7a633b6f61e18ae1504) | [21,448](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_e7e881dd7efd797d7c8446f5) | [25.00%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_3ff4c00d765c1ea691d4402c) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "net_margin",
+      "value": 25,
+      "unit": "percentage_points",
+      "printed_value": "25.00%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:17: | FY2024 | Q3（2024-06-29） | [85,777](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5842c7a633b6f61e18ae1504) | [21,448](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_e7e881dd7efd797d7c8446f5) | [25.00%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_3ff4c00d765c1ea691d4402c) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 17,
+        "excerpt": "| FY2024 | Q3（2024-06-29） | [85,777](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5842c7a633b6f61e18ae1504) | [21,448](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_e7e881dd7efd797d7c8446f5) | [25.00%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_3ff4c00d765c1ea691d4402c) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "revenue",
+      "value": 94930,
+      "unit": "USD_millions",
+      "printed_value": "94,930",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:18: | FY2024 | Q4（2024-09-28） | [94,930](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b284c4e3b5daa7f4e76e28a9) | [14,736](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_6e6e80628556f0a0aa064f23) | [15.52%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_022560479c142d851bb08996) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 18,
+        "excerpt": "| FY2024 | Q4（2024-09-28） | [94,930](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b284c4e3b5daa7f4e76e28a9) | [14,736](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_6e6e80628556f0a0aa064f23) | [15.52%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_022560479c142d851bb08996) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "net_income",
+      "value": 14736,
+      "unit": "USD_millions",
+      "printed_value": "14,736",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:18: | FY2024 | Q4（2024-09-28） | [94,930](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b284c4e3b5daa7f4e76e28a9) | [14,736](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_6e6e80628556f0a0aa064f23) | [15.52%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_022560479c142d851bb08996) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 18,
+        "excerpt": "| FY2024 | Q4（2024-09-28） | [94,930](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b284c4e3b5daa7f4e76e28a9) | [14,736](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_6e6e80628556f0a0aa064f23) | [15.52%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_022560479c142d851bb08996) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "net_margin",
+      "value": 15.52,
+      "unit": "percentage_points",
+      "printed_value": "15.52%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:18: | FY2024 | Q4（2024-09-28） | [94,930](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b284c4e3b5daa7f4e76e28a9) | [14,736](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_6e6e80628556f0a0aa064f23) | [15.52%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_022560479c142d851bb08996) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 18,
+        "excerpt": "| FY2024 | Q4（2024-09-28） | [94,930](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b284c4e3b5daa7f4e76e28a9) | [14,736](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_6e6e80628556f0a0aa064f23) | [15.52%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_022560479c142d851bb08996) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "revenue",
+      "value": 124300,
+      "unit": "USD_millions",
+      "printed_value": "124,300",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:19: | FY2025 | Q1（2024-12-28） | [124,300](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5e07a2bf54e0871793d27dd2) | [36,330](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a231f8b000839de8fe9bc3d7) | [29.23%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_03d49ca5c840cc243e1e9dbb) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 19,
+        "excerpt": "| FY2025 | Q1（2024-12-28） | [124,300](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5e07a2bf54e0871793d27dd2) | [36,330](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a231f8b000839de8fe9bc3d7) | [29.23%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_03d49ca5c840cc243e1e9dbb) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "net_income",
+      "value": 36330,
+      "unit": "USD_millions",
+      "printed_value": "36,330",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:19: | FY2025 | Q1（2024-12-28） | [124,300](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5e07a2bf54e0871793d27dd2) | [36,330](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a231f8b000839de8fe9bc3d7) | [29.23%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_03d49ca5c840cc243e1e9dbb) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 19,
+        "excerpt": "| FY2025 | Q1（2024-12-28） | [124,300](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5e07a2bf54e0871793d27dd2) | [36,330](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a231f8b000839de8fe9bc3d7) | [29.23%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_03d49ca5c840cc243e1e9dbb) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "net_margin",
+      "value": 29.23,
+      "unit": "percentage_points",
+      "printed_value": "29.23%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:19: | FY2025 | Q1（2024-12-28） | [124,300](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5e07a2bf54e0871793d27dd2) | [36,330](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a231f8b000839de8fe9bc3d7) | [29.23%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_03d49ca5c840cc243e1e9dbb) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 19,
+        "excerpt": "| FY2025 | Q1（2024-12-28） | [124,300](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5e07a2bf54e0871793d27dd2) | [36,330](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a231f8b000839de8fe9bc3d7) | [29.23%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_03d49ca5c840cc243e1e9dbb) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2025-03-29",
+      "metric": "revenue",
+      "value": 95359,
+      "unit": "USD_millions",
+      "printed_value": "95,359",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:20: | FY2025 | Q2（2025-03-29） | [95,359](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5176d1910f7fba5a66b9541b) | [24,780](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ceb3571fa87cb3b1f0b3a49b) | [25.99%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a1ab9434e4169a53910302d5) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 20,
+        "excerpt": "| FY2025 | Q2（2025-03-29） | [95,359](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5176d1910f7fba5a66b9541b) | [24,780](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ceb3571fa87cb3b1f0b3a49b) | [25.99%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a1ab9434e4169a53910302d5) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2025-03-29",
+      "metric": "net_income",
+      "value": 24780,
+      "unit": "USD_millions",
+      "printed_value": "24,780",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:20: | FY2025 | Q2（2025-03-29） | [95,359](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5176d1910f7fba5a66b9541b) | [24,780](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ceb3571fa87cb3b1f0b3a49b) | [25.99%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a1ab9434e4169a53910302d5) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 20,
+        "excerpt": "| FY2025 | Q2（2025-03-29） | [95,359](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5176d1910f7fba5a66b9541b) | [24,780](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ceb3571fa87cb3b1f0b3a49b) | [25.99%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a1ab9434e4169a53910302d5) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2025-03-29",
+      "metric": "net_margin",
+      "value": 25.99,
+      "unit": "percentage_points",
+      "printed_value": "25.99%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:20: | FY2025 | Q2（2025-03-29） | [95,359](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5176d1910f7fba5a66b9541b) | [24,780](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ceb3571fa87cb3b1f0b3a49b) | [25.99%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a1ab9434e4169a53910302d5) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 20,
+        "excerpt": "| FY2025 | Q2（2025-03-29） | [95,359](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5176d1910f7fba5a66b9541b) | [24,780](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ceb3571fa87cb3b1f0b3a49b) | [25.99%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a1ab9434e4169a53910302d5) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-06-28",
+      "metric": "revenue",
+      "value": 94036,
+      "unit": "USD_millions",
+      "printed_value": "94,036",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:21: | FY2025 | Q3（2025-06-28） | [94,036](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8b125a914216f7385a9538b1) | [23,434](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8942c75b357cd51ab523d1ed) | [24.92%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_cce7b64d74b296ff48ee998e) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 21,
+        "excerpt": "| FY2025 | Q3（2025-06-28） | [94,036](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8b125a914216f7385a9538b1) | [23,434](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8942c75b357cd51ab523d1ed) | [24.92%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_cce7b64d74b296ff48ee998e) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-06-28",
+      "metric": "net_income",
+      "value": 23434,
+      "unit": "USD_millions",
+      "printed_value": "23,434",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:21: | FY2025 | Q3（2025-06-28） | [94,036](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8b125a914216f7385a9538b1) | [23,434](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8942c75b357cd51ab523d1ed) | [24.92%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_cce7b64d74b296ff48ee998e) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 21,
+        "excerpt": "| FY2025 | Q3（2025-06-28） | [94,036](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8b125a914216f7385a9538b1) | [23,434](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8942c75b357cd51ab523d1ed) | [24.92%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_cce7b64d74b296ff48ee998e) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-06-28",
+      "metric": "net_margin",
+      "value": 24.92,
+      "unit": "percentage_points",
+      "printed_value": "24.92%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:21: | FY2025 | Q3（2025-06-28） | [94,036](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8b125a914216f7385a9538b1) | [23,434](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8942c75b357cd51ab523d1ed) | [24.92%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_cce7b64d74b296ff48ee998e) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 21,
+        "excerpt": "| FY2025 | Q3（2025-06-28） | [94,036](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8b125a914216f7385a9538b1) | [23,434](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8942c75b357cd51ab523d1ed) | [24.92%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_cce7b64d74b296ff48ee998e) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-09-27",
+      "metric": "revenue",
+      "value": 102466,
+      "unit": "USD_millions",
+      "printed_value": "102,466",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:22: | FY2025 | Q4（2025-09-27） | [102,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_276dd1a8463ee51d5fe30f03) | [27,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_c84ac6b9de80421cf69066e3) | [26.80%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b389b836b205d4045ca18043) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 22,
+        "excerpt": "| FY2025 | Q4（2025-09-27） | [102,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_276dd1a8463ee51d5fe30f03) | [27,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_c84ac6b9de80421cf69066e3) | [26.80%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b389b836b205d4045ca18043) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-09-27",
+      "metric": "net_income",
+      "value": 27466,
+      "unit": "USD_millions",
+      "printed_value": "27,466",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:22: | FY2025 | Q4（2025-09-27） | [102,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_276dd1a8463ee51d5fe30f03) | [27,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_c84ac6b9de80421cf69066e3) | [26.80%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b389b836b205d4045ca18043) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 22,
+        "excerpt": "| FY2025 | Q4（2025-09-27） | [102,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_276dd1a8463ee51d5fe30f03) | [27,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_c84ac6b9de80421cf69066e3) | [26.80%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b389b836b205d4045ca18043) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-09-27",
+      "metric": "net_margin",
+      "value": 26.8,
+      "unit": "percentage_points",
+      "printed_value": "26.80%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:22: | FY2025 | Q4（2025-09-27） | [102,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_276dd1a8463ee51d5fe30f03) | [27,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_c84ac6b9de80421cf69066e3) | [26.80%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b389b836b205d4045ca18043) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 22,
+        "excerpt": "| FY2025 | Q4（2025-09-27） | [102,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_276dd1a8463ee51d5fe30f03) | [27,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_c84ac6b9de80421cf69066e3) | [26.80%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b389b836b205d4045ca18043) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-09-30",
+      "metric": "revenue",
+      "value": 56517,
+      "unit": "USD_millions",
+      "printed_value": "56,517",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:28: | FY2024 | Q1（2023-09-30） | [56,517](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_dcffde299b5914c560347e06) | [22,291](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e0e63aef564e46a7206c0736) | [39.44%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4203366d5e3b9d48f23f7a13) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 28,
+        "excerpt": "| FY2024 | Q1（2023-09-30） | [56,517](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_dcffde299b5914c560347e06) | [22,291](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e0e63aef564e46a7206c0736) | [39.44%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4203366d5e3b9d48f23f7a13) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-09-30",
+      "metric": "net_income",
+      "value": 22291,
+      "unit": "USD_millions",
+      "printed_value": "22,291",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:28: | FY2024 | Q1（2023-09-30） | [56,517](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_dcffde299b5914c560347e06) | [22,291](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e0e63aef564e46a7206c0736) | [39.44%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4203366d5e3b9d48f23f7a13) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 28,
+        "excerpt": "| FY2024 | Q1（2023-09-30） | [56,517](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_dcffde299b5914c560347e06) | [22,291](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e0e63aef564e46a7206c0736) | [39.44%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4203366d5e3b9d48f23f7a13) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-09-30",
+      "metric": "net_margin",
+      "value": 39.44,
+      "unit": "percentage_points",
+      "printed_value": "39.44%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:28: | FY2024 | Q1（2023-09-30） | [56,517](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_dcffde299b5914c560347e06) | [22,291](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e0e63aef564e46a7206c0736) | [39.44%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4203366d5e3b9d48f23f7a13) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 28,
+        "excerpt": "| FY2024 | Q1（2023-09-30） | [56,517](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_dcffde299b5914c560347e06) | [22,291](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e0e63aef564e46a7206c0736) | [39.44%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4203366d5e3b9d48f23f7a13) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2023-12-31",
+      "metric": "revenue",
+      "value": 62020,
+      "unit": "USD_millions",
+      "printed_value": "62,020",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:29: | FY2024 | Q2（2023-12-31） | [62,020](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db7c397154a9232323d4265f) | [21,870](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_98deb4cdd5dfb567d3bda515) | [35.26%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_3c12679719bf29e4668ba3b2) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 29,
+        "excerpt": "| FY2024 | Q2（2023-12-31） | [62,020](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db7c397154a9232323d4265f) | [21,870](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_98deb4cdd5dfb567d3bda515) | [35.26%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_3c12679719bf29e4668ba3b2) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2023-12-31",
+      "metric": "net_income",
+      "value": 21870,
+      "unit": "USD_millions",
+      "printed_value": "21,870",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:29: | FY2024 | Q2（2023-12-31） | [62,020](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db7c397154a9232323d4265f) | [21,870](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_98deb4cdd5dfb567d3bda515) | [35.26%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_3c12679719bf29e4668ba3b2) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 29,
+        "excerpt": "| FY2024 | Q2（2023-12-31） | [62,020](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db7c397154a9232323d4265f) | [21,870](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_98deb4cdd5dfb567d3bda515) | [35.26%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_3c12679719bf29e4668ba3b2) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2023-12-31",
+      "metric": "net_margin",
+      "value": 35.26,
+      "unit": "percentage_points",
+      "printed_value": "35.26%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:29: | FY2024 | Q2（2023-12-31） | [62,020](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db7c397154a9232323d4265f) | [21,870](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_98deb4cdd5dfb567d3bda515) | [35.26%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_3c12679719bf29e4668ba3b2) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 29,
+        "excerpt": "| FY2024 | Q2（2023-12-31） | [62,020](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db7c397154a9232323d4265f) | [21,870](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_98deb4cdd5dfb567d3bda515) | [35.26%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_3c12679719bf29e4668ba3b2) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "revenue",
+      "value": 61858,
+      "unit": "USD_millions",
+      "printed_value": "61,858",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:30: | FY2024 | Q3（2024-03-31） | [61,858](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_b8b757fad0cef3c9117c93fc) | [21,939](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db9667283ab6466bbb2bac51) | [35.47%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e9713a0f2433470ca77650b1) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 30,
+        "excerpt": "| FY2024 | Q3（2024-03-31） | [61,858](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_b8b757fad0cef3c9117c93fc) | [21,939](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db9667283ab6466bbb2bac51) | [35.47%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e9713a0f2433470ca77650b1) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "net_income",
+      "value": 21939,
+      "unit": "USD_millions",
+      "printed_value": "21,939",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:30: | FY2024 | Q3（2024-03-31） | [61,858](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_b8b757fad0cef3c9117c93fc) | [21,939](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db9667283ab6466bbb2bac51) | [35.47%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e9713a0f2433470ca77650b1) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 30,
+        "excerpt": "| FY2024 | Q3（2024-03-31） | [61,858](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_b8b757fad0cef3c9117c93fc) | [21,939](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db9667283ab6466bbb2bac51) | [35.47%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e9713a0f2433470ca77650b1) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "net_margin",
+      "value": 35.47,
+      "unit": "percentage_points",
+      "printed_value": "35.47%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:30: | FY2024 | Q3（2024-03-31） | [61,858](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_b8b757fad0cef3c9117c93fc) | [21,939](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db9667283ab6466bbb2bac51) | [35.47%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e9713a0f2433470ca77650b1) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 30,
+        "excerpt": "| FY2024 | Q3（2024-03-31） | [61,858](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_b8b757fad0cef3c9117c93fc) | [21,939](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db9667283ab6466bbb2bac51) | [35.47%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e9713a0f2433470ca77650b1) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "revenue",
+      "value": 64727,
+      "unit": "USD_millions",
+      "printed_value": "64,727",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:31: | FY2024 | Q4（2024-06-30） | [64,727](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_8b6a774ff6f1d941e6cfa58d) | [22,036](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_6321dfedd51e0ee210d9a507) | [34.04%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0e429c049e647c2212da626a) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 31,
+        "excerpt": "| FY2024 | Q4（2024-06-30） | [64,727](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_8b6a774ff6f1d941e6cfa58d) | [22,036](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_6321dfedd51e0ee210d9a507) | [34.04%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0e429c049e647c2212da626a) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "net_income",
+      "value": 22036,
+      "unit": "USD_millions",
+      "printed_value": "22,036",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:31: | FY2024 | Q4（2024-06-30） | [64,727](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_8b6a774ff6f1d941e6cfa58d) | [22,036](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_6321dfedd51e0ee210d9a507) | [34.04%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0e429c049e647c2212da626a) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 31,
+        "excerpt": "| FY2024 | Q4（2024-06-30） | [64,727](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_8b6a774ff6f1d941e6cfa58d) | [22,036](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_6321dfedd51e0ee210d9a507) | [34.04%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0e429c049e647c2212da626a) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "net_margin",
+      "value": 34.04,
+      "unit": "percentage_points",
+      "printed_value": "34.04%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:31: | FY2024 | Q4（2024-06-30） | [64,727](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_8b6a774ff6f1d941e6cfa58d) | [22,036](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_6321dfedd51e0ee210d9a507) | [34.04%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0e429c049e647c2212da626a) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 31,
+        "excerpt": "| FY2024 | Q4（2024-06-30） | [64,727](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_8b6a774ff6f1d941e6cfa58d) | [22,036](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_6321dfedd51e0ee210d9a507) | [34.04%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0e429c049e647c2212da626a) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "revenue",
+      "value": 65585,
+      "unit": "USD_millions",
+      "printed_value": "65,585",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:32: | FY2025 | Q1（2024-09-30） | [65,585](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_fa9d4c04fce1fae6277feedb) | [24,667](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_ca0571a5953486f6a697c129) | [37.61%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_97e6d364102ff10ca6c5ad64) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 32,
+        "excerpt": "| FY2025 | Q1（2024-09-30） | [65,585](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_fa9d4c04fce1fae6277feedb) | [24,667](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_ca0571a5953486f6a697c129) | [37.61%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_97e6d364102ff10ca6c5ad64) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "net_income",
+      "value": 24667,
+      "unit": "USD_millions",
+      "printed_value": "24,667",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:32: | FY2025 | Q1（2024-09-30） | [65,585](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_fa9d4c04fce1fae6277feedb) | [24,667](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_ca0571a5953486f6a697c129) | [37.61%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_97e6d364102ff10ca6c5ad64) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 32,
+        "excerpt": "| FY2025 | Q1（2024-09-30） | [65,585](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_fa9d4c04fce1fae6277feedb) | [24,667](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_ca0571a5953486f6a697c129) | [37.61%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_97e6d364102ff10ca6c5ad64) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "net_margin",
+      "value": 37.61,
+      "unit": "percentage_points",
+      "printed_value": "37.61%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:32: | FY2025 | Q1（2024-09-30） | [65,585](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_fa9d4c04fce1fae6277feedb) | [24,667](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_ca0571a5953486f6a697c129) | [37.61%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_97e6d364102ff10ca6c5ad64) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 32,
+        "excerpt": "| FY2025 | Q1（2024-09-30） | [65,585](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_fa9d4c04fce1fae6277feedb) | [24,667](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_ca0571a5953486f6a697c129) | [37.61%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_97e6d364102ff10ca6c5ad64) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "revenue",
+      "value": 69632,
+      "unit": "USD_millions",
+      "printed_value": "69,632",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:33: | FY2025 | Q2（2024-12-31） | [69,632](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_852cfd0aaf27e0f7d98f857d) | [24,108](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_19777dfbc3b5fde713042aca) | [34.62%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_96ac7dbe811649870fbbf117) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 33,
+        "excerpt": "| FY2025 | Q2（2024-12-31） | [69,632](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_852cfd0aaf27e0f7d98f857d) | [24,108](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_19777dfbc3b5fde713042aca) | [34.62%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_96ac7dbe811649870fbbf117) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "net_income",
+      "value": 24108,
+      "unit": "USD_millions",
+      "printed_value": "24,108",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:33: | FY2025 | Q2（2024-12-31） | [69,632](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_852cfd0aaf27e0f7d98f857d) | [24,108](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_19777dfbc3b5fde713042aca) | [34.62%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_96ac7dbe811649870fbbf117) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 33,
+        "excerpt": "| FY2025 | Q2（2024-12-31） | [69,632](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_852cfd0aaf27e0f7d98f857d) | [24,108](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_19777dfbc3b5fde713042aca) | [34.62%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_96ac7dbe811649870fbbf117) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "net_margin",
+      "value": 34.62,
+      "unit": "percentage_points",
+      "printed_value": "34.62%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:33: | FY2025 | Q2（2024-12-31） | [69,632](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_852cfd0aaf27e0f7d98f857d) | [24,108](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_19777dfbc3b5fde713042aca) | [34.62%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_96ac7dbe811649870fbbf117) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 33,
+        "excerpt": "| FY2025 | Q2（2024-12-31） | [69,632](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_852cfd0aaf27e0f7d98f857d) | [24,108](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_19777dfbc3b5fde713042aca) | [34.62%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_96ac7dbe811649870fbbf117) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-03-31",
+      "metric": "revenue",
+      "value": 70066,
+      "unit": "USD_millions",
+      "printed_value": "70,066",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:34: | FY2025 | Q3（2025-03-31） | [70,066](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0ab94dc9d83e824302f457ea) | [25,824](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_bcc28adb3cb181f7d3c43fee) | [36.86%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_c3bd0a74982e20ea74d24734) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 34,
+        "excerpt": "| FY2025 | Q3（2025-03-31） | [70,066](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0ab94dc9d83e824302f457ea) | [25,824](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_bcc28adb3cb181f7d3c43fee) | [36.86%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_c3bd0a74982e20ea74d24734) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-03-31",
+      "metric": "net_income",
+      "value": 25824,
+      "unit": "USD_millions",
+      "printed_value": "25,824",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:34: | FY2025 | Q3（2025-03-31） | [70,066](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0ab94dc9d83e824302f457ea) | [25,824](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_bcc28adb3cb181f7d3c43fee) | [36.86%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_c3bd0a74982e20ea74d24734) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 34,
+        "excerpt": "| FY2025 | Q3（2025-03-31） | [70,066](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0ab94dc9d83e824302f457ea) | [25,824](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_bcc28adb3cb181f7d3c43fee) | [36.86%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_c3bd0a74982e20ea74d24734) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-03-31",
+      "metric": "net_margin",
+      "value": 36.86,
+      "unit": "percentage_points",
+      "printed_value": "36.86%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:34: | FY2025 | Q3（2025-03-31） | [70,066](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0ab94dc9d83e824302f457ea) | [25,824](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_bcc28adb3cb181f7d3c43fee) | [36.86%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_c3bd0a74982e20ea74d24734) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 34,
+        "excerpt": "| FY2025 | Q3（2025-03-31） | [70,066](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0ab94dc9d83e824302f457ea) | [25,824](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_bcc28adb3cb181f7d3c43fee) | [36.86%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_c3bd0a74982e20ea74d24734) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-06-30",
+      "metric": "revenue",
+      "value": 76441,
+      "unit": "USD_millions",
+      "printed_value": "76,441",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:35: | FY2025 | Q4（2025-06-30） | [76,441](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_5130b6f1daaf1b02089ca84a) | [27,233](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_71cfe62075d974cc10472e74) | [35.63%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4ea31df6100045e1b927cbc3) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 35,
+        "excerpt": "| FY2025 | Q4（2025-06-30） | [76,441](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_5130b6f1daaf1b02089ca84a) | [27,233](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_71cfe62075d974cc10472e74) | [35.63%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4ea31df6100045e1b927cbc3) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-06-30",
+      "metric": "net_income",
+      "value": 27233,
+      "unit": "USD_millions",
+      "printed_value": "27,233",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:35: | FY2025 | Q4（2025-06-30） | [76,441](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_5130b6f1daaf1b02089ca84a) | [27,233](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_71cfe62075d974cc10472e74) | [35.63%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4ea31df6100045e1b927cbc3) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 35,
+        "excerpt": "| FY2025 | Q4（2025-06-30） | [76,441](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_5130b6f1daaf1b02089ca84a) | [27,233](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_71cfe62075d974cc10472e74) | [35.63%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4ea31df6100045e1b927cbc3) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-06-30",
+      "metric": "net_margin",
+      "value": 35.63,
+      "unit": "percentage_points",
+      "printed_value": "35.63%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:35: | FY2025 | Q4（2025-06-30） | [76,441](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_5130b6f1daaf1b02089ca84a) | [27,233](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_71cfe62075d974cc10472e74) | [35.63%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4ea31df6100045e1b927cbc3) |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md",
+        "line": 35,
+        "excerpt": "| FY2025 | Q4（2025-06-30） | [76,441](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_5130b6f1daaf1b02089ca84a) | [27,233](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_71cfe62075d974cc10472e74) | [35.63%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4ea31df6100045e1b927cbc3) |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:9: 金额单位：百万美元（USD）。净利率为分数（小数）。数据来源：SEC 结构化财务数据 + 原始 10-K/10-Q 文件。"
+    }
+  ]
+}

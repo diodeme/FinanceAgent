@@ -1,0 +1,478 @@
+{
+  "case_id": "annual-research-note",
+  "extracted_at": "2026-10-14T17:48:24.899Z",
+  "gold_read_before_extraction": false,
+  "required_numeric_cells": 24,
+  "extracted_required_keys": 24,
+  "unextracted_required_cells": [],
+  "included_saved_artifacts": [
+    {
+      "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+      "kind": "narrative",
+      "delivery": "Final chat announces saved report card."
+    }
+  ],
+  "notes": [
+    "Assistant-reviewed extraction, not independent human annotation. No golden file read for this extraction; no missing values filled. No source-support audit.",
+    "Final chat reviewed: confirms saved report and contains no competing requested numeric-cell values. Extract actual delivered narrative table, not internal calculations.",
+    "Exclude raw datasets, calculation inputs, history rows, approximate prose ranges, and undelivered annual sums."
+  ],
+  "cells": [
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "revenue",
+      "value": 391035,
+      "unit": "USD_millions",
+      "printed_value": "391,035",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 11: | AAPL FY2024 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.161 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 11,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| AAPL FY2024 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.161 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "net_income",
+      "value": 93736,
+      "unit": "USD_millions",
+      "printed_value": "93,736",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 11: | AAPL FY2024 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.161 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 11,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| AAPL FY2024 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.161 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "operating_cash_flow",
+      "value": 118254,
+      "unit": "USD_millions",
+      "printed_value": "118,254",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 11: | AAPL FY2024 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.161 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 11,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| AAPL FY2024 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.161 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "capital_expenditures",
+      "value": 9447,
+      "unit": "USD_millions",
+      "printed_value": "9,447",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 11: | AAPL FY2024 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.161 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 11,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| AAPL FY2024 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.161 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow",
+      "value": 108807,
+      "unit": "USD_millions",
+      "printed_value": "108,807",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 11: | AAPL FY2024 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.161 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 11,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| AAPL FY2024 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.161 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 1.161,
+      "unit": "ratio",
+      "printed_value": "1.161",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 11: | AAPL FY2024 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.161 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 11,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| AAPL FY2024 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.161 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "revenue",
+      "value": 416161,
+      "unit": "USD_millions",
+      "printed_value": "416,161",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 12: | AAPL FY2025 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.882 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 12,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| AAPL FY2025 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.882 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "net_income",
+      "value": 112010,
+      "unit": "USD_millions",
+      "printed_value": "112,010",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 12: | AAPL FY2025 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.882 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 12,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| AAPL FY2025 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.882 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "operating_cash_flow",
+      "value": 111482,
+      "unit": "USD_millions",
+      "printed_value": "111,482",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 12: | AAPL FY2025 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.882 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 12,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| AAPL FY2025 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.882 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "capital_expenditures",
+      "value": 12715,
+      "unit": "USD_millions",
+      "printed_value": "12,715",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 12: | AAPL FY2025 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.882 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 12,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| AAPL FY2025 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.882 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow",
+      "value": 98767,
+      "unit": "USD_millions",
+      "printed_value": "98,767",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 12: | AAPL FY2025 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.882 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 12,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| AAPL FY2025 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.882 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 0.882,
+      "unit": "ratio",
+      "printed_value": "0.882",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 12: | AAPL FY2025 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.882 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 12,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| AAPL FY2025 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.882 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "revenue",
+      "value": 245122,
+      "unit": "USD_millions",
+      "printed_value": "245,122",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 13: | MSFT FY2024 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.840 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 13,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| MSFT FY2024 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.840 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "net_income",
+      "value": 88136,
+      "unit": "USD_millions",
+      "printed_value": "88,136",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 13: | MSFT FY2024 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.840 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 13,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| MSFT FY2024 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.840 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "operating_cash_flow",
+      "value": 118548,
+      "unit": "USD_millions",
+      "printed_value": "118,548",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 13: | MSFT FY2024 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.840 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 13,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| MSFT FY2024 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.840 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "capital_expenditures",
+      "value": 44477,
+      "unit": "USD_millions",
+      "printed_value": "44,477",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 13: | MSFT FY2024 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.840 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 13,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| MSFT FY2024 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.840 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow",
+      "value": 74071,
+      "unit": "USD_millions",
+      "printed_value": "74,071",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 13: | MSFT FY2024 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.840 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 13,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| MSFT FY2024 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.840 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 0.84,
+      "unit": "ratio",
+      "printed_value": "0.840",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 13: | MSFT FY2024 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.840 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 13,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| MSFT FY2024 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.840 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "revenue",
+      "value": 281724,
+      "unit": "USD_millions",
+      "printed_value": "281,724",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 14: | MSFT FY2025 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.703 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 14,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| MSFT FY2025 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.703 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "net_income",
+      "value": 101832,
+      "unit": "USD_millions",
+      "printed_value": "101,832",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 14: | MSFT FY2025 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.703 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 14,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| MSFT FY2025 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.703 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "operating_cash_flow",
+      "value": 136162,
+      "unit": "USD_millions",
+      "printed_value": "136,162",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 14: | MSFT FY2025 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.703 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 14,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| MSFT FY2025 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.703 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "capital_expenditures",
+      "value": 64551,
+      "unit": "USD_millions",
+      "printed_value": "64,551",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 14: | MSFT FY2025 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.703 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 14,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| MSFT FY2025 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.703 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow",
+      "value": 71611,
+      "unit": "USD_millions",
+      "printed_value": "71,611",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 14: | MSFT FY2025 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.703 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 14,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| MSFT FY2025 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.703 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 0.703,
+      "unit": "ratio",
+      "printed_value": "0.703",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json:18 #/0/text, decoded text line 14: | MSFT FY2025 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.703 |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json",
+        "line": 18,
+        "json_pointer": "/0/text",
+        "text_line": 14,
+        "artifact_id": "narrative_9c4bdc5ee9004dbf876dd88bd4d7fc25",
+        "kind": "delivered_narrative",
+        "excerpt": "| MSFT FY2025 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.703 |"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed2/finance/annual-research-note/artifacts.json#/0/text, decoded text line 7: ## 财年汇总表(USD 百万)"
+    }
+  ]
+}

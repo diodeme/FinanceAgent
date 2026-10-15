@@ -27,6 +27,7 @@ from .warnings import ORIGINAL_DOCUMENT_WARNING, artifact_companies, normalize_w
 RESEARCH_SECONDS = 180
 REPORT_SECONDS = 120
 RESEARCH_MAX_ITERS = 50
+MAX_RESEARCH_CHARS = 20000  # Below the analyst's separate 24000-character total output budget.
 
 
 def narrative_title(artifacts: list[Artifact]) -> str:
@@ -107,23 +108,58 @@ def prepare_evidence(artifacts: list[Artifact]) -> tuple[list[dict], dict[str, C
     return rows, allowed, normalize_warnings(warnings, companies=artifact_companies(artifacts), include_diagnostics=False)
 
 
+def normalize_citations(text: str, allowed: dict[str, Citation | DocumentCitation]) -> str:
+    """Expand only standalone shorthand with an exact authorized target.
+
+    Standard links are preserved, including invalid ones for validation to reject.
+    Unknown or malformed shorthand is never repaired or removed.
+    """
+    pattern = (r"\[[^\[\]\n]+\]\([^\s()]+\)"
+               r"|(?<![!\\\[])\[(?P<target>#(?:finance|filing)/[^\s\[\]()]+)\](?!\s*[\[\]()])")
+
+    def expand(match):
+        target = match.group("target")
+        if target not in allowed:
+            return match.group(0)
+        # Do not turn a nested/malformed label into an apparently valid link.
+        if text.rfind("[", 0, match.start()) > text.rfind("]", 0, match.start()):
+            return match.group(0)
+        return f"[{allowed[target].label}]({target})"
+
+    return re.sub(pattern, expand, text)
+
+
 def validate_citations(text: str, allowed: dict[str, Citation | DocumentCitation]) -> list[Citation | DocumentCitation]:
     """Accept only canonical, explicitly supplied artifact/cell links."""
     links = list(re.finditer(r"\[([^\[\]\n]+)\]\(([^\s()]+)\)", text))
     if not links:
-        raise FinanceError("invalid_citations", "Analysis has no verified evidence citations; no result was saved.")
+        raise FinanceError(
+            "invalid_citations", "Analysis has no standard Markdown evidence links. Use [label](target) "
+            "with an exact supplied #finance/... or #filing/... target; bare [#...] is not the citation protocol. "
+            "This is a missing-link or syntax error, not proof that sources are absent. "
+            "No result was saved; do not present the streamed draft as a completed report.",
+        )
     citations = []
     seen = set()
     for match in links:
         target = match.group(2)
         if target not in allowed or (match.start() and text[match.start() - 1] == "!"):
-            raise FinanceError("invalid_citations", "Analysis contains an unverified citation; no result was saved.")
+            raise FinanceError(
+                "invalid_citations", "Analysis contains a target outside the supplied citation whitelist "
+                "or an unsupported image citation. Copy the exact supplied [label](target) link; do not guess or repair IDs. "
+                "No result was saved; do not present the streamed draft as a completed report.",
+            )
         if target not in seen:
             citations.append(allowed[target].model_copy(update={"label": match.group(1)}))
             seen.add(target)
     remainder = re.sub(r"\[([^\[\]\n]+)\]\(([^\s()]+)\)", "", text)
     if re.search(r"#finance|#filing|(?:https?|ftp|file|javascript|data):|www\.|\]\s*[\[(]|<[^>]+>|^\s*\[[^\]]+\]:", remainder, re.I | re.M):
-        raise FinanceError("invalid_citations", "Analysis contains unsupported links or citation syntax; no result was saved.")
+        raise FinanceError(
+            "invalid_citations", "Analysis contains unsupported links or citation syntax. "
+            "Use only complete [label](target) links copied from supplied evidence; "
+            "malformed or unknown [#...] references are not accepted. "
+            "No result was saved; do not present the streamed draft as a completed report.",
+        )
     return citations
 
 
@@ -161,7 +197,7 @@ async def research_analysis(
                 raw = await read_document(user_id, artifact.artifact_id)
                 item.update(path=f"/workspace/inputs/document-{index}.html",
                             document=artifact.document.model_dump(mode="json"),
-                            citation=document_citation_url(artifact.artifact_id))
+                            citation=f"[Original filing]({document_citation_url(artifact.artifact_id)})")
                 await backend.write_file(item["path"], raw)
             else:
                 item["path"] = f"/workspace/inputs/table-{index}.json"
@@ -203,8 +239,10 @@ async def research_analysis(
             if run_skill is not None and not observer.skill_loaded:
                 raise FinanceError("skill_not_loaded", "The analyst did not load the attached financial-analysis skill; no report was saved.")
             findings = "".join(block.text for block in final.content if isinstance(block, TextBlock))
-            if not findings.strip() or len(findings) > 8000:
-                raise FinanceError("incomplete_analysis", "Research must produce concise complete findings.")
+            if not findings.strip():
+                raise FinanceError("empty_research", "Research completed without findings; no report was saved.")
+            if len(findings) > MAX_RESEARCH_CHARS:
+                raise FinanceError("research_too_long", "Completed research exceeded the handoff resource limit; no report was saved. Return concise findings without repeating numeric tables.")
             return findings
         finally:
             if child_task is not None:
@@ -300,6 +338,9 @@ async def render_report(
                     await consume(chunk)
         if not complete or not text.strip():
             raise FinanceError("incomplete_analysis", "The model stream ended without a complete analysis; no result was saved.")
+        # The card's terminal artifact is authoritative; do not append the report
+        # again to the native stream when repairing an exact shorthand citation.
+        text = normalize_citations(text, allowed)
         citations = validate_citations(text, allowed)
         status = "ok"
         return {"text": text, "citations": citations, "warnings": warnings}

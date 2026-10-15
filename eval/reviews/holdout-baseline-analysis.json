@@ -1,0 +1,62 @@
+{
+  "review_method": "助手依据与 initial 相同的固定五维 rubric 和官方独立核验 reference 作主观评分；不是独立人类评审，也不是严格盲评。不推测候选身份。本轮仅评两道新题的 candidate-a，先固定基线评分，未阅读 candidate-b。",
+  "scope": "本轮仅阅读 data/eval-review/holdout-first 下的 cases.json、reference.json、rubric.json、calendar-alignment/candidate-a.md、trend-counterexample/candidate-a.md。未联网、未调用模型 API、未读取产品代码或原始引擎目录；未修改 initial 评分。",
+  "scoring_notes": "五维各 0–4，总分 20；不替代数值单元格评分，但检查分析中的算术、期间、全称趋势、因果强度及交付完整性。行号指对应 candidate-a.md。reference 未覆盖的附加断言标明未验证，不自动判错。未实际打开外链，申报标识可追溯与原文支持已被独立核验分开看待。",
+  "candidates": [
+    {
+      "case_id": "calendar-alignment",
+      "candidate": "a",
+      "scores": {
+        "task_coverage": 4,
+        "evidence": 3,
+        "financial_reasoning": 3,
+        "insight_and_calibration": 4,
+        "clarity": 4
+      },
+      "total": 18,
+      "notes": {
+        "task_coverage": "L7–22 完整列出两家公司截止日在 2024 年 3/6/9/12 月的八个财季，保留实际日期、公司财季标记及三项指标；L25 明确回答全年净利润谁更高，L27–40 提供推导与来源。未拿同名财年合计替代共同窗口。",
+        "evidence": "扣 1 分：L34“Microsoft 在同窗口没有同类一次性调整（其唯一一次 non-GAAP 调整发生在 FY2023）”是未充分支持的排他性断言，尤其“唯一一次”未限定历史范围。reference 没有核验微软这些期间全部调整事项，L37–40 也未把这一广泛断言绑定到具体原文。标为 unverified_claim，不判为已证伪。主要季度数字、税项及比较结论均受 reference 支持；来源列出 SEC 接口和相应申报编号。",
+        "financial_reasoning": "扣 1 分：L31“Apple 361 天、MSFT 363 天”不符合 reference 实际期间。选定苹果四季为 2023-12-31 至 2024-12-28，含首尾共 364 天；微软为 2024-01-01 至 2024-12-31，闰年共 366 天。错误不改变题设按季度截止月份配对的正确性。L13/22/25 合计与比较可复算：苹果净利润 23,636+21,448+14,736+36,330=96,150；微软 21,939+22,036+24,667+24,108=92,750，差 3,400。",
+        "insight_and_calibration": "L4 正确提醒两家公司自己的 FY2024 都不等于本题自然年窗口；L25 区分利润规模与利润率，合计净利率由合计净利润除以合计收入得出，而非简单平均季度百分比。L34 保留 GAAP 为主结论，将税项剔除另作明确的粗略敏感性说明，没有把调整后利润替换入标准答案。约 102 亿的近似税项与 reference 精确值 10,246 的区别不作为重大分析错误。",
+        "clarity": "公司表、结论、计算与来源清楚，单位和财季标记明确。期间天数错误已计入 financial_reasoning，不因同一问题再扣清晰度。L1 的交叉验证过程、L34 的 EPS 辅助信息及 L42 的文件保存声明未独立重演，不据此授予额外验证信用，也不直接判错。"
+      },
+      "critical_errors": [
+        {
+          "classification": "confirmed_error",
+          "category": "period_duration",
+          "lines": "31",
+          "quote": "4 个季度首尾相接，各覆盖 12 个连续月份（Apple 361 天、MSFT 363 天），口径可比。",
+          "counterevidence": "reference.quarters：苹果 FY2024Q2 的期初为 2023-12-31，FY2025Q1 的期末为 2024-12-28，含首尾共 364 天；微软 FY2024Q3 的期初为 2024-01-01，FY2025Q2 的期末为 2024-12-31，共 366 天。即便只取日期差而不含首尾，亦为 363、365 天，不是 361、363 天。题设要求按截止月份配对，故主表映射和 3,400 的利润差额仍成立。"
+        },
+        {
+          "classification": "unverified_claim",
+          "category": "unsupported_exhaustive_accounting_claim",
+          "lines": "34",
+          "quote": "Microsoft 在同窗口没有同类一次性调整（其唯一一次 non-GAAP 调整发生在 FY2023）。",
+          "counterevidence": "获准 reference 确认苹果的一次性税项，但未提供足以确认微软同窗口没有同类事项、更未提供其全部历史 non-GAAP 调整的穷尽记录。不能由参考未列出相关调整推定不存在；该说法未验证，而非已证实错误。"
+        }
+      ]
+    },
+    {
+      "case_id": "trend-counterexample",
+      "candidate": "a",
+      "scores": {
+        "task_coverage": 4,
+        "evidence": 4,
+        "financial_reasoning": 4,
+        "insight_and_calibration": 4,
+        "clarity": 4
+      },
+      "total": 20,
+      "notes": {
+        "task_coverage": "L4–7 列齐 FY2024 Q1–Q4 收入与截止日，L10–12 逐一检查三段相邻变化，L1/15 明确判定原说法不成立，完全覆盖题设核验要求。",
+        "evidence": "关键反例及三段变化均可由 reference.quarters 验证：62,020−56,517=5,503；61,858−62,020=-162；64,727−61,858=2,869。L21–25 给出期间、申报编号、Q4 发布稿附件链接及全年减九个月推导，来源定位充分。未实际访问链接或重演候选的抓取过程。",
+        "financial_reasoning": "财季日期和单季口径正确，环比以各段前季收入为分母；-162/62,020≈-0.26%。L17 正确区分首尾 +8,210（约 +14.5%）与逐季单调增长；L25 全年 245,122−前三季合计 180,395=64,727 的 Q4 勾稽成立。",
+        "insight_and_calibration": "L15 将观察限定为题设三段相邻变化，准确概括“升—微降—升”；虽跌幅很小，仍明确否定“每一个季度”增长的全称命题。没有用全年同比或首尾增长替代检验，也没有附加未经支持的业务因果解释。本题无需扩展至现金流或一次性事项才能获得满分。",
+        "clarity": "结论先行，季度数据、三段算术和来源分层简洁。L17 的 FY2023 收入 211,915、L25 的分部收入各值、L29 的 XBRL 标记可得性均未由获准 reference 独立核验，属于外围 unverified_claim，不判错，也不作为主要结论的必要依据；主要结论不依赖这些附加断言。"
+      },
+      "critical_errors": []
+    }
+  ]
+}

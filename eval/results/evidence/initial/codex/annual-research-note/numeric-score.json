@@ -1,0 +1,424 @@
+{
+  "case_id": "annual-research-note",
+  "required": 24,
+  "answered": 24,
+  "correct": 24,
+  "accuracy": 1,
+  "coverage": 1,
+  "correct_coverage": 1,
+  "provenance_assessed": 0,
+  "provenance_supported": 0,
+  "verified_correct_coverage": 0,
+  "missing_extraction_evidence": 0,
+  "date_checks": [],
+  "details": [
+    {
+      "key": "AAPL:2024:FY:revenue",
+      "expected": 391035,
+      "observed": [
+        391035
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:9: | 苹果 FY2024 | 2024-09-28 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:FY:net_income",
+      "expected": 93736,
+      "observed": [
+        93736
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:9: | 苹果 FY2024 | 2024-09-28 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:FY:operating_cash_flow",
+      "expected": 118254,
+      "observed": [
+        118254
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:9: | 苹果 FY2024 | 2024-09-28 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:FY:capital_expenditures",
+      "expected": 9447,
+      "observed": [
+        9447
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:9: | 苹果 FY2024 | 2024-09-28 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:FY:free_cash_flow",
+      "expected": 108807,
+      "observed": [
+        108807
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:9: | 苹果 FY2024 | 2024-09-28 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:FY:free_cash_flow_to_net_income",
+      "expected": 1.1607813433472731,
+      "observed": [
+        1.16
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:9: | 苹果 FY2024 | 2024-09-28 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:FY:revenue",
+      "expected": 416161,
+      "observed": [
+        416161
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:10: | 苹果 FY2025 | 2025-09-27 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:FY:net_income",
+      "expected": 112010,
+      "observed": [
+        112010
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:10: | 苹果 FY2025 | 2025-09-27 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:FY:operating_cash_flow",
+      "expected": 111482,
+      "observed": [
+        111482
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:10: | 苹果 FY2025 | 2025-09-27 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:FY:capital_expenditures",
+      "expected": 12715,
+      "observed": [
+        12715
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:10: | 苹果 FY2025 | 2025-09-27 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:FY:free_cash_flow",
+      "expected": 98767,
+      "observed": [
+        98767
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:10: | 苹果 FY2025 | 2025-09-27 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:FY:free_cash_flow_to_net_income",
+      "expected": 0.8817694848674226,
+      "observed": [
+        0.88
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:10: | 苹果 FY2025 | 2025-09-27 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:FY:revenue",
+      "expected": 245122,
+      "observed": [
+        245122
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:11: | 微软 FY2024 | 2024-06-30 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:FY:net_income",
+      "expected": 88136,
+      "observed": [
+        88136
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:11: | 微软 FY2024 | 2024-06-30 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:FY:operating_cash_flow",
+      "expected": 118548,
+      "observed": [
+        118548
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:11: | 微软 FY2024 | 2024-06-30 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:FY:capital_expenditures",
+      "expected": 44477,
+      "observed": [
+        44477
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:11: | 微软 FY2024 | 2024-06-30 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:FY:free_cash_flow",
+      "expected": 74071,
+      "observed": [
+        74071
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:11: | 微软 FY2024 | 2024-06-30 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:FY:free_cash_flow_to_net_income",
+      "expected": 0.8404170826903876,
+      "observed": [
+        0.84
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:11: | 微软 FY2024 | 2024-06-30 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:FY:revenue",
+      "expected": 281724,
+      "observed": [
+        281724
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:12: | 微软 FY2025 | 2025-06-30 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:FY:net_income",
+      "expected": 101832,
+      "observed": [
+        101832
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:12: | 微软 FY2025 | 2025-06-30 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:FY:operating_cash_flow",
+      "expected": 136162,
+      "observed": [
+        136162
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:12: | 微软 FY2025 | 2025-06-30 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:FY:capital_expenditures",
+      "expected": 64551,
+      "observed": [
+        64551
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:12: | 微软 FY2025 | 2025-06-30 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:FY:free_cash_flow",
+      "expected": 71611,
+      "observed": [
+        71611
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:12: | 微软 FY2025 | 2025-06-30 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:FY:free_cash_flow_to_net_income",
+      "expected": 0.7032268834943829,
+      "observed": [
+        0.7
+      ],
+      "answered": true,
+      "correct": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "response.md:12: | 微软 FY2025 | 2025-06-30 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "timeout_seconds": 300,
+  "purpose": "New prompts fixed after diagnosis but before implementation/retest; test transfer, not independent unseen-company generalization.",
+  "cases": [
+    {
+      "id": "calendar-alignment",
+      "category": "fiscal-calendar-alignment",
+      "prompt": "请按2024自然年的四个季度比较苹果（AAPL）与微软（MSFT）的营业收入、净利润及净利率。使用各家公司截止日期落在2024年3月、6月、9月、12月的对应财季，金额用百万美元。列出实际截止日期和公司自己的财年/财季标记，不能直接把两家公司同名的财季放在一起。最后判断：在这个共同时间窗口里，哪家公司全年净利润更高？请给出计算依据和可核验来源。",
+      "period_type": "quarter",
+      "periods": [
+        {"company":"AAPL","fiscal_year":2024,"fiscal_quarter":2},
+        {"company":"AAPL","fiscal_year":2024,"fiscal_quarter":3},
+        {"company":"AAPL","fiscal_year":2024,"fiscal_quarter":4},
+        {"company":"AAPL","fiscal_year":2025,"fiscal_quarter":1},
+        {"company":"MSFT","fiscal_year":2024,"fiscal_quarter":3},
+        {"company":"MSFT","fiscal_year":2024,"fiscal_quarter":4},
+        {"company":"MSFT","fiscal_year":2025,"fiscal_quarter":1},
+        {"company":"MSFT","fiscal_year":2025,"fiscal_quarter":2}
+      ],
+      "metrics": ["revenue","net_income","net_margin"],
+      "required_numeric_cells": 24,
+      "required_date_cells": 8,
+      "analysis_requirements": ["Map fiscal quarters to actual 2024 calendar ends", "Compare aggregate net income over the matched window", "Do not replace calendar totals with same-labelled fiscal-year totals"]
+    },
+    {
+      "id": "trend-counterexample",
+      "category": "universal-trend-claim",
+      "prompt": "有人说：微软（MSFT）2024财年的收入每一个季度都比上一季度增长，所以这一年是连续逐季增长。请核验这句话。列出该财年Q1至Q4的季度截止日和营收（百万美元），检查Q1到Q2、Q2到Q3、Q3到Q4三段相邻变化，说明这句话是否成立。不要用全年同比增长或首尾变化替代逐季核验，并给出可核验来源。",
+      "period_type": "quarter",
+      "periods": [
+        {"company":"MSFT","fiscal_year":2024,"fiscal_quarter":1},
+        {"company":"MSFT","fiscal_year":2024,"fiscal_quarter":2},
+        {"company":"MSFT","fiscal_year":2024,"fiscal_quarter":3},
+        {"company":"MSFT","fiscal_year":2024,"fiscal_quarter":4}
+      ],
+      "metrics": ["revenue"],
+      "required_numeric_cells": 4,
+      "required_date_cells": 4,
+      "analysis_requirements": ["Check all three adjacent transitions", "Identify any counterexample", "Distinguish endpoint growth from monotonic growth"]
+    }
+  ]
+}

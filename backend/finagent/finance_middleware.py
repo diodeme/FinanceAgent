@@ -7,7 +7,7 @@ import time
 from contextlib import aclosing
 
 from agentscope.middleware import MiddlewareBase
-from agentscope.message import TextBlock, ToolResultState
+from agentscope.message import TextBlock, ToolResultBlock, ToolResultState
 from agentscope.permission import PermissionBehavior, PermissionDecision
 from agentscope.tool import ToolChunk, Toolkit, ToolResponse
 
@@ -70,6 +70,29 @@ class FinanceMiddleware(MiddlewareBase):
 
     async def on_system_prompt(self, agent, current_prompt):
         return f"{current_prompt}\n\n{FINANCE_PROMPT}\n\n{self.registry.metric_prompt()}"
+
+    async def on_model_call(self, agent, input_kwargs, next_handler):
+        # Success is already compacted by on_acting. Failed native responses can
+        # still contain streamed drafts; project only their error into the model
+        # request, leaving persisted history, UI chunks and metadata untouched.
+        messages = []
+        for message in input_kwargs["messages"]:
+            content = []
+            for block in message.content:
+                if (isinstance(block, ToolResultBlock) and block.name == "data_analyze"
+                        and state_value(block.state) in {"error", "denied", "interrupted"}):
+                    envelope = block.metadata.get("finance") or {}
+                    error = {
+                        "message": envelope.get("message") or "Analysis did not complete; no saved report is confirmed.",
+                        "error_code": envelope.get("error_code") or state_value(block.state),
+                    }
+                    block = block.model_copy(update={
+                        "output": [TextBlock(text=json.dumps(error, ensure_ascii=False))],
+                        "metadata": {},
+                    })
+                content.append(block)
+            messages.append(message.model_copy(update={"content": content}))
+        return await next_handler(**{**input_kwargs, "messages": messages})
 
     async def on_check_permission(self, agent, input_kwargs, next_handler):
         tool = input_kwargs.get("tool")

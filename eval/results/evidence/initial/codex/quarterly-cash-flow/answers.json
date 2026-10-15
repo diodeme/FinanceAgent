@@ -1,0 +1,485 @@
+{
+  "extraction": "Table rows manually reviewed; exact row excerpts retained. Parser does not read golden values.",
+  "cells": [
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-12-30",
+      "metric": "operating_cash_flow",
+      "value": 39895,
+      "evidence": "response.md:15: | Q1 | 2023-12-30 | 39,895 | 2,392 | 37,503 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-12-30",
+      "metric": "capital_expenditures",
+      "value": 2392,
+      "evidence": "response.md:15: | Q1 | 2023-12-30 | 39,895 | 2,392 | 37,503 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-12-30",
+      "metric": "free_cash_flow",
+      "value": 37503,
+      "evidence": "response.md:15: | Q1 | 2023-12-30 | 39,895 | 2,392 | 37,503 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "operating_cash_flow",
+      "value": 22690,
+      "evidence": "response.md:16: | Q2 | 2024-03-30 | 22,690 | 1,996 | 20,694 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "capital_expenditures",
+      "value": 1996,
+      "evidence": "response.md:16: | Q2 | 2024-03-30 | 22,690 | 1,996 | 20,694 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "free_cash_flow",
+      "value": 20694,
+      "evidence": "response.md:16: | Q2 | 2024-03-30 | 22,690 | 1,996 | 20,694 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "operating_cash_flow",
+      "value": 28858,
+      "evidence": "response.md:17: | Q3 | 2024-06-29 | 28,858 | 2,151 | 26,707 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "capital_expenditures",
+      "value": 2151,
+      "evidence": "response.md:17: | Q3 | 2024-06-29 | 28,858 | 2,151 | 26,707 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "free_cash_flow",
+      "value": 26707,
+      "evidence": "response.md:17: | Q3 | 2024-06-29 | 28,858 | 2,151 | 26,707 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "operating_cash_flow",
+      "value": 26811,
+      "evidence": "response.md:18: | Q4 | 2024-09-28 | 26,811 | 2,908 | 23,903 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "capital_expenditures",
+      "value": 2908,
+      "evidence": "response.md:18: | Q4 | 2024-09-28 | 26,811 | 2,908 | 23,903 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "free_cash_flow",
+      "value": 23903,
+      "evidence": "response.md:18: | Q4 | 2024-09-28 | 26,811 | 2,908 | 23,903 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "operating_cash_flow",
+      "value": 29935,
+      "evidence": "response.md:25: | Q1 | 2024-12-28 | 29,935 | 2,940 | 26,995 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "capital_expenditures",
+      "value": 2940,
+      "evidence": "response.md:25: | Q1 | 2024-12-28 | 29,935 | 2,940 | 26,995 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "free_cash_flow",
+      "value": 26995,
+      "evidence": "response.md:25: | Q1 | 2024-12-28 | 29,935 | 2,940 | 26,995 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2025-03-29",
+      "metric": "operating_cash_flow",
+      "value": 23952,
+      "evidence": "response.md:26: | Q2 | 2025-03-29 | 23,952 | 3,071 | 20,881 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2025-03-29",
+      "metric": "capital_expenditures",
+      "value": 3071,
+      "evidence": "response.md:26: | Q2 | 2025-03-29 | 23,952 | 3,071 | 20,881 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2025-03-29",
+      "metric": "free_cash_flow",
+      "value": 20881,
+      "evidence": "response.md:26: | Q2 | 2025-03-29 | 23,952 | 3,071 | 20,881 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-06-28",
+      "metric": "operating_cash_flow",
+      "value": 27867,
+      "evidence": "response.md:27: | Q3 | 2025-06-28 | 27,867 | 3,462 | 24,405 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-06-28",
+      "metric": "capital_expenditures",
+      "value": 3462,
+      "evidence": "response.md:27: | Q3 | 2025-06-28 | 27,867 | 3,462 | 24,405 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-06-28",
+      "metric": "free_cash_flow",
+      "value": 24405,
+      "evidence": "response.md:27: | Q3 | 2025-06-28 | 27,867 | 3,462 | 24,405 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-09-27",
+      "metric": "operating_cash_flow",
+      "value": 29728,
+      "evidence": "response.md:28: | Q4 | 2025-09-27 | 29,728 | 3,242 | 26,486 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-09-27",
+      "metric": "capital_expenditures",
+      "value": 3242,
+      "evidence": "response.md:28: | Q4 | 2025-09-27 | 29,728 | 3,242 | 26,486 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-09-27",
+      "metric": "free_cash_flow",
+      "value": 26486,
+      "evidence": "response.md:28: | Q4 | 2025-09-27 | 29,728 | 3,242 | 26,486 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-09-30",
+      "metric": "operating_cash_flow",
+      "value": 30583,
+      "evidence": "response.md:37: | Q1 | 2023-09-30 | 30,583 | 9,917 | 20,666 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-09-30",
+      "metric": "capital_expenditures",
+      "value": 9917,
+      "evidence": "response.md:37: | Q1 | 2023-09-30 | 30,583 | 9,917 | 20,666 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-09-30",
+      "metric": "free_cash_flow",
+      "value": 20666,
+      "evidence": "response.md:37: | Q1 | 2023-09-30 | 30,583 | 9,917 | 20,666 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2023-12-31",
+      "metric": "operating_cash_flow",
+      "value": 18853,
+      "evidence": "response.md:38: | Q2 | 2023-12-31 | 18,853 | 9,735 | 9,118 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2023-12-31",
+      "metric": "capital_expenditures",
+      "value": 9735,
+      "evidence": "response.md:38: | Q2 | 2023-12-31 | 18,853 | 9,735 | 9,118 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2023-12-31",
+      "metric": "free_cash_flow",
+      "value": 9118,
+      "evidence": "response.md:38: | Q2 | 2023-12-31 | 18,853 | 9,735 | 9,118 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "operating_cash_flow",
+      "value": 31917,
+      "evidence": "response.md:39: | Q3 | 2024-03-31 | 31,917 | 10,952 | 20,965 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "capital_expenditures",
+      "value": 10952,
+      "evidence": "response.md:39: | Q3 | 2024-03-31 | 31,917 | 10,952 | 20,965 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "free_cash_flow",
+      "value": 20965,
+      "evidence": "response.md:39: | Q3 | 2024-03-31 | 31,917 | 10,952 | 20,965 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "operating_cash_flow",
+      "value": 37195,
+      "evidence": "response.md:40: | Q4 | 2024-06-30 | 37,195 | 13,873 | 23,322 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "capital_expenditures",
+      "value": 13873,
+      "evidence": "response.md:40: | Q4 | 2024-06-30 | 37,195 | 13,873 | 23,322 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "free_cash_flow",
+      "value": 23322,
+      "evidence": "response.md:40: | Q4 | 2024-06-30 | 37,195 | 13,873 | 23,322 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "operating_cash_flow",
+      "value": 34180,
+      "evidence": "response.md:47: | Q1 | 2024-09-30 | 34,180 | 14,923 | 19,257 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "capital_expenditures",
+      "value": 14923,
+      "evidence": "response.md:47: | Q1 | 2024-09-30 | 34,180 | 14,923 | 19,257 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "free_cash_flow",
+      "value": 19257,
+      "evidence": "response.md:47: | Q1 | 2024-09-30 | 34,180 | 14,923 | 19,257 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "operating_cash_flow",
+      "value": 22291,
+      "evidence": "response.md:48: | Q2 | 2024-12-31 | 22,291 | 15,804 | 6,487 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "capital_expenditures",
+      "value": 15804,
+      "evidence": "response.md:48: | Q2 | 2024-12-31 | 22,291 | 15,804 | 6,487 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "free_cash_flow",
+      "value": 6487,
+      "evidence": "response.md:48: | Q2 | 2024-12-31 | 22,291 | 15,804 | 6,487 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-03-31",
+      "metric": "operating_cash_flow",
+      "value": 37044,
+      "evidence": "response.md:49: | Q3 | 2025-03-31 | 37,044 | 16,745 | 20,299 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-03-31",
+      "metric": "capital_expenditures",
+      "value": 16745,
+      "evidence": "response.md:49: | Q3 | 2025-03-31 | 37,044 | 16,745 | 20,299 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 3,
+      "period_end": "2025-03-31",
+      "metric": "free_cash_flow",
+      "value": 20299,
+      "evidence": "response.md:49: | Q3 | 2025-03-31 | 37,044 | 16,745 | 20,299 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-06-30",
+      "metric": "operating_cash_flow",
+      "value": 42647,
+      "evidence": "response.md:50: | Q4 | 2025-06-30 | 42,647 | 17,079 | 25,568 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-06-30",
+      "metric": "capital_expenditures",
+      "value": 17079,
+      "evidence": "response.md:50: | Q4 | 2025-06-30 | 42,647 | 17,079 | 25,568 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 4,
+      "period_end": "2025-06-30",
+      "metric": "free_cash_flow",
+      "value": 25568,
+      "evidence": "response.md:50: | Q4 | 2025-06-30 | 42,647 | 17,079 | 25,568 |",
+      "provenance_supported": null
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "artifact_id": "document_c0b100629e044b13aff4ab9c0942d468",
+    "title": "AAPL 10-K 2025-09-27",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+    "period_end": "2025-09-27",
+    "sha256": "f7e48e6a2d7a1c06da021e2850ac88c8831182a85aec9b5907b8add22d30bd09"
+  },
+  {
+    "artifact_id": "document_2481a73e310544c5b7eccaf8c61a8f8e",
+    "title": "AAPL 10-K 2024-09-28",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019324000123/aapl-20240928.htm",
+    "period_end": "2024-09-28",
+    "sha256": "d973d738142b64c66b749d7a9657fd28c3726ab48fd0847060835b11c82aabb9"
+  },
+  {
+    "artifact_id": "document_1622ba1601f34b64a942af888d5cbe49",
+    "title": "MSFT 10-K 2025-06-30",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm",
+    "period_end": "2025-06-30",
+    "sha256": "3508846fccd3d403abd3a1e39eed36b5eaf6769b04fe94ab09d44476ba243518"
+  },
+  {
+    "artifact_id": "document_2a267146058b4156be17548517572e22",
+    "title": "MSFT 10-K 2024-06-30",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017024087843/msft-20240630.htm",
+    "period_end": "2024-06-30",
+    "sha256": "505e6e594fb878c5529374e47d2a66141ad22a33a8c8dab46b263bb775bc76d9"
+  }
+]

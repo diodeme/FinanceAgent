@@ -1,0 +1,45 @@
+{
+  "extraction": "User-visible answer reviewed; exact excerpts retained. No golden values used in extraction.",
+  "cells": [
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 1,
+      "period_end": "2023-09-30",
+      "metric": "revenue",
+      "value": 56517,
+      "evidence": "response.md:4: - Q1 FY24 · 截止 **2023-09-30** · **56,517**",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2023-12-31",
+      "metric": "revenue",
+      "value": 62020,
+      "evidence": "response.md:5: - Q2 FY24 · 截止 **2023-12-31** · **62,020**",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "revenue",
+      "value": 61858,
+      "evidence": "response.md:6: - Q3 FY24 · 截止 **2024-03-31** · **61,858**",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "revenue",
+      "value": 64727,
+      "evidence": "response.md:7: - Q4 FY24 · 截止 **2024-06-30** · **64,727**",
+      "provenance_supported": null
+    }
+  ]
+}

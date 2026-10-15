@@ -1,0 +1,55 @@
+{
+  "review_method": "助手依据与 initial、holdout 基线相同的固定五维 rubric 和官方独立核验 reference 作主观评分；不是独立人类评审，也不是严格盲评。不推测候选身份，不以其他候选分数或预期改进幅度决定评分。",
+  "scope": "本轮仅阅读 data/eval-review/final-holdout 下的 cases.json、reference.json、rubric.json、calendar-alignment/candidate-b.md、trend-counterexample/candidate-b.md。最终 chat 与附加已保存报告均视为实际交付，不因 chat 简短确认而扣覆盖。未联网、未调用模型 API、未读取产品代码或原始引擎目录，未修改任何已固定评分。",
+  "scoring_notes": "五维各 0–4，总分 20；数值单元格另行评分，本评审仍核查分析中的期间、算术、全称趋势和交付一致性。行号指对应 final-holdout candidate-b.md。confirmed_error 与 unverified_claim 分开；不因 reference 未涵盖某项附加断言就判错。引用结构及其内容与 reference 的一致性可评估，但本次未实际解析内部链接或访问原始申报文件，不把引用存在说成已完成链接支持核验。",
+  "candidates": [
+    {
+      "case_id": "calendar-alignment",
+      "candidate": "b",
+      "scores": {
+        "task_coverage": 4,
+        "evidence": 4,
+        "financial_reasoning": 3,
+        "insight_and_calibration": 4,
+        "clarity": 3
+      },
+      "total": 18,
+      "notes": {
+        "task_coverage": "正式附加报告 L25–41 完整列出按 2024 年 3/6/9/12 月截止日选取的八季收入、净利润、净利率、实际起止日和公司财季标签；L49–57 提供加总依据并明确判断苹果更高。未用同名 FY2024 年度总数替代共同窗口，也未因 chat 不重贴表格扣分。",
+        "evidence": "L49–59 将季度数、Q4 差分和比率连接到具体期间的申报文件或结构化单元格。核心结论可由 reference 复核：苹果 23,636+21,448+14,736+36,330=96,150；微软 21,939+22,036+24,667+24,108=92,750；差额 3,400，约为微软的 3.67%。L45 的错误财季标记单独计入财务期间推理，不因这一标签错误否定其余已充分展示的算术证据。",
+        "financial_reasoning": "扣 1 分：L45“苹果 2024-09-28 结束季在其报表中标注为 Q3 2024”把自然季 Q3 与苹果自己的财季混淆。reference.quarters 明确该期为 AAPL FY2024Q4，报告自己的 L29/49 也写 Q4。主要表格和实际选取窗口正确，因此是局部但与题目核心相关的解释错误，而非整个汇总窗口选错。",
+        "insight_and_calibration": "L17/63 正确区分苹果利润总额领先与微软利润率更高，收入规模差异足以支持这一算术解释；L68 明确自然年为按实际截止日拼合的分析口径，L69 对未审阅业务驱动保持克制。L71 的未来关注不是预测结论。题目不强制要求税项归因，未展开一次性税项不另扣分。",
+        "clarity": "扣 1 分：L29 的 Q4 FY2024、L49 的 Q4 与 L45 的“Q3 2024”形成未明确纠正的标签矛盾，且出现在专门讲解“不得对齐同名财季”的章节，可能误导读者。其余表格、金额单位、小数形式净利率、加总公式均清楚；文字中的亿美元与表格百万美元换算一致，不判为单位错误。"
+      },
+      "critical_errors": [
+        {
+          "classification": "confirmed_error",
+          "category": "fiscal_calendar_label_mixup",
+          "lines": "29, 45, 49",
+          "quote": "苹果 2024-09-28 结束季在其报表中标注为 Q3 2024，而微软同一自然季（2024-09-30 结束季）是 Q1 FY2025",
+          "counterevidence": "reference.quarters：AAPL 2024-06-30 至 2024-09-28 为 fiscal_year=2024、fiscal_quarter=4，即 FY2024Q4；Q3 是该期对应的自然季度标签，不是苹果财季。交付 L29 和 L49 均写 Q4，L45 却没有被明确更正。微软 Q1 FY2025 标签正确，主表窗口与 3,400 的合计差额不受这一局部错误影响。"
+        }
+      ]
+    },
+    {
+      "case_id": "trend-counterexample",
+      "candidate": "b",
+      "scores": {
+        "task_coverage": 4,
+        "evidence": 4,
+        "financial_reasoning": 4,
+        "insight_and_calibration": 4,
+        "clarity": 4
+      },
+      "total": 20,
+      "notes": {
+        "task_coverage": "L5–10 列齐微软 FY2024 Q1–Q4 收入和截止日；L14–18 分别检查三段相邻变化，L1/20 明确否定原说法，完成全部核心要求。不要求额外保存报告才能算交付。",
+        "evidence": "L12 提供四个季度数及环比计算表的单元格引用。reference.quarters 支持全部核心操作数及方向：56,517→62,020→61,858→64,727。L24 明确承认未下载原始 10-Q/10-K，不冒充已完成原文交叉验证；题设未要求必须下载原始文件。本评审能验证数字支持结论，但未实际解析这些内部引用。",
+        "financial_reasoning": "期间与单季口径正确。三段差额分别为 +5,503、-162、+2,869；除以上一季收入得到约 +9.74%、-0.26%、+4.64%，与回答一致。L20 将首尾净增与逐季连续增长正确分开，没有用年度同比替代逐段检查。",
+        "insight_and_calibration": "准确指出 Q2→Q3 为关键反例；对“每一个季度”这一全称命题，一次下降足以否定，跌幅小也不改变结论。L23–24 将结论限定在已获得的结构化数值层面，没有附加业务归因或夸大核验深度。",
+        "clarity": "结论先行，四季表格、三段变化、逻辑判定与证据限制层次清楚；单位、日期与环比百分比一致，无未纠正的关键矛盾。"
+      },
+      "critical_errors": []
+    }
+  ]
+}

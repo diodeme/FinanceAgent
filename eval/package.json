@@ -1,0 +1,8 @@
+{
+  "name": "financeagent-eval",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "dependencies": { "@openai/codex-sdk": "0.162.1" },
+  "scripts": { "test": "node --test *.test.mjs" }
+}

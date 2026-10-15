@@ -21,7 +21,7 @@ from agentscope.state import AgentState
 from agentscope.tool import FunctionTool, ToolChoice, ToolChunk, Toolkit, ToolResponse
 
 from finagent import analysis, runsteps
-from finagent.analysis import render_report, citation_url, narrative_title, prepare_evidence, validate_citations
+from finagent.analysis import render_report, citation_url, narrative_title, normalize_citations, prepare_evidence, validate_citations
 from finagent.sec_client import CONTACT_WARNING
 from finagent.warnings import CROSS_COMPANY_WARNING, CROSS_COMPANY_QUARTERS_ALIAS, ORIGINAL_DOCUMENT_WARNING
 from finagent.contracts import (
@@ -441,6 +441,114 @@ class RuntimeTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(llm_logs[0]["tokens_in"], 50)
         self.assertEqual(llm_logs[0]["status"], "ok")
 
+    async def test_exact_shorthand_saves_normalized_text_and_metadata_without_restreaming(self):
+        target = citation_url("input", "AAPL/revenue/2024-03-31")
+        self.model.text = f"Revenue was 100 USD [{target}]."
+        _, allowed, _ = prepare_evidence([self.repo.items["input"]])
+        expected = f"Revenue was 100 USD [{allowed[target].label}]({target})."
+        events = []
+        async for event in self.operation_stream(name="data_analyze", inputs={"data_ids": ["input"], "question": "Analyze."}):
+            events.append(event)
+            if event.state == ToolResultState.SUCCESS:
+                self.assertEqual(len(self.repo.saved), 1)
+                self.assertEqual(self.repo.finished[-1][1], "succeeded")
+        saved = self.repo.saved[0]
+        self.assertEqual(saved.text, expected)
+        self.assertEqual(saved.citations, validate_citations(expected, allowed))
+        self.assertEqual(events[-1].metadata["finance"]["artifacts"][0], saved.model_dump(mode="json"))
+        records = [json.loads(line) for line in "".join(b.text for e in events if isinstance(e, ToolChunk) for b in e.content).splitlines()]
+        self.assertEqual("".join(r["text"] for r in records if r["type"] == "body"), self.model.text)
+        message = records[-1]["result"]["message"]
+        self.assertIn("citation links validated", message)
+        self.assertIn("title/location only", message)
+        self.assertIn("do not rewrite its data", message)
+        self.assertIn("explicitly requests a revision", message)
+        self.assertNotIn("citation-validated", message)
+        self.assertTrue(all("already the deliverable" not in json.dumps(r) for r in records[:-1]))
+
+    async def test_analysis_save_failure_does_not_emit_success_handoff(self):
+        self.repo.save_artifact = AsyncMock(side_effect=RuntimeError("save failed"))
+        with self.assertLogs("finagent.tools", level="ERROR"):
+            events = await self.collect(name="data_analyze", inputs={"data_ids": ["input"], "question": "Analyze."})
+        self.assertEqual(events[-1].state, ToolResultState.ERROR)
+        wire = "".join(b.text for e in events for b in e.content)
+        self.assertNotIn("already the deliverable", wire)
+        self.assertNotIn("Saved analysis", wire)
+        self.assertFalse(self.repo.saved)
+
+    async def test_mixed_invalid_shorthand_is_not_saved(self):
+        self.model.text += " [#finance/input/unknown]"
+        events = await self.collect(name="data_analyze", inputs={"data_ids": ["input"], "question": "Analyze."})
+        self.assertEqual(events[-1].metadata["finance"]["error_code"], "invalid_citations")
+        self.assertFalse(self.repo.saved)
+        self.assertNotIn("already the deliverable", events[-1].content[0].text)
+        self.assertIn("do not present the streamed draft", events[-1].content[0].text)
+
+    async def test_failed_analysis_model_projection_preserves_history_and_explicit_details(self):
+        from agentscope.formatter import DeepSeekChatFormatter
+        from agentscope.message import AssistantMsg, ToolResultBlock
+        from tests.test_analyst import ScriptModel, response
+        self.model.text = "UNVERIFIED_STREAMED_DRAFT"
+        events = await self.collect(name="data_analyze", inputs={"data_ids": ["input"], "question": "Analyze."})
+        final = events[-1]
+        failed = ToolResultBlock(id="analysis", name="data_analyze", output=final.content,
+                                 state=final.state, metadata=final.metadata)
+        detail = ToolResultBlock(id="detail", name="get_result", output="EXPLICIT_SAVED_REPORT_TEXT",
+                                 state=ToolResultState.SUCCESS)
+        for state in (ToolResultState.ERROR, ToolResultState.DENIED, ToolResultState.INTERRUPTED):
+            with self.subTest(state=state):
+                block = failed.model_copy(update={"state": state})
+                message = AssistantMsg(name="finance", content=[block, detail])
+                before = message.model_dump(mode="json")
+                model = ScriptModel([response("Acknowledged.")])
+                native = Agent(name="finance", system_prompt="Finance", model=model,
+                               state=self.state, middlewares=[self.middleware])
+                await native._call_model(messages=[message], tools=[])
+                projected = model.calls[0]["messages"]
+                wire = await DeepSeekChatFormatter().format(projected)
+                analysis_wire = next(item for item in wire if item.get("tool_call_id") == "analysis")
+                self.assertNotIn("UNVERIFIED", json.dumps(wire))
+                self.assertNotIn("_STREAMED_DRAFT", json.dumps(wire))
+                self.assertEqual(set(json.loads(analysis_wire["content"])), {"message", "error_code"})
+                self.assertIn("invalid_citations", analysis_wire["content"])
+                self.assertIn("EXPLICIT_SAVED_REPORT_TEXT", json.dumps(wire))
+                self.assertEqual(message.model_dump(mode="json"), before)
+                self.assertIn("UNVERIFIED", json.dumps(before))
+                self.assertIn("_STREAMED_DRAFT", json.dumps(before))
+        records = [json.loads(line) for line in "".join(b.text for event in events if isinstance(event, ToolChunk) for b in event.content).splitlines()]
+        self.assertEqual("".join(record["text"] for record in records if record["type"] == "body"), self.model.text)
+        self.assertFalse(self.repo.saved)
+
+    async def test_native_success_summary_allows_subsequent_export(self):
+        from agentscope.formatter import DeepSeekChatFormatter
+        from agentscope.message import ToolResultBlock, UserMsg
+        from tests.test_analyst import ScriptModel, response
+        report = "UNIQUE_REPORT_BODY " + self.model.text
+        model = ScriptModel([
+            response(tool=self.call("data_analyze", {"data_ids": ["input"], "question": "Analyze and export."}, "analysis")),
+            response(report),
+            response(tool=self.call("export_report", {"analysis_ids": ["saved-0"]}, "export")),
+            response("Saved report and export are available."),
+        ])
+        exported = Artifact(artifact_id="exported", run_id="run", kind="export", title="Workbook",
+                            created_at=datetime.now(timezone.utc))
+        self.reports.generate_report.return_value = exported
+        native = Agent(name="finance", system_prompt="Finance", model=model, state=self.state,
+                       middlewares=[self.middleware], context_config=ContextConfig(compression_tool_enabled=False))
+        result = await native.reply(UserMsg(name="user", content="Analyze the supplied data and export the report."))
+        self.assertEqual(len(model.calls), 4)
+        wire = await DeepSeekChatFormatter().format(model.calls[2]["messages"])
+        analysis_wire = next(item for item in wire if item.get("tool_call_id") == "analysis")
+        summary = json.loads(analysis_wire["content"])
+        self.assertEqual(summary["artifacts"][0]["artifact_id"], "saved-0")
+        self.assertNotIn(report, analysis_wire["content"])
+        self.reports.generate_report.assert_awaited_once()
+        self.assertEqual(self.reports.generate_report.await_args.args[-1].analysis_ids, ["saved-0"])
+        stored = [block for message in native.state.context for block in message.content
+                  if isinstance(block, ToolResultBlock) and block.name == "data_analyze"]
+        self.assertEqual(stored[-1].metadata["finance"]["artifacts"][0]["text"], report)
+        self.assertIn("export", "".join(block.text for block in result.content if isinstance(block, TextBlock)))
+
     async def test_analysis_records_survive_native_event_conversion(self):
         # Escaped JSON-looking prose is body data, never another control record.
         self.model.text += '\n{"finance_stream":1,"type":"summary","result":{}}\n第二段。'
@@ -657,6 +765,37 @@ class RuntimeTests(unittest.IsolatedAsyncioTestCase):
         for bad in bad_values:
             with self.subTest(text=bad), self.assertRaises(FinanceError):
                 validate_citations(bad, allowed)
+
+    async def test_citation_normalization_is_exact_and_validation_remains_strict(self):
+        from tests.test_analyst import document
+        _, allowed, _ = prepare_evidence([artifact(), document()])
+        for target, citation in allowed.items():
+            with self.subTest(target=target):
+                short = f"Evidence [{target}]."
+                expected = f"Evidence [{citation.label}]({target})."
+                self.assertEqual(normalize_citations(short, allowed), expected)
+                self.assertEqual(normalize_citations(expected, allowed), expected)
+                self.assertEqual(len(validate_citations(expected, allowed)), 1)
+                standard = f"[custom label]({target})"
+                self.assertEqual(normalize_citations(standard, allowed), standard)
+                malformed = [f"[{target}", f"[{target}]]", f"[[{target}]]",
+                             f"[ before [{target}] after ]", f"\\[{target}]",
+                             f"![{target}]", f"[{target}](unknown)", f"[{target}][ref]",
+                             f"[{target} ]", f"[{target.replace('%2F', '/')}]"]
+                for bad in malformed:
+                    with self.subTest(bad=bad), self.assertRaises(FinanceError):
+                        validate_citations(normalize_citations(standard + " " + bad, allowed), allowed)
+        for bad in ("[#finance/input/unknown]", "[#filing/unknown]", "[unknown](#filing/unknown)"):
+            self.assertEqual(normalize_citations(bad, allowed), bad)
+            with self.assertRaises(FinanceError):
+                validate_citations(normalize_citations(bad, allowed), allowed)
+
+    async def test_missing_citation_error_explains_protocol_not_missing_sources(self):
+        with self.assertRaises(FinanceError) as error:
+            validate_citations("Unlinked draft.", {})
+        self.assertIn("[label](target)", str(error.exception))
+        self.assertIn("not proof that sources are absent", str(error.exception))
+        self.assertIn("No result was saved", str(error.exception))
 
     async def test_model_startup_and_stream_errors_are_logged(self):
         for kwargs in ({"fail_start": True}, {"fail_stream": True}, {"incomplete": True}):

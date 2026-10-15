@@ -1,0 +1,1057 @@
+{
+  "case_id": "quarterly-profit",
+  "required": 48,
+  "answered": 48,
+  "correct": 48,
+  "accuracy": 1,
+  "coverage": 1,
+  "correct_coverage": 1,
+  "provenance_assessed": 0,
+  "provenance_supported": 0,
+  "verified_correct_coverage": 0,
+  "missing_extraction_evidence": 0,
+  "date_checks": [
+    {
+      "key": "AAPL:2024:1",
+      "expected": "2023-12-30",
+      "observed": [
+        "2023-12-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2024:2",
+      "expected": "2024-03-30",
+      "observed": [
+        "2024-03-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2024:3",
+      "expected": "2024-06-29",
+      "observed": [
+        "2024-06-29"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2024:4",
+      "expected": "2024-09-28",
+      "observed": [
+        "2024-09-28"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2025:1",
+      "expected": "2024-12-28",
+      "observed": [
+        "2024-12-28"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2025:2",
+      "expected": "2025-03-29",
+      "observed": [
+        "2025-03-29"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2025:3",
+      "expected": "2025-06-28",
+      "observed": [
+        "2025-06-28"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2025:4",
+      "expected": "2025-09-27",
+      "observed": [
+        "2025-09-27"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:1",
+      "expected": "2023-09-30",
+      "observed": [
+        "2023-09-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:2",
+      "expected": "2023-12-31",
+      "observed": [
+        "2023-12-31"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:3",
+      "expected": "2024-03-31",
+      "observed": [
+        "2024-03-31"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:4",
+      "expected": "2024-06-30",
+      "observed": [
+        "2024-06-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2025:1",
+      "expected": "2024-09-30",
+      "observed": [
+        "2024-09-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2025:2",
+      "expected": "2024-12-31",
+      "observed": [
+        "2024-12-31"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2025:3",
+      "expected": "2025-03-31",
+      "observed": [
+        "2025-03-31"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2025:4",
+      "expected": "2025-06-30",
+      "observed": [
+        "2025-06-30"
+      ],
+      "correct": true
+    }
+  ],
+  "details": [
+    {
+      "key": "AAPL:2024:1:revenue",
+      "expected": 119575,
+      "observed": [
+        119575
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:15: | FY2024 | Q1（2023-12-30） | [119,575](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_41d5ace39162815fe4da84ed) | [33,916](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_38066507725baa2e828adbeb) | [28.36%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_21d69480313678fee874e832) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:1:net_income",
+      "expected": 33916,
+      "observed": [
+        33916
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:15: | FY2024 | Q1（2023-12-30） | [119,575](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_41d5ace39162815fe4da84ed) | [33,916](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_38066507725baa2e828adbeb) | [28.36%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_21d69480313678fee874e832) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:1:net_margin",
+      "expected": 28.36378841731131,
+      "observed": [
+        28.36
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:15: | FY2024 | Q1（2023-12-30） | [119,575](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_41d5ace39162815fe4da84ed) | [33,916](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_38066507725baa2e828adbeb) | [28.36%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_21d69480313678fee874e832) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:2:revenue",
+      "expected": 90753,
+      "observed": [
+        90753
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:16: | FY2024 | Q2（2024-03-30） | [90,753](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ebfdfa5f5eb4313785d2a080) | [23,636](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_62ab0a150b214ffe04578d1b) | [26.04%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_d3eb6d2c8b1b13e84621048b) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:2:net_income",
+      "expected": 23636,
+      "observed": [
+        23636
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:16: | FY2024 | Q2（2024-03-30） | [90,753](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ebfdfa5f5eb4313785d2a080) | [23,636](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_62ab0a150b214ffe04578d1b) | [26.04%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_d3eb6d2c8b1b13e84621048b) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:2:net_margin",
+      "expected": 26.044318094167686,
+      "observed": [
+        26.04
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:16: | FY2024 | Q2（2024-03-30） | [90,753](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ebfdfa5f5eb4313785d2a080) | [23,636](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_62ab0a150b214ffe04578d1b) | [26.04%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_d3eb6d2c8b1b13e84621048b) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:3:revenue",
+      "expected": 85777,
+      "observed": [
+        85777
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:17: | FY2024 | Q3（2024-06-29） | [85,777](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5842c7a633b6f61e18ae1504) | [21,448](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_e7e881dd7efd797d7c8446f5) | [25.00%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_3ff4c00d765c1ea691d4402c) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:3:net_income",
+      "expected": 21448,
+      "observed": [
+        21448
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:17: | FY2024 | Q3（2024-06-29） | [85,777](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5842c7a633b6f61e18ae1504) | [21,448](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_e7e881dd7efd797d7c8446f5) | [25.00%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_3ff4c00d765c1ea691d4402c) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:3:net_margin",
+      "expected": 25.004371801298714,
+      "observed": [
+        25
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:17: | FY2024 | Q3（2024-06-29） | [85,777](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5842c7a633b6f61e18ae1504) | [21,448](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_e7e881dd7efd797d7c8446f5) | [25.00%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_3ff4c00d765c1ea691d4402c) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:4:revenue",
+      "expected": 94930,
+      "observed": [
+        94930
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:18: | FY2024 | Q4（2024-09-28） | [94,930](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b284c4e3b5daa7f4e76e28a9) | [14,736](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_6e6e80628556f0a0aa064f23) | [15.52%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_022560479c142d851bb08996) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:4:net_income",
+      "expected": 14736,
+      "observed": [
+        14736
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:18: | FY2024 | Q4（2024-09-28） | [94,930](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b284c4e3b5daa7f4e76e28a9) | [14,736](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_6e6e80628556f0a0aa064f23) | [15.52%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_022560479c142d851bb08996) |"
+      ]
+    },
+    {
+      "key": "AAPL:2024:4:net_margin",
+      "expected": 15.523016959865163,
+      "observed": [
+        15.52
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:18: | FY2024 | Q4（2024-09-28） | [94,930](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b284c4e3b5daa7f4e76e28a9) | [14,736](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_6e6e80628556f0a0aa064f23) | [15.52%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_022560479c142d851bb08996) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:1:revenue",
+      "expected": 124300,
+      "observed": [
+        124300
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:19: | FY2025 | Q1（2024-12-28） | [124,300](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5e07a2bf54e0871793d27dd2) | [36,330](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a231f8b000839de8fe9bc3d7) | [29.23%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_03d49ca5c840cc243e1e9dbb) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:1:net_income",
+      "expected": 36330,
+      "observed": [
+        36330
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:19: | FY2025 | Q1（2024-12-28） | [124,300](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5e07a2bf54e0871793d27dd2) | [36,330](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a231f8b000839de8fe9bc3d7) | [29.23%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_03d49ca5c840cc243e1e9dbb) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:1:net_margin",
+      "expected": 29.227674979887368,
+      "observed": [
+        29.23
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:19: | FY2025 | Q1（2024-12-28） | [124,300](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5e07a2bf54e0871793d27dd2) | [36,330](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a231f8b000839de8fe9bc3d7) | [29.23%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_03d49ca5c840cc243e1e9dbb) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:2:revenue",
+      "expected": 95359,
+      "observed": [
+        95359
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:20: | FY2025 | Q2（2025-03-29） | [95,359](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5176d1910f7fba5a66b9541b) | [24,780](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ceb3571fa87cb3b1f0b3a49b) | [25.99%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a1ab9434e4169a53910302d5) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:2:net_income",
+      "expected": 24780,
+      "observed": [
+        24780
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:20: | FY2025 | Q2（2025-03-29） | [95,359](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5176d1910f7fba5a66b9541b) | [24,780](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ceb3571fa87cb3b1f0b3a49b) | [25.99%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a1ab9434e4169a53910302d5) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:2:net_margin",
+      "expected": 25.986010759341017,
+      "observed": [
+        25.99
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:20: | FY2025 | Q2（2025-03-29） | [95,359](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_5176d1910f7fba5a66b9541b) | [24,780](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_ceb3571fa87cb3b1f0b3a49b) | [25.99%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_a1ab9434e4169a53910302d5) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:3:revenue",
+      "expected": 94036,
+      "observed": [
+        94036
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:21: | FY2025 | Q3（2025-06-28） | [94,036](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8b125a914216f7385a9538b1) | [23,434](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8942c75b357cd51ab523d1ed) | [24.92%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_cce7b64d74b296ff48ee998e) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:3:net_income",
+      "expected": 23434,
+      "observed": [
+        23434
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:21: | FY2025 | Q3（2025-06-28） | [94,036](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8b125a914216f7385a9538b1) | [23,434](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8942c75b357cd51ab523d1ed) | [24.92%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_cce7b64d74b296ff48ee998e) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:3:net_margin",
+      "expected": 24.920243311072355,
+      "observed": [
+        24.92
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:21: | FY2025 | Q3（2025-06-28） | [94,036](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8b125a914216f7385a9538b1) | [23,434](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_8942c75b357cd51ab523d1ed) | [24.92%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_cce7b64d74b296ff48ee998e) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:4:revenue",
+      "expected": 102466,
+      "observed": [
+        102466
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:22: | FY2025 | Q4（2025-09-27） | [102,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_276dd1a8463ee51d5fe30f03) | [27,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_c84ac6b9de80421cf69066e3) | [26.80%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b389b836b205d4045ca18043) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:4:net_income",
+      "expected": 27466,
+      "observed": [
+        27466
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:22: | FY2025 | Q4（2025-09-27） | [102,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_276dd1a8463ee51d5fe30f03) | [27,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_c84ac6b9de80421cf69066e3) | [26.80%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b389b836b205d4045ca18043) |"
+      ]
+    },
+    {
+      "key": "AAPL:2025:4:net_margin",
+      "expected": 26.804988971951673,
+      "observed": [
+        26.8
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:22: | FY2025 | Q4（2025-09-27） | [102,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_276dd1a8463ee51d5fe30f03) | [27,466](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_c84ac6b9de80421cf69066e3) | [26.80%](#finance/dataset_214611a4a2c240919258b191f3b123e3/c_b389b836b205d4045ca18043) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:1:revenue",
+      "expected": 56517,
+      "observed": [
+        56517
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:28: | FY2024 | Q1（2023-09-30） | [56,517](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_dcffde299b5914c560347e06) | [22,291](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e0e63aef564e46a7206c0736) | [39.44%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4203366d5e3b9d48f23f7a13) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:1:net_income",
+      "expected": 22291,
+      "observed": [
+        22291
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:28: | FY2024 | Q1（2023-09-30） | [56,517](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_dcffde299b5914c560347e06) | [22,291](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e0e63aef564e46a7206c0736) | [39.44%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4203366d5e3b9d48f23f7a13) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:1:net_margin",
+      "expected": 39.4412300723676,
+      "observed": [
+        39.44
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:28: | FY2024 | Q1（2023-09-30） | [56,517](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_dcffde299b5914c560347e06) | [22,291](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e0e63aef564e46a7206c0736) | [39.44%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4203366d5e3b9d48f23f7a13) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:2:revenue",
+      "expected": 62020,
+      "observed": [
+        62020
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:29: | FY2024 | Q2（2023-12-31） | [62,020](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db7c397154a9232323d4265f) | [21,870](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_98deb4cdd5dfb567d3bda515) | [35.26%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_3c12679719bf29e4668ba3b2) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:2:net_income",
+      "expected": 21870,
+      "observed": [
+        21870
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:29: | FY2024 | Q2（2023-12-31） | [62,020](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db7c397154a9232323d4265f) | [21,870](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_98deb4cdd5dfb567d3bda515) | [35.26%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_3c12679719bf29e4668ba3b2) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:2:net_margin",
+      "expected": 35.26281844566269,
+      "observed": [
+        35.26
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:29: | FY2024 | Q2（2023-12-31） | [62,020](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db7c397154a9232323d4265f) | [21,870](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_98deb4cdd5dfb567d3bda515) | [35.26%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_3c12679719bf29e4668ba3b2) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:3:revenue",
+      "expected": 61858,
+      "observed": [
+        61858
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:30: | FY2024 | Q3（2024-03-31） | [61,858](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_b8b757fad0cef3c9117c93fc) | [21,939](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db9667283ab6466bbb2bac51) | [35.47%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e9713a0f2433470ca77650b1) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:3:net_income",
+      "expected": 21939,
+      "observed": [
+        21939
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:30: | FY2024 | Q3（2024-03-31） | [61,858](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_b8b757fad0cef3c9117c93fc) | [21,939](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db9667283ab6466bbb2bac51) | [35.47%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e9713a0f2433470ca77650b1) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:3:net_margin",
+      "expected": 35.466714087102716,
+      "observed": [
+        35.47
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:30: | FY2024 | Q3（2024-03-31） | [61,858](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_b8b757fad0cef3c9117c93fc) | [21,939](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_db9667283ab6466bbb2bac51) | [35.47%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_e9713a0f2433470ca77650b1) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:4:revenue",
+      "expected": 64727,
+      "observed": [
+        64727
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:31: | FY2024 | Q4（2024-06-30） | [64,727](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_8b6a774ff6f1d941e6cfa58d) | [22,036](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_6321dfedd51e0ee210d9a507) | [34.04%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0e429c049e647c2212da626a) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:4:net_income",
+      "expected": 22036,
+      "observed": [
+        22036
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:31: | FY2024 | Q4（2024-06-30） | [64,727](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_8b6a774ff6f1d941e6cfa58d) | [22,036](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_6321dfedd51e0ee210d9a507) | [34.04%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0e429c049e647c2212da626a) |"
+      ]
+    },
+    {
+      "key": "MSFT:2024:4:net_margin",
+      "expected": 34.04452546850619,
+      "observed": [
+        34.04
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:31: | FY2024 | Q4（2024-06-30） | [64,727](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_8b6a774ff6f1d941e6cfa58d) | [22,036](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_6321dfedd51e0ee210d9a507) | [34.04%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0e429c049e647c2212da626a) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:1:revenue",
+      "expected": 65585,
+      "observed": [
+        65585
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:32: | FY2025 | Q1（2024-09-30） | [65,585](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_fa9d4c04fce1fae6277feedb) | [24,667](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_ca0571a5953486f6a697c129) | [37.61%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_97e6d364102ff10ca6c5ad64) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:1:net_income",
+      "expected": 24667,
+      "observed": [
+        24667
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:32: | FY2025 | Q1（2024-09-30） | [65,585](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_fa9d4c04fce1fae6277feedb) | [24,667](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_ca0571a5953486f6a697c129) | [37.61%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_97e6d364102ff10ca6c5ad64) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:1:net_margin",
+      "expected": 37.61073416177479,
+      "observed": [
+        37.61
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:32: | FY2025 | Q1（2024-09-30） | [65,585](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_fa9d4c04fce1fae6277feedb) | [24,667](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_ca0571a5953486f6a697c129) | [37.61%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_97e6d364102ff10ca6c5ad64) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:2:revenue",
+      "expected": 69632,
+      "observed": [
+        69632
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:33: | FY2025 | Q2（2024-12-31） | [69,632](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_852cfd0aaf27e0f7d98f857d) | [24,108](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_19777dfbc3b5fde713042aca) | [34.62%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_96ac7dbe811649870fbbf117) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:2:net_income",
+      "expected": 24108,
+      "observed": [
+        24108
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:33: | FY2025 | Q2（2024-12-31） | [69,632](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_852cfd0aaf27e0f7d98f857d) | [24,108](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_19777dfbc3b5fde713042aca) | [34.62%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_96ac7dbe811649870fbbf117) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:2:net_margin",
+      "expected": 34.62201286764706,
+      "observed": [
+        34.62
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:33: | FY2025 | Q2（2024-12-31） | [69,632](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_852cfd0aaf27e0f7d98f857d) | [24,108](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_19777dfbc3b5fde713042aca) | [34.62%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_96ac7dbe811649870fbbf117) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:3:revenue",
+      "expected": 70066,
+      "observed": [
+        70066
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:34: | FY2025 | Q3（2025-03-31） | [70,066](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0ab94dc9d83e824302f457ea) | [25,824](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_bcc28adb3cb181f7d3c43fee) | [36.86%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_c3bd0a74982e20ea74d24734) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:3:net_income",
+      "expected": 25824,
+      "observed": [
+        25824
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:34: | FY2025 | Q3（2025-03-31） | [70,066](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0ab94dc9d83e824302f457ea) | [25,824](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_bcc28adb3cb181f7d3c43fee) | [36.86%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_c3bd0a74982e20ea74d24734) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:3:net_margin",
+      "expected": 36.856677989324346,
+      "observed": [
+        36.86
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:34: | FY2025 | Q3（2025-03-31） | [70,066](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_0ab94dc9d83e824302f457ea) | [25,824](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_bcc28adb3cb181f7d3c43fee) | [36.86%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_c3bd0a74982e20ea74d24734) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:4:revenue",
+      "expected": 76441,
+      "observed": [
+        76441
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:35: | FY2025 | Q4（2025-06-30） | [76,441](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_5130b6f1daaf1b02089ca84a) | [27,233](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_71cfe62075d974cc10472e74) | [35.63%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4ea31df6100045e1b927cbc3) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:4:net_income",
+      "expected": 27233,
+      "observed": [
+        27233
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:35: | FY2025 | Q4（2025-06-30） | [76,441](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_5130b6f1daaf1b02089ca84a) | [27,233](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_71cfe62075d974cc10472e74) | [35.63%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4ea31df6100045e1b927cbc3) |"
+      ]
+    },
+    {
+      "key": "MSFT:2025:4:net_margin",
+      "expected": 35.62616920239139,
+      "observed": [
+        35.63
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-fixed/finance/quarterly-profit/final-response.md:35: | FY2025 | Q4（2025-06-30） | [76,441](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_5130b6f1daaf1b02089ca84a) | [27,233](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_71cfe62075d974cc10472e74) | [35.63%](#finance/dataset_7aa33986ae2a4d6a94fb7d7f9812fe7a/c_4ea31df6100045e1b927cbc3) |"
+      ]
+    }
+  ]
+}

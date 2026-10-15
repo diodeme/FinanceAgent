@@ -1,0 +1,585 @@
+{
+  "case_id": "calendar-alignment",
+  "required": 24,
+  "answered": 24,
+  "correct": 8,
+  "accuracy": 0.3333333333333333,
+  "coverage": 1,
+  "correct_coverage": 0.3333333333333333,
+  "provenance_assessed": 0,
+  "provenance_supported": 0,
+  "verified_correct_coverage": 0,
+  "missing_extraction_evidence": 0,
+  "date_checks": [
+    {
+      "key": "AAPL:2024:2",
+      "expected": "2024-03-30",
+      "observed": [
+        "2024-03-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2024:3",
+      "expected": "2024-06-29",
+      "observed": [
+        "2024-06-29"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2024:4",
+      "expected": "2024-09-28",
+      "observed": [
+        "2024-09-28"
+      ],
+      "correct": true
+    },
+    {
+      "key": "AAPL:2025:1",
+      "expected": "2024-12-28",
+      "observed": [
+        "2024-12-28"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:3",
+      "expected": "2024-03-31",
+      "observed": [
+        "2024-03-31"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:4",
+      "expected": "2024-06-30",
+      "observed": [
+        "2024-06-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2025:1",
+      "expected": "2024-09-30",
+      "observed": [
+        "2024-09-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2025:2",
+      "expected": "2024-12-31",
+      "observed": [
+        "2024-12-31"
+      ],
+      "correct": true
+    }
+  ],
+  "details": [
+    {
+      "key": "AAPL:2024:2:revenue",
+      "expected": 90753,
+      "observed": [
+        90753,
+        90753
+      ],
+      "answered": true,
+      "correct": false,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": true,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:11: | 2024-03-30 | FY2024 Q2 | 90,753 | 23,636 | 26.04% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/7/cells/0; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_ebfdfa5f5eb4313785d2a080; value=\"90753000000\", unit=\"USD\"; company=AAPL; period_end=2024-03-30"
+      ]
+    },
+    {
+      "key": "AAPL:2024:2:net_income",
+      "expected": 23636,
+      "observed": [
+        23636,
+        23636
+      ],
+      "answered": true,
+      "correct": false,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": true,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:11: | 2024-03-30 | FY2024 Q2 | 90,753 | 23,636 | 26.04% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/7/cells/1; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_62ab0a150b214ffe04578d1b; value=\"23636000000\", unit=\"USD\"; company=AAPL; period_end=2024-03-30"
+      ]
+    },
+    {
+      "key": "AAPL:2024:2:net_margin",
+      "expected": 26.044318094167686,
+      "observed": [
+        26.04,
+        26.044318094167686
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:11: | 2024-03-30 | FY2024 Q2 | 90,753 | 23,636 | 26.04% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/7/cells/2; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_d3eb6d2c8b1b13e84621048b; value=\"0.2604431809416768591671900653421925\", unit=\"pure\"; company=AAPL; period_end=2024-03-30"
+      ]
+    },
+    {
+      "key": "AAPL:2024:3:revenue",
+      "expected": 85777,
+      "observed": [
+        85777,
+        85777
+      ],
+      "answered": true,
+      "correct": false,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": true,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:12: | 2024-06-29 | FY2024 Q3 | 85,777 | 21,448 | 25.00% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/6/cells/0; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_5842c7a633b6f61e18ae1504; value=\"85777000000\", unit=\"USD\"; company=AAPL; period_end=2024-06-29"
+      ]
+    },
+    {
+      "key": "AAPL:2024:3:net_income",
+      "expected": 21448,
+      "observed": [
+        21448,
+        21448
+      ],
+      "answered": true,
+      "correct": false,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": true,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:12: | 2024-06-29 | FY2024 Q3 | 85,777 | 21,448 | 25.00% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/6/cells/1; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_e7e881dd7efd797d7c8446f5; value=\"21448000000\", unit=\"USD\"; company=AAPL; period_end=2024-06-29"
+      ]
+    },
+    {
+      "key": "AAPL:2024:3:net_margin",
+      "expected": 25.004371801298714,
+      "observed": [
+        25,
+        25.004371801298714
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:12: | 2024-06-29 | FY2024 Q3 | 85,777 | 21,448 | 25.00% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/6/cells/2; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_3ff4c00d765c1ea691d4402c; value=\"0.2500437180129871643913869685346888\", unit=\"pure\"; company=AAPL; period_end=2024-06-29"
+      ]
+    },
+    {
+      "key": "AAPL:2024:4:revenue",
+      "expected": 94930,
+      "observed": [
+        94930,
+        94930
+      ],
+      "answered": true,
+      "correct": false,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": true,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:13: | 2024-09-28 | FY2024 Q4（全年末） | 94,930 | 14,736 | 15.52% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/5/cells/0; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_b284c4e3b5daa7f4e76e28a9; value=\"94930000000\", unit=\"USD\"; company=AAPL; period_end=2024-09-28"
+      ]
+    },
+    {
+      "key": "AAPL:2024:4:net_income",
+      "expected": 14736,
+      "observed": [
+        14736,
+        14736
+      ],
+      "answered": true,
+      "correct": false,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": true,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:13: | 2024-09-28 | FY2024 Q4（全年末） | 94,930 | 14,736 | 15.52% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/5/cells/1; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_6e6e80628556f0a0aa064f23; value=\"14736000000\", unit=\"USD\"; company=AAPL; period_end=2024-09-28"
+      ]
+    },
+    {
+      "key": "AAPL:2024:4:net_margin",
+      "expected": 15.523016959865163,
+      "observed": [
+        15.52,
+        15.523016959865163
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:13: | 2024-09-28 | FY2024 Q4（全年末） | 94,930 | 14,736 | 15.52% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/5/cells/2; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_022560479c142d851bb08996; value=\"0.1552301695986516380490888022753608\", unit=\"pure\"; company=AAPL; period_end=2024-09-28"
+      ]
+    },
+    {
+      "key": "AAPL:2025:1:revenue",
+      "expected": 124300,
+      "observed": [
+        124300,
+        124300
+      ],
+      "answered": true,
+      "correct": false,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": true,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:14: | 2024-12-28 | FY2025 Q1 | 124,300 | 36,330 | 29.23% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/4/cells/0; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_5e07a2bf54e0871793d27dd2; value=\"124300000000\", unit=\"USD\"; company=AAPL; period_end=2024-12-28"
+      ]
+    },
+    {
+      "key": "AAPL:2025:1:net_income",
+      "expected": 36330,
+      "observed": [
+        36330,
+        36330
+      ],
+      "answered": true,
+      "correct": false,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": true,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:14: | 2024-12-28 | FY2025 Q1 | 124,300 | 36,330 | 29.23% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/4/cells/1; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_a231f8b000839de8fe9bc3d7; value=\"36330000000\", unit=\"USD\"; company=AAPL; period_end=2024-12-28"
+      ]
+    },
+    {
+      "key": "AAPL:2025:1:net_margin",
+      "expected": 29.227674979887368,
+      "observed": [
+        29.23,
+        29.227674979887368
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:14: | 2024-12-28 | FY2025 Q1 | 124,300 | 36,330 | 29.23% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/4/cells/2; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_03d49ca5c840cc243e1e9dbb; value=\"0.2922767497988736926790024135156879\", unit=\"pure\"; company=AAPL; period_end=2024-12-28"
+      ]
+    },
+    {
+      "key": "MSFT:2024:3:revenue",
+      "expected": 61858,
+      "observed": [
+        61858,
+        61858
+      ],
+      "answered": true,
+      "correct": false,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": true,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:26: | 2024-03-31 | FY2024 Q3 | 61,858 | 21,939 | 35.47% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/3/cells/0; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_b8b757fad0cef3c9117c93fc; value=\"61858000000\", unit=\"USD\"; company=MSFT; period_end=2024-03-31"
+      ]
+    },
+    {
+      "key": "MSFT:2024:3:net_income",
+      "expected": 21939,
+      "observed": [
+        21939,
+        21939
+      ],
+      "answered": true,
+      "correct": false,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": true,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:26: | 2024-03-31 | FY2024 Q3 | 61,858 | 21,939 | 35.47% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/3/cells/1; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_db9667283ab6466bbb2bac51; value=\"21939000000\", unit=\"USD\"; company=MSFT; period_end=2024-03-31"
+      ]
+    },
+    {
+      "key": "MSFT:2024:3:net_margin",
+      "expected": 35.466714087102716,
+      "observed": [
+        35.47,
+        35.466714087102716
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:26: | 2024-03-31 | FY2024 Q3 | 61,858 | 21,939 | 35.47% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/3/cells/2; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_e9713a0f2433470ca77650b1; value=\"0.3546671408710271913091273562029164\", unit=\"pure\"; company=MSFT; period_end=2024-03-31"
+      ]
+    },
+    {
+      "key": "MSFT:2024:4:revenue",
+      "expected": 64727,
+      "observed": [
+        64727,
+        64727
+      ],
+      "answered": true,
+      "correct": false,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": true,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:27: | 2024-06-30 | FY2024 Q4（全年末） | 64,727 | 22,036 | 34.04% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/2/cells/0; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_8b6a774ff6f1d941e6cfa58d; value=\"64727000000\", unit=\"USD\"; company=MSFT; period_end=2024-06-30"
+      ]
+    },
+    {
+      "key": "MSFT:2024:4:net_income",
+      "expected": 22036,
+      "observed": [
+        22036,
+        22036
+      ],
+      "answered": true,
+      "correct": false,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": true,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:27: | 2024-06-30 | FY2024 Q4（全年末） | 64,727 | 22,036 | 34.04% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/2/cells/1; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_6321dfedd51e0ee210d9a507; value=\"22036000000\", unit=\"USD\"; company=MSFT; period_end=2024-06-30"
+      ]
+    },
+    {
+      "key": "MSFT:2024:4:net_margin",
+      "expected": 34.04452546850619,
+      "observed": [
+        34.04,
+        34.04452546850619
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:27: | 2024-06-30 | FY2024 Q4（全年末） | 64,727 | 22,036 | 34.04% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/2/cells/2; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_0e429c049e647c2212da626a; value=\"0.3404452546850618752607103681616636\", unit=\"pure\"; company=MSFT; period_end=2024-06-30"
+      ]
+    },
+    {
+      "key": "MSFT:2025:1:revenue",
+      "expected": 65585,
+      "observed": [
+        65585,
+        65585
+      ],
+      "answered": true,
+      "correct": false,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": true,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:28: | 2024-09-30 | FY2025 Q1 | 65,585 | 24,667 | 37.61% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/1/cells/0; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_fa9d4c04fce1fae6277feedb; value=\"65585000000\", unit=\"USD\"; company=MSFT; period_end=2024-09-30"
+      ]
+    },
+    {
+      "key": "MSFT:2025:1:net_income",
+      "expected": 24667,
+      "observed": [
+        24667,
+        24667
+      ],
+      "answered": true,
+      "correct": false,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": true,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:28: | 2024-09-30 | FY2025 Q1 | 65,585 | 24,667 | 37.61% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/1/cells/1; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_ca0571a5953486f6a697c129; value=\"24667000000\", unit=\"USD\"; company=MSFT; period_end=2024-09-30"
+      ]
+    },
+    {
+      "key": "MSFT:2025:1:net_margin",
+      "expected": 37.61073416177479,
+      "observed": [
+        37.61,
+        37.61073416177479
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:28: | 2024-09-30 | FY2025 Q1 | 65,585 | 24,667 | 37.61% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/1/cells/2; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_97e6d364102ff10ca6c5ad64; value=\"0.3761073416177479606617366775939620\", unit=\"pure\"; company=MSFT; period_end=2024-09-30"
+      ]
+    },
+    {
+      "key": "MSFT:2025:2:revenue",
+      "expected": 69632,
+      "observed": [
+        69632,
+        69632
+      ],
+      "answered": true,
+      "correct": false,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": true,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:29: | 2024-12-31 | FY2025 Q2 | 69,632 | 24,108 | 34.62% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/0/cells/0; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_852cfd0aaf27e0f7d98f857d; value=\"69632000000\", unit=\"USD\"; company=MSFT; period_end=2024-12-31"
+      ]
+    },
+    {
+      "key": "MSFT:2025:2:net_income",
+      "expected": 24108,
+      "observed": [
+        24108,
+        24108
+      ],
+      "answered": true,
+      "correct": false,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": true,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:29: | 2024-12-31 | FY2025 Q2 | 69,632 | 24,108 | 34.62% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/0/cells/1; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_19777dfbc3b5fde713042aca; value=\"24108000000\", unit=\"USD\"; company=MSFT; period_end=2024-12-31"
+      ]
+    },
+    {
+      "key": "MSFT:2025:2:net_margin",
+      "expected": 34.62201286764706,
+      "observed": [
+        34.62,
+        34.62201286764706
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:29: | 2024-12-31 | FY2025 Q2 | 69,632 | 24,108 | 34.62% |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/0/cells/2; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_96ac7dbe811649870fbbf117; value=\"0.3462201286764705882352941176470588\", unit=\"pure\"; company=MSFT; period_end=2024-12-31"
+      ]
+    }
+  ]
+}

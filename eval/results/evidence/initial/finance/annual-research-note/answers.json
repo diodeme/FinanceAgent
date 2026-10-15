@@ -1,0 +1,197 @@
+{
+  "extraction": "Final user-visible table manually reviewed; exact excerpts retained, no golden values used for extraction. Supporting saved reports have the same required table figures where present.",
+  "cells": [
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "revenue",
+      "value": 391035,
+      "evidence": "final-response.md:9: | 营收 | 391,035 | 416,161 | 245,122 | 281,724 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "revenue",
+      "value": 416161,
+      "evidence": "final-response.md:9: | 营收 | 391,035 | 416,161 | 245,122 | 281,724 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "revenue",
+      "value": 245122,
+      "evidence": "final-response.md:9: | 营收 | 391,035 | 416,161 | 245,122 | 281,724 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "revenue",
+      "value": 281724,
+      "evidence": "final-response.md:9: | 营收 | 391,035 | 416,161 | 245,122 | 281,724 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "net_income",
+      "value": 93736,
+      "evidence": "final-response.md:10: | 净利润 | 93,736 | 112,010 | 88,136 | 101,832 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "net_income",
+      "value": 112010,
+      "evidence": "final-response.md:10: | 净利润 | 93,736 | 112,010 | 88,136 | 101,832 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "net_income",
+      "value": 88136,
+      "evidence": "final-response.md:10: | 净利润 | 93,736 | 112,010 | 88,136 | 101,832 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "net_income",
+      "value": 101832,
+      "evidence": "final-response.md:10: | 净利润 | 93,736 | 112,010 | 88,136 | 101,832 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "operating_cash_flow",
+      "value": 118254,
+      "evidence": "final-response.md:11: | 经营现金流 | 118,254 | 111,482 | 118,548 | 136,162 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "operating_cash_flow",
+      "value": 111482,
+      "evidence": "final-response.md:11: | 经营现金流 | 118,254 | 111,482 | 118,548 | 136,162 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "operating_cash_flow",
+      "value": 118548,
+      "evidence": "final-response.md:11: | 经营现金流 | 118,254 | 111,482 | 118,548 | 136,162 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "operating_cash_flow",
+      "value": 136162,
+      "evidence": "final-response.md:11: | 经营现金流 | 118,254 | 111,482 | 118,548 | 136,162 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "capital_expenditures",
+      "value": 9447,
+      "evidence": "final-response.md:12: | 现金资本开支 | 9,447 | 12,715 | 44,477 | 64,551 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "capital_expenditures",
+      "value": 12715,
+      "evidence": "final-response.md:12: | 现金资本开支 | 9,447 | 12,715 | 44,477 | 64,551 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "capital_expenditures",
+      "value": 44477,
+      "evidence": "final-response.md:12: | 现金资本开支 | 9,447 | 12,715 | 44,477 | 64,551 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "capital_expenditures",
+      "value": 64551,
+      "evidence": "final-response.md:12: | 现金资本开支 | 9,447 | 12,715 | 44,477 | 64,551 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow",
+      "value": 108807,
+      "evidence": "final-response.md:13: | 自由现金流 | 108,807 | 98,767 | 74,071 | 71,611 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow",
+      "value": 98767,
+      "evidence": "final-response.md:13: | 自由现金流 | 108,807 | 98,767 | 74,071 | 71,611 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow",
+      "value": 74071,
+      "evidence": "final-response.md:13: | 自由现金流 | 108,807 | 98,767 | 74,071 | 71,611 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow",
+      "value": 71611,
+      "evidence": "final-response.md:13: | 自由现金流 | 108,807 | 98,767 | 74,071 | 71,611 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 1.16,
+      "evidence": "final-response.md:14: | 自由现金流/净利润 | 1.16x | 0.88x | 0.84x | 0.70x |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 0.88,
+      "evidence": "final-response.md:14: | 自由现金流/净利润 | 1.16x | 0.88x | 0.84x | 0.70x |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 0.84,
+      "evidence": "final-response.md:14: | 自由现金流/净利润 | 1.16x | 0.88x | 0.84x | 0.70x |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 0.7,
+      "evidence": "final-response.md:14: | 自由现金流/净利润 | 1.16x | 0.88x | 0.84x | 0.70x |",
+      "provenance_supported": null
+    }
+  ]
+}

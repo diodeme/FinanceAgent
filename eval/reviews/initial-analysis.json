@@ -1,0 +1,237 @@
+{
+  "review_method": "助手依据固定 rubric 和官方独立核验 reference 作主观评分；不是独立人类评审，也不是严格盲评。候选格式可能泄露身份，但本评审不推测身份。",
+  "scope": "仅阅读 data/eval-review/initial 下的 reference.json、rubric.json、cases.json，以及三题各 candidate-a.md、candidate-b.md；同一候选的附加已交付报告一并评分。未联网、未调用模型 API、未读取产品代码、原始 engine 目录或其他评测结果。",
+  "scoring_notes": "五维各 0–4，总分 20；不替代数值单元格评分，但核查分析中的数字、趋势、期间、极值和因果强度。行号指对应 candidate 文件。reference 未覆盖的说法标为 unverified_claim，不自动判错。外链和内部引用均未实际打开，引用结构不等于已独立验证来源支持；不会仅因引用格式不同给候选不同待遇。",
+  "candidates": [
+    {
+      "case_id": "quarterly-profit",
+      "candidate": "a",
+      "scores": {
+        "task_coverage": 4,
+        "evidence": 4,
+        "financial_reasoning": 4,
+        "insight_and_calibration": 3,
+        "clarity": 4
+      },
+      "total": 19,
+      "notes": {
+        "task_coverage": "L6–33 完整覆盖两家公司各八季、日期、三指标；L37–49 提供三项量化结论和财年错位讨论，完成核心要求。",
+        "evidence": "L39–46 的年度倍数、增长率和近似自然期重组可由 reference 的 annual/quarters 复算；L53–56 给出 SEC 接口、申报编号和交叉验证文件标识。L1 所称审计及交叉验证过程未独立重演，不作为额外已验证事实。",
+        "financial_reasoning": "正确保留 GAAP 税项，并识别 FY2024 低基数；L46 苹果近似对齐窗口的收入 408,625、净利润 99,280 和 24.30% 可由 FY2024Q4 加 FY2025Q1–Q3 复算。月份对齐应理解为近似自然季度，苹果周历实际起止日仍有数天差异。",
+        "insight_and_calibration": "扣 1 分：L41 用“季节性强度差异明显”概括净利率区间 15.52%–29.23%，但该区间混合了季节性和 L40 已识别的一次性税项。reference.analysis_facts.AAPL 的调整后 FY2024Q4 净利润 24,982 对应约 26.32% 净利率，不能把 GAAP 极差都作为季节性强度证据。税项已在前文提示，故仅作轻度扣分。",
+        "clarity": "表格、口径、三条结论及来源分层清楚，没有未纠正的重大内部矛盾。L40 用约 102 亿税项作粗略调整的轻微数值偏差不作为重大分析错误。"
+      },
+      "critical_errors": []
+    },
+    {
+      "case_id": "quarterly-profit",
+      "candidate": "b",
+      "scores": {
+        "task_coverage": 4,
+        "evidence": 2,
+        "financial_reasoning": 2,
+        "insight_and_calibration": 2,
+        "clarity": 2
+      },
+      "total": 12,
+      "notes": {
+        "task_coverage": "L7–29 和附加报告均覆盖完整季度表、日期及三条结论；L43–45 正确提出自然季度对齐。",
+        "evidence": "扣 2 分：核心趋势结论 L39“各季环比均为正增长”被 reference 的 MSFT FY2024Q2 62,020、Q3 61,858 直接反驳。L37 称一次性税项原因“由结构化数据支持”，数字本身只能显示异常，不能证明税务原因；该税务原因本身由 reference 确认，不判为虚假。内部逐格引用有结构，但其解析与原文支持未在本次范围内验证。",
+        "financial_reasoning": "扣 2 分：L104 再次把 MSFT 收入写成“沿财年逐季抬升”，重复同一趋势错误；L57 的收入倍数“1.4–1.9”与 L35 的“1.3–2.1”口径未统一。按同财年季号 FY2024Q1 为 119,575/56,517≈2.12；若按日历季，2025 年 6 月约为 94,036/76,441≈1.23。不能混用两种配对后报告统一范围。",
+        "insight_and_calibration": "扣 2 分：利润率高低和税项基数判断有价值，但把不存在的连续增长作为主要经营结论。L104“且 FY24Q4 为全年低点”紧接收入与利润讨论，未限定仅净利润；reference 的 AAPL 收入低点实际是 Q3 85,777，而 Q4 为 94,930。若仅指净利润则正确，应明确指标。",
+        "clarity": "扣 2 分：主回答和附加报告使用不同倍数范围，并保留 L104 未限定指标的低点表述。L35 的“680.66 亿? 更正”已明确撤回，不再作为未纠正的数值错误扣分；扣分针对最终仍存在的趋势和口径矛盾，而非单纯重复报告。"
+      },
+      "critical_errors": [
+        {
+          "classification": "confirmed_error",
+          "category": "universal_trend",
+          "lines": "39, 104",
+          "quote": "各季环比均为正增长；MSFT 的收入则沿财年逐季抬升",
+          "counterevidence": "reference.quarters：MSFT FY2024Q2 营收 62,020，FY2024Q3 61,858，环比减少 162，约 -0.26%。附加报告未纠正此错误。"
+        },
+        {
+          "classification": "confirmed_error",
+          "category": "inconsistent_comparison_basis",
+          "lines": "35, 57",
+          "quote": "AAPL 单季营收约为 MSFT 的 1.3–2.1 倍；AAPL 单季收入约为 MSFT 的 1.4–1.9 倍",
+          "counterevidence": "同财年季号配对的 FY2024Q1 倍数约 2.12，不在附加报告范围内；按日历季配对的 2025 年 6 月倍数约 1.23，又低于两个范围。回答未给出范围配对规则，且两份交付互不一致。"
+        }
+      ]
+    },
+    {
+      "case_id": "quarterly-cash-flow",
+      "candidate": "a",
+      "scores": {
+        "task_coverage": 4,
+        "evidence": 3,
+        "financial_reasoning": 3,
+        "insight_and_calibration": 3,
+        "clarity": 4
+      },
+      "total": 17,
+      "notes": {
+        "task_coverage": "完整交付 16 季三指标及日期；L5–7 说明现金 PPE、FCF 及季度还原，L68–71 列各期申报来源，L55–64 给出两个主要差异并区分事实与推测。未展示全部累计数操作数，但给出了差分路径和对应文件。",
+        "evidence": "扣 1 分：L55“FY2025 出现交叉”“微软反超苹果”与其自身及 reference 的 FY2024 OCF 118,548>118,254 不符，实际是领先扩大。L55 的 FY2023 高基数、L62–63 的折旧及营运资金明细不在 reference 中，属于未验证，不直接判错。",
+        "financial_reasoning": "扣 1 分：L64“微软折旧摊销随数据中心投产继续上升……均可能压制后续 FCF”把非现金折旧与现金资本开支并列作 FCF 压力，未解释现金传导机制；在题设 OCF−现金 PPE 定义下，折旧本身不是新增现金流出。季度数和年度差额逻辑正确。",
+        "insight_and_calibration": "扣 1 分：L56“自由现金流下滑的成因完全相反——苹果输在经营端，微软输在投资端”过于二分。reference 显示苹果 FCF 减少 10,040，其中 OCF 减少 6,772、现金 capex 增加 3,268，约三分之一降幅同样来自投资端。其后承认苹果 capex 上升且使用“主要”，部分缓解了这一夸张。",
+        "clarity": "四张季度表和年度汇总易读，来源按公司与期间组织；事实、管理层表述和推测分栏明确。上述错误分别计入证据和推理，不因同一措辞再扣表达分。"
+      },
+      "critical_errors": [
+        {
+          "classification": "confirmed_error",
+          "category": "false_crossover",
+          "lines": "55",
+          "quote": "FY2025 出现交叉……微软反超苹果 24,680",
+          "counterevidence": "reference.annual：FY2024 微软 OCF 118,548 已高于苹果 118,254，领先 294；FY2025 领先扩大至 24,680，并非首次反超。"
+        },
+        {
+          "classification": "unverified_claim",
+          "category": "unsupported_cash_flow_mechanism",
+          "lines": "64",
+          "quote": "微软折旧摊销随数据中心投产继续上升、苹果资本开支绝对额仍在增加，均可能压制后续 FCF",
+          "counterevidence": "cases 的现金 FCF 定义扣除现金 PPE，而非折旧费用；折旧是非现金费用，不能据其上升直接推断 FCF 受压。已标明为推测，但仍缺少税款、现金付款或其他传导证据。"
+        }
+      ]
+    },
+    {
+      "case_id": "quarterly-cash-flow",
+      "candidate": "b",
+      "scores": {
+        "task_coverage": 3,
+        "evidence": 2,
+        "financial_reasoning": 2,
+        "insight_and_calibration": 2,
+        "clarity": 2
+      },
+      "total": 11,
+      "notes": {
+        "task_coverage": "扣 1 分：季度表和日期齐全，现金 PPE/融资租赁边界也有说明；但 L5 仅称“单季（非累计）”、L49/128 只给 FCF 减法，未说明 Q2/Q3/Q4 如何由累计现金流还原，也未提供累计差分操作数。cases 明确要求计算依据及可追溯推导操作数，不能用表格重复替代。",
+        "evidence": "扣 2 分：L55 和 L118 两次将 MSFT FY2025Q2 OCF 22,291 称为八季最低；reference 的 FY2024Q2 为 18,853。内部引用和完整数表不能支持错误极值结论。",
+        "financial_reasoning": "扣 2 分：L53“资本开支轨迹截然相反”不符合两家公司全年 capex 均增长的事实；L112“量级相差一个数量级”也夸大差距，年度倍数约 4.71 和 5.08，而非约十倍。L79 说差异“不在经营现金流强弱”，忽略 OCF 同比方向相反这一核心事实。",
+        "insight_and_calibration": "扣 2 分：L116 将微软概括为“全年 FCF 停滞”、苹果为“高位平稳”，但 reference 显示苹果全年 FCF -9.23%，降幅明显大于微软 -3.32%；较高绝对值和较低季度波动不能替代年度趋势比较。对 AI 归因有保留、现金租赁边界也有价值，故不判为完全无校准。",
+        "clarity": "扣 2 分：L55“约五分之一到六分之一”与附加报告 L112“相差一个数量级”不一致，错误最低值在两份交付中重复。L79 总结及 L116 标题还弱化了 L106 已列出的苹果年度下降，读者难以获得一致的两大差异判断。"
+      },
+      "critical_errors": [
+        {
+          "classification": "confirmed_error",
+          "category": "false_minimum",
+          "lines": "55, 118",
+          "quote": "该季经营现金流仅 222.91 亿，为八个季度最低；MSFT FY2025Q2……OCF 为八季最低的 22,291",
+          "counterevidence": "reference.quarters：MSFT FY2024Q2 OCF 18,853 < FY2025Q2 22,291，低 3,438。两份交付均未更正。"
+        },
+        {
+          "classification": "confirmed_error",
+          "category": "false_direction_and_scale",
+          "lines": "53, 112",
+          "quote": "资本开支轨迹截然相反；capex 量级相差一个数量级",
+          "counterevidence": "reference.annual：AAPL 现金 capex 9,447→12,715，增长 34.59%；MSFT 44,477→64,551，增长 45.13%。两者方向相同，年度规模倍数分别约 4.71、5.08。"
+        },
+        {
+          "classification": "confirmed_error",
+          "category": "misleading_primary_comparison",
+          "lines": "79, 116",
+          "quote": "差异不在经营现金流（OCF）强弱；MSFT 出现……全年 FCF 停滞，AAPL FCF 高位平稳",
+          "counterevidence": "reference.annual 及 analysis_facts：AAPL OCF -5.73%、FCF -9.23%；MSFT OCF +14.86%、FCF -3.32%。季度相对稳定及苹果 FCF 较高是真实观察，但不能抹去年度 OCF 方向相反及苹果 FCF 降幅更大的事实。"
+        }
+      ]
+    },
+    {
+      "case_id": "annual-research-note",
+      "candidate": "a",
+      "scores": {
+        "task_coverage": 4,
+        "evidence": 2,
+        "financial_reasoning": 2,
+        "insight_and_calibration": 3,
+        "clarity": 3
+      },
+      "total": 14,
+      "notes": {
+        "task_coverage": "L7–12 完成年度六指标表；L16 明确区分转化率水平更高与盈利增量并未形成更多 FCF。涵盖税项、投资、财年及非投资建议，核心内容齐全。",
+        "evidence": "扣 2 分：L18 把“却不减少当年经营现金流；现金实际在 2025 财年流出”作为已获原文支持的完整链条，并进一步排除毛利/费用结构恶化。reference 只核验了一次性应计税费、全年现金税款增加及利润桥，明确禁止自动将应计税费等同某期现金税款；本次无法验证该笔付款时点及排他归因。来源有具体 10-K 和章节，但不能据此声称本评审已验证这些额外命题。",
+        "financial_reasoning": "扣 2 分：L24 将 FY2025 重叠期写成“仅约 2024 年 7—9 月”，与 reference 日期直接冲突；同段财年天数也错误。苹果 FY2025 与微软 FY2025 实际重叠约九个月，而不是该三个月。",
+        "insight_and_calibration": "扣 1 分：L18“更多来自税款与营运资金的时点……而非毛利或费用结构恶化”缺少足以排除其他驱动的完整桥接。reference 支持 OCF -6,772、capex +3,268 的 FCF 分解及现金税增加 17,267，但不支持独占解释。L16 对水平与增长的区分很好，L22 的租赁调整明确列为替代假设口径，未据此替换标准 FCF。",
+        "clarity": "扣 1 分：L24 一方面正确说终点相差约三个月，另一方面却给出不属于苹果 FY2025 大部分期间的重叠窗口；“52 周 363 天”也内在不一致。正文偏长并包含超出核心问题的并购/替代租赁口径，但主要扣分针对明确矛盾，而非附件是否实际保存。"
+      },
+      "critical_errors": [
+        {
+          "classification": "confirmed_error",
+          "category": "fiscal_period_mixup",
+          "lines": "24",
+          "quote": "两个‘2025 财年’的终点相差约三个月，重叠期仅约 2024 年 7—9 月",
+          "counterevidence": "reference.quarters：AAPL FY2025 为 2024-09-29 至 2025-09-27；MSFT FY2025 为 2024-07-01 至 2025-06-30。实际交集为 2024-09-29 至 2025-06-30，约九个月。"
+        },
+        {
+          "classification": "confirmed_error",
+          "category": "fiscal_duration",
+          "lines": "24",
+          "quote": "均为 52 周 363 天……微软截至 6 月 30 日（365 天、364 天）",
+          "counterevidence": "按 reference 的期初期末并包含首尾日，苹果两个财年各 364 天，52×7=364；微软 FY2024 为 366 天，FY2025 为 365 天。"
+        },
+        {
+          "classification": "unverified_claim",
+          "category": "cash_tax_timing_and_exclusive_causality",
+          "lines": "18",
+          "quote": "该费用……却不减少当年经营现金流；现金实际在 2025 财年流出……更多来自税款与营运资金的时点……而非毛利或费用结构恶化",
+          "counterevidence": "reference.analysis_facts.AAPL.fy2024_one_time_tax 明确区分应计税费与现金税款；fy2025_cash_generation 核验现金税净额 26,102→43,369，但指出不能将 OCF 下降全部归因于税项。上述特定税款支付时点和排除其他驱动未在获准材料中独立验证，不判为已证伪。"
+        }
+      ]
+    },
+    {
+      "case_id": "annual-research-note",
+      "candidate": "b",
+      "scores": {
+        "task_coverage": 3,
+        "evidence": 2,
+        "financial_reasoning": 2,
+        "insight_and_calibration": 2,
+        "clarity": 2
+      },
+      "total": 11,
+      "notes": {
+        "task_coverage": "扣 1 分：年度表和各讨论主题齐备，但 L24 以“两个财年都更充分、更稳定”主要回答转化率水平，未清楚回答盈利增长是否带来 FCF 增量；两家实际均为利润增加、FCF 减少。L30 还引入 2025-12-31 的 FY2026 季度作核心趋势证据，越出用户限定的两个完整财年。没有保存报告本身不扣分，用户没有要求报告卡片。",
+        "evidence": "扣 2 分：L24“微软的净利润与经营现金流绝对增量更大”中净利润部分被年度表反驳；L30 的 2025-12-31 比率 0.15x 超出 reference，不能当作本次已核验事实。L32“FY2024 是首个完整包含 Activision Blizzard 并表的年度”也未被获准 reference 验证，不直接判错。",
+        "financial_reasoning": "扣 2 分：L32“跨公司比较只能按各自财年，不能按自然季度对齐”错误地把财年错位当作无法重组季度窗口；L30“转化率下降可由投资支出完整解释”又把 FCF 金额桥接等同于 FCF/净利润比率的全部解释，忽略分母增长及 OCF/净利润变化。",
+        "insight_and_calibration": "扣 2 分：L24“更稳定”没有指定稳定性指标；本题年度转化率苹果约 1.161→0.882，下降 0.279，微软约 0.840→0.703，下降 0.137；苹果 FCF -9.23% 也较微软 -3.32% 更弱。对苹果营运资金归因保持假设是优点，但核心结论混淆较高水平与较稳定变化。",
+        "clarity": "扣 2 分：L1 长段英文内部工具失败说明及 L45 重复过程叙述偏离简报；更重要的是 L24 的净利润增量结论与 L30 明列的增量、年度表互相冲突。L26 将 FCF/净利润的分子称为“经营现金流”，而 L20 定义正确，形成指标名称混乱。"
+      },
+      "critical_errors": [
+        {
+          "classification": "confirmed_error",
+          "category": "numerical_comparison",
+          "lines": "24",
+          "quote": "微软的净利润与经营现金流绝对增量更大",
+          "counterevidence": "reference.annual：苹果净利润增量 112,010−93,736=18,274；微软 101,832−88,136=13,696。微软 OCF 增量确实更大，但净利润增量并非更大。"
+        },
+        {
+          "classification": "confirmed_error",
+          "category": "level_versus_stability",
+          "lines": "24",
+          "quote": "苹果在两个财年都更充分、更稳定",
+          "counterevidence": "苹果 FCF/净利润水平较高属实；但两年比率下降约 0.279，高于微软约 0.137，FCF 降幅 9.23% 也大于微软 3.32%。没有给出其他稳定性口径，不能据较高水平直接推出更稳定。"
+        },
+        {
+          "classification": "confirmed_error",
+          "category": "fiscal_scope_and_alignment",
+          "lines": "30, 32",
+          "quote": "2025-12-31 季降至 0.15x……跨公司比较只能按各自财年，不能按自然季度对齐",
+          "counterevidence": "用户限定 FY2024/FY2025；reference 显示 MSFT FY2025 在 2025-06-30 结束，因此 2025-12-31 属 FY2026，不能用来证明限定窗口内趋势。财年错位并不禁止按 reference 的季度日期重组近似自然季度/滚动年度窗口；苹果周历数天差异仍应注明。0.15x 数值本身仅属未验证，不判错误。"
+        },
+        {
+          "classification": "confirmed_error",
+          "category": "ratio_attribution",
+          "lines": "30",
+          "quote": "微软的转化率下降可由投资支出完整解释",
+          "counterevidence": "reference 的 annual_fcf_bridge 仅证明 FCF 金额变化为 OCF +17,614 减现金 capex +20,074 = -2,460。FCF/净利润的分母同时由 88,136 升至 101,832，且 OCF/净利润略降；不能将金额桥接称为比率变化的完整单因素解释。"
+        },
+        {
+          "classification": "unverified_claim",
+          "category": "cash_tax_causality",
+          "lines": "26",
+          "quote": "税项压低净利润、却基本不影响经营现金流",
+          "counterevidence": "reference 确认应计一次性所得税费用及低基数效应，但明确警告不能由费用金额自动推定现金税支付时点或影响。本句具体现金影响未获本次材料充分验证，不判为已证伪。"
+        }
+      ]
+    }
+  ]
+}

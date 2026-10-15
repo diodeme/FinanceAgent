@@ -1,0 +1,133 @@
+{
+  "case_id": "trend-counterexample",
+  "required": 4,
+  "answered": 4,
+  "correct": 4,
+  "accuracy": 1,
+  "coverage": 1,
+  "correct_coverage": 1,
+  "provenance_assessed": 0,
+  "provenance_supported": 0,
+  "verified_correct_coverage": 0,
+  "missing_extraction_evidence": 0,
+  "date_checks": [
+    {
+      "key": "MSFT:2024:1",
+      "expected": "2023-09-30",
+      "observed": [
+        "2023-09-30"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:2",
+      "expected": "2023-12-31",
+      "observed": [
+        "2023-12-31"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:3",
+      "expected": "2024-03-31",
+      "observed": [
+        "2024-03-31"
+      ],
+      "correct": true
+    },
+    {
+      "key": "MSFT:2024:4",
+      "expected": "2024-06-30",
+      "observed": [
+        "2024-06-30"
+      ],
+      "correct": true
+    }
+  ],
+  "details": [
+    {
+      "key": "MSFT:2024:1:revenue",
+      "expected": 56517,
+      "observed": [
+        56517,
+        56517
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/final-response.md:7: | Q1 | 2023-09-30 | 56,517 | — |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/artifacts.json#/0/data/rows/3/cells/0; artifact=table_bf1a1cc3ab9849d58e611adbdde452df; cell=c_dcffde299b5914c560347e06; value=\"56517000000\", unit=\"USD\"; company=MSFT; period_end=2023-09-30"
+      ]
+    },
+    {
+      "key": "MSFT:2024:2:revenue",
+      "expected": 62020,
+      "observed": [
+        62020,
+        62020
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/final-response.md:8: | Q2 | 2023-12-31 | 62,020 | **+9.74%** ↑ |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/artifacts.json#/0/data/rows/2/cells/0; artifact=table_bf1a1cc3ab9849d58e611adbdde452df; cell=c_db7c397154a9232323d4265f; value=\"62020000000\", unit=\"USD\"; company=MSFT; period_end=2023-12-31"
+      ]
+    },
+    {
+      "key": "MSFT:2024:3:revenue",
+      "expected": 61858,
+      "observed": [
+        61858,
+        61858
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/final-response.md:9: | Q3 | 2024-03-31 | 61,858 | **−0.26%** ↓ |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/artifacts.json#/0/data/rows/1/cells/0; artifact=table_bf1a1cc3ab9849d58e611adbdde452df; cell=c_b8b757fad0cef3c9117c93fc; value=\"61858000000\", unit=\"USD\"; company=MSFT; period_end=2024-03-31"
+      ]
+    },
+    {
+      "key": "MSFT:2024:4:revenue",
+      "expected": 64727,
+      "observed": [
+        64727,
+        64727
+      ],
+      "answered": true,
+      "correct": true,
+      "value_matches": true,
+      "conflict": false,
+      "period_mismatch": false,
+      "unit_conflict": false,
+      "extraction_evidence_present": true,
+      "source_assessed": false,
+      "source_supported": false,
+      "evidence": [
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/final-response.md:10: | Q4 | 2024-06-30 | 64,727 | **+4.64%** ↑ |",
+        "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout2/finance/trend-counterexample/artifacts.json#/0/data/rows/0/cells/0; artifact=table_bf1a1cc3ab9849d58e611adbdde452df; cell=c_8b6a774ff6f1d941e6cfa58d; value=\"64727000000\", unit=\"USD\"; company=MSFT; period_end=2024-06-30"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "extraction": "Table manually reviewed; no golden values used to extract answers.",
+  "cells": [
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "revenue",
+      "value": 391035,
+      "evidence": "response.md:9: | 苹果 FY2024 | 2024-09-28 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "net_income",
+      "value": 93736,
+      "evidence": "response.md:9: | 苹果 FY2024 | 2024-09-28 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "operating_cash_flow",
+      "value": 118254,
+      "evidence": "response.md:9: | 苹果 FY2024 | 2024-09-28 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "capital_expenditures",
+      "value": 9447,
+      "evidence": "response.md:9: | 苹果 FY2024 | 2024-09-28 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow",
+      "value": 108807,
+      "evidence": "response.md:9: | 苹果 FY2024 | 2024-09-28 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 1.16,
+      "evidence": "response.md:9: | 苹果 FY2024 | 2024-09-28 | 391,035 | 93,736 | 118,254 | 9,447 | 108,807 | 1.16 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "revenue",
+      "value": 416161,
+      "evidence": "response.md:10: | 苹果 FY2025 | 2025-09-27 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "net_income",
+      "value": 112010,
+      "evidence": "response.md:10: | 苹果 FY2025 | 2025-09-27 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "operating_cash_flow",
+      "value": 111482,
+      "evidence": "response.md:10: | 苹果 FY2025 | 2025-09-27 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "capital_expenditures",
+      "value": 12715,
+      "evidence": "response.md:10: | 苹果 FY2025 | 2025-09-27 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow",
+      "value": 98767,
+      "evidence": "response.md:10: | 苹果 FY2025 | 2025-09-27 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 0.88,
+      "evidence": "response.md:10: | 苹果 FY2025 | 2025-09-27 | 416,161 | 112,010 | 111,482 | 12,715 | 98,767 | 0.88 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "revenue",
+      "value": 245122,
+      "evidence": "response.md:11: | 微软 FY2024 | 2024-06-30 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "net_income",
+      "value": 88136,
+      "evidence": "response.md:11: | 微软 FY2024 | 2024-06-30 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "operating_cash_flow",
+      "value": 118548,
+      "evidence": "response.md:11: | 微软 FY2024 | 2024-06-30 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "capital_expenditures",
+      "value": 44477,
+      "evidence": "response.md:11: | 微软 FY2024 | 2024-06-30 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow",
+      "value": 74071,
+      "evidence": "response.md:11: | 微软 FY2024 | 2024-06-30 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 0.84,
+      "evidence": "response.md:11: | 微软 FY2024 | 2024-06-30 | 245,122 | 88,136 | 118,548 | 44,477 | 74,071 | 0.84 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "revenue",
+      "value": 281724,
+      "evidence": "response.md:12: | 微软 FY2025 | 2025-06-30 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "net_income",
+      "value": 101832,
+      "evidence": "response.md:12: | 微软 FY2025 | 2025-06-30 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "operating_cash_flow",
+      "value": 136162,
+      "evidence": "response.md:12: | 微软 FY2025 | 2025-06-30 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "capital_expenditures",
+      "value": 64551,
+      "evidence": "response.md:12: | 微软 FY2025 | 2025-06-30 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow",
+      "value": 71611,
+      "evidence": "response.md:12: | 微软 FY2025 | 2025-06-30 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+      "provenance_supported": null
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "metric": "free_cash_flow_to_net_income",
+      "value": 0.7,
+      "evidence": "response.md:12: | 微软 FY2025 | 2025-06-30 | 281,724 | 101,832 | 136,162 | 64,551 | 71,611 | 0.70 |",
+      "provenance_supported": null
+    }
+  ]
+}

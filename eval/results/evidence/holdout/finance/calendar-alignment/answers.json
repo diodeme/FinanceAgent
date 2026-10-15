@@ -1,0 +1,951 @@
+{
+  "case_id": "calendar-alignment",
+  "extracted_at": "2026-10-14T17:40:11.172Z",
+  "gold_read_before_extraction": false,
+  "required_numeric_cells": 24,
+  "extracted_required_keys": 24,
+  "unextracted_required_cells": [],
+  "included_saved_artifacts": [
+    {
+      "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+      "kind": "table",
+      "delivery": "Explicitly linked in final chat."
+    }
+  ],
+  "notes": [
+    "Assistant-reviewed extraction, not independent human annotation. Golden values not read before extraction. No missing cells filled. No provenance-support audit.",
+    "Only explicit delivered tables; exclude approximate prose ranges, raw datasets, history rows, inputs, unpublished analysis, and manufactured annual sums.",
+    "Line 5 says both USD millions and raw USD needing division by 1e6. All 16 printed chat money values have unit_conflict:true. Explicit margins with % unaffected.",
+    "Separately delivered saved-table USD values are normalized but do not erase conflicting unit instructions in final chat."
+  ],
+  "cells": [
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "revenue",
+      "value": 90753,
+      "unit": "USD_millions",
+      "printed_value": "90,753",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:11: | 2024-03-30 | FY2024 Q2 | 90,753 | 23,636 | 26.04% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 11,
+        "excerpt": "| 2024-03-30 | FY2024 Q2 | 90,753 | 23,636 | 26.04% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**",
+      "unit_conflict": true
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "net_income",
+      "value": 23636,
+      "unit": "USD_millions",
+      "printed_value": "23,636",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:11: | 2024-03-30 | FY2024 Q2 | 90,753 | 23,636 | 26.04% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 11,
+        "excerpt": "| 2024-03-30 | FY2024 Q2 | 90,753 | 23,636 | 26.04% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**",
+      "unit_conflict": true
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "net_margin",
+      "value": 26.04,
+      "unit": "percentage_points",
+      "printed_value": "26.04%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:11: | 2024-03-30 | FY2024 Q2 | 90,753 | 23,636 | 26.04% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 11,
+        "excerpt": "| 2024-03-30 | FY2024 Q2 | 90,753 | 23,636 | 26.04% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "revenue",
+      "value": 85777,
+      "unit": "USD_millions",
+      "printed_value": "85,777",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:12: | 2024-06-29 | FY2024 Q3 | 85,777 | 21,448 | 25.00% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 12,
+        "excerpt": "| 2024-06-29 | FY2024 Q3 | 85,777 | 21,448 | 25.00% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**",
+      "unit_conflict": true
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "net_income",
+      "value": 21448,
+      "unit": "USD_millions",
+      "printed_value": "21,448",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:12: | 2024-06-29 | FY2024 Q3 | 85,777 | 21,448 | 25.00% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 12,
+        "excerpt": "| 2024-06-29 | FY2024 Q3 | 85,777 | 21,448 | 25.00% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**",
+      "unit_conflict": true
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "net_margin",
+      "value": 25,
+      "unit": "percentage_points",
+      "printed_value": "25.00%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:12: | 2024-06-29 | FY2024 Q3 | 85,777 | 21,448 | 25.00% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 12,
+        "excerpt": "| 2024-06-29 | FY2024 Q3 | 85,777 | 21,448 | 25.00% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "revenue",
+      "value": 94930,
+      "unit": "USD_millions",
+      "printed_value": "94,930",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:13: | 2024-09-28 | FY2024 Q4（全年末） | 94,930 | 14,736 | 15.52% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 13,
+        "excerpt": "| 2024-09-28 | FY2024 Q4（全年末） | 94,930 | 14,736 | 15.52% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**",
+      "unit_conflict": true
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "net_income",
+      "value": 14736,
+      "unit": "USD_millions",
+      "printed_value": "14,736",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:13: | 2024-09-28 | FY2024 Q4（全年末） | 94,930 | 14,736 | 15.52% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 13,
+        "excerpt": "| 2024-09-28 | FY2024 Q4（全年末） | 94,930 | 14,736 | 15.52% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**",
+      "unit_conflict": true
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "net_margin",
+      "value": 15.52,
+      "unit": "percentage_points",
+      "printed_value": "15.52%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:13: | 2024-09-28 | FY2024 Q4（全年末） | 94,930 | 14,736 | 15.52% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 13,
+        "excerpt": "| 2024-09-28 | FY2024 Q4（全年末） | 94,930 | 14,736 | 15.52% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**"
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "revenue",
+      "value": 124300,
+      "unit": "USD_millions",
+      "printed_value": "124,300",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:14: | 2024-12-28 | FY2025 Q1 | 124,300 | 36,330 | 29.23% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 14,
+        "excerpt": "| 2024-12-28 | FY2025 Q1 | 124,300 | 36,330 | 29.23% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**",
+      "unit_conflict": true
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "net_income",
+      "value": 36330,
+      "unit": "USD_millions",
+      "printed_value": "36,330",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:14: | 2024-12-28 | FY2025 Q1 | 124,300 | 36,330 | 29.23% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 14,
+        "excerpt": "| 2024-12-28 | FY2025 Q1 | 124,300 | 36,330 | 29.23% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**",
+      "unit_conflict": true
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "net_margin",
+      "value": 29.23,
+      "unit": "percentage_points",
+      "printed_value": "29.23%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:14: | 2024-12-28 | FY2025 Q1 | 124,300 | 36,330 | 29.23% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 14,
+        "excerpt": "| 2024-12-28 | FY2025 Q1 | 124,300 | 36,330 | 29.23% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "revenue",
+      "value": 61858,
+      "unit": "USD_millions",
+      "printed_value": "61,858",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:26: | 2024-03-31 | FY2024 Q3 | 61,858 | 21,939 | 35.47% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 26,
+        "excerpt": "| 2024-03-31 | FY2024 Q3 | 61,858 | 21,939 | 35.47% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**",
+      "unit_conflict": true
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "net_income",
+      "value": 21939,
+      "unit": "USD_millions",
+      "printed_value": "21,939",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:26: | 2024-03-31 | FY2024 Q3 | 61,858 | 21,939 | 35.47% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 26,
+        "excerpt": "| 2024-03-31 | FY2024 Q3 | 61,858 | 21,939 | 35.47% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**",
+      "unit_conflict": true
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "net_margin",
+      "value": 35.47,
+      "unit": "percentage_points",
+      "printed_value": "35.47%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:26: | 2024-03-31 | FY2024 Q3 | 61,858 | 21,939 | 35.47% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 26,
+        "excerpt": "| 2024-03-31 | FY2024 Q3 | 61,858 | 21,939 | 35.47% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "revenue",
+      "value": 64727,
+      "unit": "USD_millions",
+      "printed_value": "64,727",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:27: | 2024-06-30 | FY2024 Q4（全年末） | 64,727 | 22,036 | 34.04% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 27,
+        "excerpt": "| 2024-06-30 | FY2024 Q4（全年末） | 64,727 | 22,036 | 34.04% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**",
+      "unit_conflict": true
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "net_income",
+      "value": 22036,
+      "unit": "USD_millions",
+      "printed_value": "22,036",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:27: | 2024-06-30 | FY2024 Q4（全年末） | 64,727 | 22,036 | 34.04% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 27,
+        "excerpt": "| 2024-06-30 | FY2024 Q4（全年末） | 64,727 | 22,036 | 34.04% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**",
+      "unit_conflict": true
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "net_margin",
+      "value": 34.04,
+      "unit": "percentage_points",
+      "printed_value": "34.04%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:27: | 2024-06-30 | FY2024 Q4（全年末） | 64,727 | 22,036 | 34.04% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 27,
+        "excerpt": "| 2024-06-30 | FY2024 Q4（全年末） | 64,727 | 22,036 | 34.04% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "revenue",
+      "value": 65585,
+      "unit": "USD_millions",
+      "printed_value": "65,585",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:28: | 2024-09-30 | FY2025 Q1 | 65,585 | 24,667 | 37.61% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 28,
+        "excerpt": "| 2024-09-30 | FY2025 Q1 | 65,585 | 24,667 | 37.61% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**",
+      "unit_conflict": true
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "net_income",
+      "value": 24667,
+      "unit": "USD_millions",
+      "printed_value": "24,667",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:28: | 2024-09-30 | FY2025 Q1 | 65,585 | 24,667 | 37.61% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 28,
+        "excerpt": "| 2024-09-30 | FY2025 Q1 | 65,585 | 24,667 | 37.61% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**",
+      "unit_conflict": true
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "net_margin",
+      "value": 37.61,
+      "unit": "percentage_points",
+      "printed_value": "37.61%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:28: | 2024-09-30 | FY2025 Q1 | 65,585 | 24,667 | 37.61% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 28,
+        "excerpt": "| 2024-09-30 | FY2025 Q1 | 65,585 | 24,667 | 37.61% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "revenue",
+      "value": 69632,
+      "unit": "USD_millions",
+      "printed_value": "69,632",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:29: | 2024-12-31 | FY2025 Q2 | 69,632 | 24,108 | 34.62% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 29,
+        "excerpt": "| 2024-12-31 | FY2025 Q2 | 69,632 | 24,108 | 34.62% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**",
+      "unit_conflict": true
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "net_income",
+      "value": 24108,
+      "unit": "USD_millions",
+      "printed_value": "24,108",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:29: | 2024-12-31 | FY2025 Q2 | 69,632 | 24,108 | 34.62% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 29,
+        "excerpt": "| 2024-12-31 | FY2025 Q2 | 69,632 | 24,108 | 34.62% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**",
+      "unit_conflict": true
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "net_margin",
+      "value": 34.62,
+      "unit": "percentage_points",
+      "printed_value": "34.62%",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:29: | 2024-12-31 | FY2025 Q2 | 69,632 | 24,108 | 34.62% |",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md",
+        "line": 29,
+        "excerpt": "| 2024-12-31 | FY2025 Q2 | 69,632 | 24,108 | 34.62% |",
+        "kind": "final_chat"
+      },
+      "unit_evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/final-response.md:5: 金额单位：百万美元（表格中的美元数值为原始 USD，需除以 1e6；为便于阅读，下方文字按百万美元表述）。**注意：两家公司财季标签与截止日期不同，不能按\"同名财季\"对齐——下面按各季度实际截止日期落在 2024 年 3/6/9/12 月来匹配。**"
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "revenue",
+      "value": 69632,
+      "unit": "USD_millions",
+      "printed_value": "69632000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/0/cells/0; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_852cfd0aaf27e0f7d98f857d; value=\"69632000000\", unit=\"USD\"; company=MSFT; period_end=2024-12-31",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/0/cells/0",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_852cfd0aaf27e0f7d98f857d",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "net_income",
+      "value": 24108,
+      "unit": "USD_millions",
+      "printed_value": "24108000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/0/cells/1; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_19777dfbc3b5fde713042aca; value=\"24108000000\", unit=\"USD\"; company=MSFT; period_end=2024-12-31",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/0/cells/1",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_19777dfbc3b5fde713042aca",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 2,
+      "period_end": "2024-12-31",
+      "metric": "net_margin",
+      "value": 34.62201286764706,
+      "unit": "percentage_points",
+      "printed_value": "0.3462201286764705882352941176470588",
+      "printed_unit": "pure",
+      "normalization": "pure fraction * 100",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/0/cells/2; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_96ac7dbe811649870fbbf117; value=\"0.3462201286764705882352941176470588\", unit=\"pure\"; company=MSFT; period_end=2024-12-31",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/0/cells/2",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_96ac7dbe811649870fbbf117",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "revenue",
+      "value": 65585,
+      "unit": "USD_millions",
+      "printed_value": "65585000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/1/cells/0; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_fa9d4c04fce1fae6277feedb; value=\"65585000000\", unit=\"USD\"; company=MSFT; period_end=2024-09-30",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/1/cells/0",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_fa9d4c04fce1fae6277feedb",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "net_income",
+      "value": 24667,
+      "unit": "USD_millions",
+      "printed_value": "24667000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/1/cells/1; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_ca0571a5953486f6a697c129; value=\"24667000000\", unit=\"USD\"; company=MSFT; period_end=2024-09-30",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/1/cells/1",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_ca0571a5953486f6a697c129",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-09-30",
+      "metric": "net_margin",
+      "value": 37.61073416177479,
+      "unit": "percentage_points",
+      "printed_value": "0.3761073416177479606617366775939620",
+      "printed_unit": "pure",
+      "normalization": "pure fraction * 100",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/1/cells/2; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_97e6d364102ff10ca6c5ad64; value=\"0.3761073416177479606617366775939620\", unit=\"pure\"; company=MSFT; period_end=2024-09-30",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/1/cells/2",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_97e6d364102ff10ca6c5ad64",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "revenue",
+      "value": 64727,
+      "unit": "USD_millions",
+      "printed_value": "64727000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/2/cells/0; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_8b6a774ff6f1d941e6cfa58d; value=\"64727000000\", unit=\"USD\"; company=MSFT; period_end=2024-06-30",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/2/cells/0",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_8b6a774ff6f1d941e6cfa58d",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "net_income",
+      "value": 22036,
+      "unit": "USD_millions",
+      "printed_value": "22036000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/2/cells/1; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_6321dfedd51e0ee210d9a507; value=\"22036000000\", unit=\"USD\"; company=MSFT; period_end=2024-06-30",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/2/cells/1",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_6321dfedd51e0ee210d9a507",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-06-30",
+      "metric": "net_margin",
+      "value": 34.04452546850619,
+      "unit": "percentage_points",
+      "printed_value": "0.3404452546850618752607103681616636",
+      "printed_unit": "pure",
+      "normalization": "pure fraction * 100",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/2/cells/2; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_0e429c049e647c2212da626a; value=\"0.3404452546850618752607103681616636\", unit=\"pure\"; company=MSFT; period_end=2024-06-30",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/2/cells/2",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_0e429c049e647c2212da626a",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "revenue",
+      "value": 61858,
+      "unit": "USD_millions",
+      "printed_value": "61858000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/3/cells/0; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_b8b757fad0cef3c9117c93fc; value=\"61858000000\", unit=\"USD\"; company=MSFT; period_end=2024-03-31",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/3/cells/0",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_b8b757fad0cef3c9117c93fc",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "net_income",
+      "value": 21939,
+      "unit": "USD_millions",
+      "printed_value": "21939000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/3/cells/1; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_db9667283ab6466bbb2bac51; value=\"21939000000\", unit=\"USD\"; company=MSFT; period_end=2024-03-31",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/3/cells/1",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_db9667283ab6466bbb2bac51",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "MSFT",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-03-31",
+      "metric": "net_margin",
+      "value": 35.466714087102716,
+      "unit": "percentage_points",
+      "printed_value": "0.3546671408710271913091273562029164",
+      "printed_unit": "pure",
+      "normalization": "pure fraction * 100",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/3/cells/2; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_e9713a0f2433470ca77650b1; value=\"0.3546671408710271913091273562029164\", unit=\"pure\"; company=MSFT; period_end=2024-03-31",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/3/cells/2",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_e9713a0f2433470ca77650b1",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "revenue",
+      "value": 124300,
+      "unit": "USD_millions",
+      "printed_value": "124300000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/4/cells/0; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_5e07a2bf54e0871793d27dd2; value=\"124300000000\", unit=\"USD\"; company=AAPL; period_end=2024-12-28",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/4/cells/0",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_5e07a2bf54e0871793d27dd2",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "net_income",
+      "value": 36330,
+      "unit": "USD_millions",
+      "printed_value": "36330000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/4/cells/1; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_a231f8b000839de8fe9bc3d7; value=\"36330000000\", unit=\"USD\"; company=AAPL; period_end=2024-12-28",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/4/cells/1",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_a231f8b000839de8fe9bc3d7",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2025,
+      "fiscal_quarter": 1,
+      "period_end": "2024-12-28",
+      "metric": "net_margin",
+      "value": 29.227674979887368,
+      "unit": "percentage_points",
+      "printed_value": "0.2922767497988736926790024135156879",
+      "printed_unit": "pure",
+      "normalization": "pure fraction * 100",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/4/cells/2; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_03d49ca5c840cc243e1e9dbb; value=\"0.2922767497988736926790024135156879\", unit=\"pure\"; company=AAPL; period_end=2024-12-28",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/4/cells/2",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_03d49ca5c840cc243e1e9dbb",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "revenue",
+      "value": 94930,
+      "unit": "USD_millions",
+      "printed_value": "94930000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/5/cells/0; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_b284c4e3b5daa7f4e76e28a9; value=\"94930000000\", unit=\"USD\"; company=AAPL; period_end=2024-09-28",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/5/cells/0",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_b284c4e3b5daa7f4e76e28a9",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "net_income",
+      "value": 14736,
+      "unit": "USD_millions",
+      "printed_value": "14736000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/5/cells/1; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_6e6e80628556f0a0aa064f23; value=\"14736000000\", unit=\"USD\"; company=AAPL; period_end=2024-09-28",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/5/cells/1",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_6e6e80628556f0a0aa064f23",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 4,
+      "period_end": "2024-09-28",
+      "metric": "net_margin",
+      "value": 15.523016959865163,
+      "unit": "percentage_points",
+      "printed_value": "0.1552301695986516380490888022753608",
+      "printed_unit": "pure",
+      "normalization": "pure fraction * 100",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/5/cells/2; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_022560479c142d851bb08996; value=\"0.1552301695986516380490888022753608\", unit=\"pure\"; company=AAPL; period_end=2024-09-28",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/5/cells/2",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_022560479c142d851bb08996",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "revenue",
+      "value": 85777,
+      "unit": "USD_millions",
+      "printed_value": "85777000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/6/cells/0; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_5842c7a633b6f61e18ae1504; value=\"85777000000\", unit=\"USD\"; company=AAPL; period_end=2024-06-29",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/6/cells/0",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_5842c7a633b6f61e18ae1504",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "net_income",
+      "value": 21448,
+      "unit": "USD_millions",
+      "printed_value": "21448000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/6/cells/1; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_e7e881dd7efd797d7c8446f5; value=\"21448000000\", unit=\"USD\"; company=AAPL; period_end=2024-06-29",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/6/cells/1",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_e7e881dd7efd797d7c8446f5",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 3,
+      "period_end": "2024-06-29",
+      "metric": "net_margin",
+      "value": 25.004371801298714,
+      "unit": "percentage_points",
+      "printed_value": "0.2500437180129871643913869685346888",
+      "printed_unit": "pure",
+      "normalization": "pure fraction * 100",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/6/cells/2; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_3ff4c00d765c1ea691d4402c; value=\"0.2500437180129871643913869685346888\", unit=\"pure\"; company=AAPL; period_end=2024-06-29",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/6/cells/2",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_3ff4c00d765c1ea691d4402c",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "revenue",
+      "value": 90753,
+      "unit": "USD_millions",
+      "printed_value": "90753000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/7/cells/0; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_ebfdfa5f5eb4313785d2a080; value=\"90753000000\", unit=\"USD\"; company=AAPL; period_end=2024-03-30",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/7/cells/0",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_ebfdfa5f5eb4313785d2a080",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "net_income",
+      "value": 23636,
+      "unit": "USD_millions",
+      "printed_value": "23636000000",
+      "printed_unit": "USD",
+      "normalization": "USD / 1e6",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/7/cells/1; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_62ab0a150b214ffe04578d1b; value=\"23636000000\", unit=\"USD\"; company=AAPL; period_end=2024-03-30",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/7/cells/1",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_62ab0a150b214ffe04578d1b",
+        "kind": "delivered_table"
+      }
+    },
+    {
+      "company": "AAPL",
+      "fiscal_year": 2024,
+      "fiscal_quarter": 2,
+      "period_end": "2024-03-30",
+      "metric": "net_margin",
+      "value": 26.044318094167686,
+      "unit": "percentage_points",
+      "printed_value": "0.2604431809416768591671900653421925",
+      "printed_unit": "pure",
+      "normalization": "pure fraction * 100",
+      "evidence": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json#/8/data/rows/7/cells/2; artifact=table_ad565095589444b8af0f9ed9268e520f; cell=c_d3eb6d2c8b1b13e84621048b; value=\"0.2604431809416768591671900653421925\", unit=\"pure\"; company=AAPL; period_end=2024-03-30",
+      "source": {
+        "file": "E:/Projects/Code/AI/FinanceAgent/data/eval-runs/2026-10-15-holdout/finance/calendar-alignment/artifacts.json",
+        "json_pointer": "/8/data/rows/7/cells/2",
+        "artifact_id": "table_ad565095589444b8af0f9ed9268e520f",
+        "cell_id": "c_d3eb6d2c8b1b13e84621048b",
+        "kind": "delivered_table"
+      }
+    }
+  ]
+}

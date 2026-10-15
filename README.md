@@ -122,6 +122,12 @@ Run from the repository root:
 | SEC filing download fails | Set a real contact email in `SEC_USER_AGENT`, then recreate the backend. Placeholder addresses are rejected; a compliant User-Agent does not guarantee access or prevent HTTP 403 responses. |
 | Analysis workspace fails or starts slowly | Check Docker socket access and the shared absolute workspace path. The first image build needs network access and can take several minutes. |
 
+## Evaluation
+
+A five-task comparison covers AAPL/MSFT financial statements, fiscal/calendar alignment and financial analysis. FinanceAgent and a native Codex agent receive the same requests and use the same configured `deepseek-flash` model, with a five-minute limit per task. Golden values come from independently checked official statements, not the application's database. Numerical coverage, assistant-rated analysis quality, tokens and elapsed time are reported separately, including failed and regressed attempts.
+
+See the [evaluation report](docs/评估.md) for results and limitations, and [evaluation instructions](eval/README.md) to reproduce the runs. Codex is a general-purpose agent baseline, **not the ChatGPT product**; this small study does not establish general superiority over ChatGPT.
+
 ## Project layout
 
 ```text
@@ -129,6 +135,7 @@ backend/   API, financial tools, analysis agent, migrations, and tests
 webui/     React frontend, nginx configuration, and browser acceptance tests
 db/        PostgreSQL initialization
 scripts/   Optional development setup helper
+eval/      Fixed tasks, independent gold, runners, scores, and answer snapshots
 docs/      Design, data model, migrations, and acceptance records
 ```
 
